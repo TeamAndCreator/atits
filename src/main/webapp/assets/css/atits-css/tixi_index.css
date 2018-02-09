@@ -1,0 +1,37 @@
+.tit {
+	margin: 0 auto;
+	
+}
+
+.breadcrumb>li{
+	font-size: 18px;
+    margin-right: 25px;
+    }
+    
+
+.ace-nav>li.light-blue>a  {
+	height: 59px;
+	padding-top: 5px;
+	opacity:0.8;
+	
+}
+.header_bacg{
+	background: url(header_bacg.jpg);
+}
+.biaoti{
+	font-family: "楷体";
+	font-size:36px;
+}
+.tab-content{
+	border:0px;
+	padding-top:0px;
+}
+.pull-right .time{
+	width:200px;
+	height: 45px;
+	border-right:1px solid #ffffff;
+	text-align:center;
+	display: inline-block;
+	overflow:
+			hidden;float:left
+}

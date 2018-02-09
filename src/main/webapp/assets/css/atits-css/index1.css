@@ -1,0 +1,51 @@
+.more {
+	margin-left: 76%;
+	display: inline-block;
+	float: left;
+	margin-top: -26px;
+}
+
+.more-color {
+	color: white;
+}
+
+.col-xs-5ths {
+	width: 20%;
+	float: left;
+	padding: 3px;
+}
+
+.carousel {
+	height: 315px;
+	margin-bottom: 10px;
+}
+
+.carousel .item {
+	height: 356px;
+}
+
+.my-widget-header {
+	width: 150px;
+	background-color: #5090C1;
+	margin-bottom: -10px;
+	text-align: center;
+}
+
+.fon-til {
+	font-family: 黑体;
+	font-size: 22px;
+	color: white;
+}
+
+.tixishow {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.ths {
+	padding: 3px;
+}
+
+.contain {
+	padding-bottom: 60px;
+}

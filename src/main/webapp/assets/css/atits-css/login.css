@@ -1,0 +1,42 @@
+.backg-img {
+	background-size: 100% 100%;
+	
+}
+
+.title {
+	margin-left: 40%;
+	margin-top: 11%
+}
+
+.login-pos {
+	margin-top: 277px;
+    margin-left: 822px;
+}
+
+.fon {
+	font-family: "楷体";
+	font-size: 45px;
+	color: #D22709;
+	font-weight: 800;
+}
+
+.fon2 {
+	font-family: "楷体";
+	font-size: 20px;
+	color: #26269C;
+}
+
+.border1 {
+	box-shadow: 5px 5px 5px #312F2F;
+	border: 1px soild;
+}
+
+.shade {
+	position: fixed;
+	top: 15%;
+	left: 0;
+	bottom: 10%;
+	right: 0;
+	background: rgba(255, 255, 255, 0.25);
+	z-index: 20;
+}

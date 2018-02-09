@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+.lunbo{
+	margin-top: 32px;
+    margin-left: -35px;
+    margin-right: -35px;
+}
+.col-xs-5ths {
+	width: 20%;
+	float: left;
+	padding: 3px;
+}
+.my-widget-header {
+	width: 150px;
+	background-color: #5090C1;
+	margin-bottom: -10px;
+	text-align: center;
+}
+.ths {
+	padding: 3px;
+}
+.shouye{
+	margin-bottom:-22px;
+}
+
+
+body,td,th {
+	font-size: 15px;
+	color: #666666;
+}
+.pic{ border:0px;
+	margin-right:13px;
+	margin-top: 15px;
+	width:180px;
+	height:111px;
+
+}
+body {
+	margin-left: 0px;
+	margin-top: 35px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+a {
+	widht:1px;
+	margin-right:25px;
+}
+
+#demo{width:auto; overflow:hidden; margin:0px auto}

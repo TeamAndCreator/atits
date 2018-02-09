@@ -1,0 +1,36 @@
+.bak_img{
+	background:no-repeat;
+	width: 100%;
+    height: 100%;
+}
+
+.reg{
+	padding: 8px 106px 8px;
+}
+.marks{
+	color:red;
+}
+.reminder{
+	margin-top: 7px;
+}
+.backlogin{
+	display:inline-block;
+	margin-top:0;
+}
+.xieyi{
+	margin:0px;
+}
+.header{
+	margin: -16px 0 20px;
+	padding-top: 145px;
+}
+.titles{
+	margin-left: 22%;
+}
+.title{
+	       height: 100px;
+}
+
+.main{
+	    margin-bottom: -17px;
+}

@@ -1,0 +1,28 @@
+/* scrollDiv */
+.scrollDiv {
+	height: 25px; /* 必要元素 */
+	line-height: 25px;
+	border: #ccc 1px solid;
+	overflow: hidden; /* 必要元素 */
+}
+
+.scrollDiv li {
+	height: 25px;
+	padding-left: 10px;
+}
+
+#s2{
+	height: 220px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.red{
+	margin:5px;
+}
+.page-content{
+	padding-top:34px;
+}
+
+.notice{
+	padding-top:8px;
+}
