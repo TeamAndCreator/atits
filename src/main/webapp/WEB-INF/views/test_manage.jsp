@@ -146,9 +146,9 @@
                                                 <span class="lbl"></span>
                                             <th>年度</th>
                                             <th>所属体系</th>
-                                            <th>被评分人</th>
-                                            <th class="hidden">职位</th>
                                             <th>评分人</th>
+                                            <th class="hidden">职位</th>
+                                            <th>被评分人</th>
                                             <th>评分时间</th>
                                             <th>评分详情</th>
                                         </tr>
@@ -280,36 +280,36 @@
                                                 <p class="alert alert-success  ">
 															<span>1．协助首席带领团队建设情况 （满分：15分）
 																<span class="pull-right">&nbsp;分</span>
-																<input type="text" placeholder="请打分" name="A1"
+																<input type="number" value="0" name="A1"
                                                                        class="col-xs-2 col-sm-2  pull-right"/>
 															</span>
                                                 </p>
 
                                                 <p class="alert alert-success  ">2、支撑产业发展情况（满分：50分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A2"
+                                                    <input type="text" value="0" name="A2"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
 
                                                 <p class="alert alert-success ">3．应急事件处置及参与重大活动情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A3"
+                                                    <input type="number" value="0" name="A3"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">4．经费使用情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A4"
+                                                    <input type="number" value="0" name="A4"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
 
                                                 </p>
                                                 <p class="alert alert-success ">5．宣传推动情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A5"
+                                                    <input type="number" value="0" name="A5"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">6．对接协作情况（满分：15分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A6"
+                                                    <input type="number" value="0" name="A6"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                             </blockquote>
@@ -320,8 +320,7 @@
                                         <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
                                             <i class="ace-icon fa fa-times"></i>关闭
                                         </button>
-                                        <button class="btn btn-sm btn-success pull-left submit" data-dismiss="modal"
-                                                id="btn_submit2" onclick="javasript:window.alert('提交成功！')">
+                                        <button class="btn btn-sm btn-success pull-left" id="btn_submit2">
                                             <i class="ace-icon fa fa-check"></i>提交
                                         </button>
                                     </div>
@@ -357,36 +356,36 @@
                                                 <p class="alert alert-success  ">
 															<span>1．本室建设情况（满分：5分）
 																<span class="pull-right">&nbsp;分</span>
-																<input type="text" placeholder="请打分" name="A1"
+																<input type="number" value="0" name="A1"
                                                                        class="col-xs-2 col-sm-2  pull-right"/>
 															</span>
                                                 </p>
 
                                                 <p class="alert alert-success  ">2、任务完成情况（满分：50分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A2"
+                                                    <input type="number" value="0" name="A2"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
 
                                                 <p class="alert alert-success ">3．遵规守纪情况（满分：20分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A3"
+                                                    <input type="number" value="0" name="A3"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">4．经费使用情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A4"
+                                                    <input type="number" value="0" name="A4"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
 
                                                 </p>
                                                 <p class="alert alert-success ">5．宣传推动情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A5"
+                                                    <input type="number" value="0" name="A5"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">6．其他（满分：5分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A6"
+                                                    <input type="number" value="0" name="A6"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                             </blockquote>
@@ -397,8 +396,7 @@
                                         <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
                                             <i class="ace-icon fa fa-times"></i>关闭
                                         </button>
-                                        <button class="btn btn-sm btn-success pull-left submit" data-dismiss="modal"
-                                                id="btn_submit3" onclick="javasript:window.alert('提交成功！')">
+                                        <button class="btn btn-sm btn-success pull-left" id="btn_submit3">
                                             <i class="ace-icon fa fa-check"></i>提交
                                         </button>
                                     </div>
@@ -433,31 +431,31 @@
                                                 <p class="alert alert-success  ">
 															<span>1、任务完成情况（满分：50分）
 																<span class="pull-right">&nbsp;分</span>
-																<input type="text" placeholder="请打分" name="A1"
+																<input type="number" value="0" name="A1"
                                                                        class="col-xs-2 col-sm-2  pull-right"/>
 															</span>
                                                 </p>
 
                                                 <p class="alert alert-success  ">2、遵规守纪情况（满分：20分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A2"
+                                                    <input type="number" value="0" name="A2"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
 
                                                 <p class="alert alert-success ">3．经费使用情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A3"
+                                                    <input type="number" value="0" name="A3"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">4．宣传推动情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A4"
+                                                    <input type="number" value="" name="A4"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
 
                                                 </p>
                                                 <p class="alert alert-success ">5．其他（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A5"
+                                                    <input type="number" value="0" name="A5"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                             </blockquote>
@@ -468,8 +466,7 @@
                                         <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
                                             <i class="ace-icon fa fa-times"></i>关闭
                                         </button>
-                                        <button class="btn btn-sm btn-success pull-left submit" data-dismiss="modal"
-                                                id="btn_submit4" onclick="javasript:window.alert('提交成功！')">
+                                        <button class="btn btn-sm btn-success pull-left" id="btn_submit4">
                                             <i class="ace-icon fa fa-check"></i>提交
                                         </button>
                                     </div>
@@ -504,36 +501,36 @@
                                                 <p class="alert alert-success  ">
 															<span>1、任务完成情况（满分：50分）
 																<span class="pull-right">&nbsp;分</span>
-																<input type="text" placeholder="请打分" name="A1"
+																<input type="number" value="0" name="A1"
                                                                        class="col-xs-2 col-sm-2  pull-right"/>
 															</span>
                                                 </p>
 
                                                 <p class="alert alert-success  ">2、遵规守纪情况（满分：20分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A2"
+                                                    <input type="number" value="0" name="A2"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
 
                                                 <p class="alert alert-success ">3．经费使用情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A3"
+                                                    <input type="number" value="0" name="A3"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">4．宣传推动情况（满分：10分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A4"
+                                                    <input type="number" value="0" name="A4"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
 
                                                 </p>
                                                 <p class="alert alert-success ">5．争取支持情况（满分：5分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A5"
+                                                    <input type="number" value="0" name="A5"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                                 <p class="alert alert-success ">6．其他（满分：5分）
                                                     <span class="pull-right">&nbsp;分</span>
-                                                    <input type="text" placeholder="" name="A6"
+                                                    <input type="number" value="0" name="A6"
                                                            class="col-xs-2 col-sm-2  pull-right"/>
                                                 </p>
                                             </blockquote>
@@ -544,8 +541,7 @@
                                         <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
                                             <i class="ace-icon fa fa-times"></i>关闭
                                         </button>
-                                        <button class="btn btn-sm btn-success pull-left" data-dismiss="modal"
-                                                id="btn_submit5" onclick="javasript:window.alert('提交成功！')">
+                                        <button class="btn btn-sm btn-success pull-left" id="btn_submit5">
                                             <i class="ace-icon fa fa-check"></i>提交
                                         </button>
                                     </div>
@@ -643,42 +639,44 @@
                     {
                         mData: "id", sClass: "center", sortable: false,
                         render: function (mData) {
-                            return '<td class="center"><label class="position-relative"><input type="checkbox" class="ace center" value=' + mData + ' name="subcheck"/> <span class="lbl"></span></label></td>';}
+                            return '<td class="center"><label class="position-relative"><input type="checkbox" class="ace center" value=' + mData + ' name="subcheck"/> <span class="lbl"></span></label></td>';
+                        }
                     },
                     {mData: "year"},
                     {mData: "system.sysName"},
-                    {mData: "examedner.name"},
-                    {mData: 'examedner.job', sClass:"hidden"},
-                    {mData: {
-                            perExaminer:'perExaminer',
-                            eptExaminer:'eptExaminer'
+                    {
+                        mData: {
+                            perExaminer: 'perExaminer',
+                            eptExaminer: 'eptExaminer'
                         },
-                    render:function (mData) {
-                        if (mData.perExaminer != null)
-                            return mData.perExaminer.name;
-                        else
-                        if (mData.eptExaminer != null)
-                            return mData.eptExaminer.name;
-                        else
-                            return null;
-                    }
-                      },
+                        render: function (mData) {
+                            if (mData.perExaminer != null)
+                                return mData.perExaminer.name;
+                            else if (mData.eptExaminer != null)
+                                return mData.eptExaminer.name;
+                            else
+                                return null;
+                        }
+                    },
+                    {mData: 'examedner.job', sClass: "hidden"},
+                    {mData: "examedner.name"},
                     {mData: "date"},
-                    {mData:{
+                    {
+                        mData: {
                             mstate: 'mstate',
                             id: 'id'
                         },
                         render: function (mData) {
-                        stateBt_0 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>考&nbsp;&nbsp;&nbsp;&nbsp;评</button>';
-                        stateBt_1 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>已考评</button>';
-                        <%--return  '<td><div class="hidden-sm hidden-xs action-buttons"><a class="blue" href="person_detail?id=${person.id}"> <i class="ace-icon fa fa-search-plus bigger-130"></i></a> <a class="green" href="person_setting?id=${person.id}"> <i class="ace-icon fa fa-pencil bigger-130"></i></a><c:if test="${person.role.id!=1}"><a class="red" href="person_delete/${person.id}"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></c:if></div></td>';--%>
-                        if (mData.mstate === 1) {
-                            return stateBt_0;
+                            stateBt_0 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>考&nbsp;&nbsp;&nbsp;&nbsp;评</button>';
+                            stateBt_1 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>已考评</button>';
+                            <%--return  '<td><div class="hidden-sm hidden-xs action-buttons"><a class="blue" href="person_detail?id=${person.id}"> <i class="ace-icon fa fa-search-plus bigger-130"></i></a> <a class="green" href="person_setting?id=${person.id}"> <i class="ace-icon fa fa-pencil bigger-130"></i></a><c:if test="${person.role.id!=1}"><a class="red" href="person_delete/${person.id}"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></c:if></div></td>';--%>
+                            if (mData.mstate === 0) {
+                                return stateBt_0;
+                            }
+                            else {
+                                return stateBt_1;
+                            }
                         }
-                        else{
-                            return stateBt_1;
-                        }
-                    }
 
                     }
                 ],

@@ -1,6 +1,4 @@
 package com.atits.controller;
-
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,7 +7,6 @@ import com.atits.entity.Laboratory;
 import com.atits.entity.Station;
 import com.atits.entity.System;
 import com.atits.service.*;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONArray;
@@ -143,7 +140,7 @@ public class PersonController {
 
         //为操作次数加1
         int  initEcho = Integer.parseInt(sEcho)+1;
-             count = personService.findByPageCunnt();
+        count = personService.findByPageCunnt();
         List<Person> persons = personService.findByPage(Integer
                 .parseInt(iDisplayStart), Integer.parseInt(iDisplayLength));
 
@@ -170,7 +167,7 @@ public class PersonController {
         getObj.put("sEcho", initEcho);// 不知道这个值h有什么用,有知道的请告知一下
         getObj.put("iTotalRecords", count);//实际的行数
         getObj.put("iTotalDisplayRecords", count);//显示的行数,这个要和上面写的一样
-
+        java.lang.System.out.println(getObj.toString());
         return getObj.toString();
 
     }
@@ -188,7 +185,6 @@ public class PersonController {
 
     @RequestMapping(value = "/person_system_ajax", method = RequestMethod.GET)
     @ResponseBody
-    @JsonIgnore
     public List<Person> findAll(@RequestParam("sysId") Integer sysId) {
         List<Person> persons = personService.findSysId(sysId);
         return persons;
@@ -230,11 +226,11 @@ public class PersonController {
         if (station.getId()==0){
             station=null;
         }
-            person.setStation(station);
+        person.setStation(station);
         if (laboratory.getId()==0){
             laboratory=null;
         }
-            person.setLaboratory(laboratory);
+        person.setLaboratory(laboratory);
 
         Profile profile = person.getProfile();
         profile.setId(person.getId());

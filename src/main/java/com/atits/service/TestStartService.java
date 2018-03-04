@@ -48,4 +48,8 @@ public class TestStartService {
 //            filesDao.updateState(fileIdList.get(i),val);
 //        }
     }
+
+    public TestStart findById(Integer id) {
+       return testSartDao.findById(id);
+    }
 }

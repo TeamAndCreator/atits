@@ -20,14 +20,7 @@ public class TestManageService {
         return testManageDao.findAll();
     }
 
-    public int findById1(Integer eptId, Integer sysedId, Integer yearId) {
-        return testManageDao.findById1(eptId, sysedId, yearId);
-    }
 
-    public int findById2(Integer sysedId1, Integer sysedId2, Integer yearId) {
-        return testManageDao.findById2(sysedId1, sysedId2, yearId);
-
-    }
 
     /* 根据id进行查询 */
     public TestManage findById(Integer id) {
@@ -48,4 +41,7 @@ public class TestManageService {
     }
 
 
+    public void updateState(Integer id, int val) {
+        testManageDao.updateState(id,val);
+    }
 }

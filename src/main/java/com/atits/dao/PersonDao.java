@@ -122,9 +122,9 @@ public class PersonDao {
 	/* 根据多个ID查询 */
 	public List<Person> findSysperById(String ids) {
 
-		String sql="SELECT * from t_person where id in ("+ids+")";
+		String hql="from t_person where id in ("+ids+")";
 
-		return getSession().createSQLQuery(sql).list();
+		return getSession().createQuery(hql).list();
 	}
 
 //	/* 查询体系中的首席专家 */

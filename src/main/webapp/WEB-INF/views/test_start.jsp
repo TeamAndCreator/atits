@@ -93,9 +93,7 @@
                                     <%--</label>--%>
                                     </th>
                                     <th class="text-center">考评年度</th>
-                                    <th class="text-center">体系内部人员</th>
                                     <th class="text-center">考评人员</th>
-                                    <th class="text-center">外聘人员</th>
                                     <th class="text-center">考评日期</th>
                                     <th class="text-center">考评地点</th>
                                     <th class="text-center">状态</th>
@@ -125,22 +123,10 @@
                                     </c:choose>
 
                                     <td>${map.testStarts.year}</td>
-                                    <td>
-                                        <c:forEach var="map1" items="${List1}">
-                                            <c:if test="${map.testStarts.id == map1.testStarts.id}">
-                                                <c:forEach var="person" items="${map1.sysPers}">
-                                                      ${person[5]}&nbsp;
-                                                </c:forEach>
-                                            </c:if>
-                                        </c:forEach>
-                                    </td>
+
                                     <td><a href="#"  data-toggle="modal" class="staff">考评人员</a>
                                     </td>
-                                    <td>
-                                    <c:forEach var="expert" items="${map.experts}">
-                                        ${expert[3]}
-                                    </c:forEach>
-                                    </td>
+
                                     <td>${map.testStarts.date}</td>
                                     <td>${map.testStarts.address}</td>
                                     <%--<td>${map.testStarts.state}</td>--%>
@@ -259,7 +245,12 @@
                                                                     <i class="ace-icon fa fa-flask"></i>体系内部人员
                                                                 </h3>
                                                                 <div class="row well" id="nen_id">
+                                                                    <c:forEach var="map" items="${List}">
 
+                                                                        <c:forEach var="expert" items="${map.sysPers}">
+                                                                            ${expert.name}
+                                                                        </c:forEach>
+                                                                    </c:forEach>
 
                                                                     <%--<c:forEach var="map1" items="${List1}">--%>
                                                                         <%--&lt;%&ndash;<c:if test="${map.testStarts.id == map1.testStarts.id}">&ndash;%&gt;--%>
@@ -282,7 +273,7 @@
                                                                 <div class="row well">
                                                                     <c:forEach var="map" items="${List}">
                                                                         <c:forEach var="expert" items="${map.experts}">
-                                                                            ${expert[3]}
+                                                                            ${expert.name}
                                                                         </c:forEach>
                                                                     </c:forEach>
                                                                 </div>
@@ -437,7 +428,7 @@
                 "bAutoWidth": false,
                 "aoColumns":[{
                     "bSortable": false
-                },null,null,null,null,null,null,null],
+                },null,null,null,null,null],
                 "aaSorting": [],
                 "searching": true,// 搜索
                 "bPaginate": true,//显示（使用）分页器
@@ -458,7 +449,7 @@
                         "sNext": "后一页",
                         "sLast": "尾页"
                     }
-                },
+                }
 //                "fnRowCallback": function(nRow, aData, iDisplayIndex) {
 //                   // console.log(aData)
 //                    $('td:eq(0)', nRow).html('<label class="position-relative"><input type="checkbox" class="ace center" value=' + aData.id +' name="subcheck"/> <span class="lbl"></span></label>');

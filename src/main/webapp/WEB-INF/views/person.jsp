@@ -349,6 +349,7 @@
             $.ajax({
                 "type": "GET",
                 "contentType": "application/json",
+                contentType : "text/html;charset=UTF-8",
                 "dataType": "json",
                 "url": sSource + JSON.stringify(aoData),
                 //"data": JSON.stringify(aoData), //以json格式传递

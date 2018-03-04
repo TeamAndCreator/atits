@@ -16,6 +16,7 @@ public class TestScore {
     private int A4;
     private int A5;
     private int A6;
+    private int sum;
 
 
     public int getId() {
@@ -82,17 +83,26 @@ public class TestScore {
         A6 = a6;
     }
 
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
     @Override
     public String toString() {
         return "TestScore{" +
                 "id=" + id +
-                ", testManage=" + testManage.getId() +
+                ", testManage=" + testManage +
                 ", A1=" + A1 +
                 ", A2=" + A2 +
                 ", A3=" + A3 +
                 ", A4=" + A4 +
                 ", A5=" + A5 +
                 ", A6=" + A6 +
+                ", sum=" + sum +
                 '}';
     }
 }

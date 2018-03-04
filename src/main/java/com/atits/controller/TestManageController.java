@@ -27,45 +27,9 @@ public class TestManageController {
     @Resource
     private ExpertService expertService;
 
-    @RequestMapping("/test_manage_find_all")
-    @ResponseBody
-    public List<TestManage> findAll(){
-//        List<TestStart> testStarts = testStartService.findAll(1);
-//        for (TestStart testStart:testStarts){
-//            if (testStart.getSysperId() != null) {
-//                String[] sysedIds = testStart.getSysperId().split(",");
-//                //评分人：外聘人员---被评分人：体系内部人员
-//            if (testStart.getEptId() != null){
-//                String[] eptIds = testStart.getEptId().split(",");
-//                for (int i = 0; i < eptIds.length; i++) {
-//                    for (int j = 0; j < sysedIds.length; j++) {
-//                        testManageService.findById1(Integer.valueOf(eptIds[i]), Integer.valueOf(sysedIds[j]), testStart.getId());
-//                    }
-//                }
-//            }
-//                //评分人、被评分人：体系内部人员
-//                for (int i = 0; i < sysedIds.length; i++) {
-//                    for (int j = 0; j < sysedIds.length; j++) {
-//                        if (!sysedIds[i].equals(sysedIds[j])) {
-//                            testManageService.findById2(Integer.valueOf(sysedIds[i]), Integer.valueOf(sysedIds[j]), testStart.getId());
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        List<TestManage> testManages = testManageService.findAll();
-//        for (TestManage testManage:testManages){
-//            System.out.println(testManage.getPerExaminer());
-////            System.out.println(testManage.getEptExaminer());
-//        }
-//
-        return testManages;
-    }
-
     @RequestMapping(value = "/test_manage_find_all_ajax", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@RequestParam("params") String params) throws JsonProcessingException {
-
         JSONArray jsonarray = JSONArray.fromObject(params);
 
         String sEcho = "";// 记录操作的次数  每次加1

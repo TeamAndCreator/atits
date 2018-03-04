@@ -17,9 +17,8 @@ $(function() {
 });
 
 $(".staff").click(function () {
-    var test_start_id=$(this).parents("tr").find("td:eq(0)").text();
-    alert("======",test_start_id);
-    getTestStarts();
+//     var test_start_id=$(this).parents("tr").find("td:eq(0)").text();
+//     getTestStarts();
     $("#modal-table").modal();
 });
 

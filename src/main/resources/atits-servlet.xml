@@ -41,10 +41,18 @@
 					</list>
 				</property>
 			</bean>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+						<value>*/*;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
-	
+
 	<!--登录拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -58,7 +66,6 @@
 	<!-- 访问静态资源 -->
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:resources mapping="/docs/**" location="/docs/" />
-	<mvc:resources mapping="/WEB-INF/html/*.html" location="/WEB-INF/html/" />
 
 	<!-- 转发或重定向 -->
 	<mvc:view-controller path="/" view-name="login" />

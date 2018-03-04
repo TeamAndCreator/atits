@@ -5,7 +5,6 @@ import com.atits.dao.NoticeDao;
 import com.atits.entity.Notice;
 import com.atits.service.NoticeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ import java.util.List;
 
 public class TestUtils {
 
-    @Test
     public void deletes() throws IOException {
         List<Integer> idList=new ArrayList<Integer>();
         idList.add(7);

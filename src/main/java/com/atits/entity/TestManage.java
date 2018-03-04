@@ -1,5 +1,7 @@
 package com.atits.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity(name = "t_test_manage")
@@ -8,8 +10,7 @@ public class TestManage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(mappedBy = "testManage")
-    private TestScore testScore;
+
     private String year;//考评年度
 
     @OneToOne
@@ -45,13 +46,7 @@ public class TestManage {
         this.id = id;
     }
 
-    public TestScore getTestScore() {
-        return testScore;
-    }
 
-    public void setTestScore(TestScore testScore) {
-        this.testScore = testScore;
-    }
 
     public String getYear() {
         return year;
@@ -113,7 +108,6 @@ public class TestManage {
     public String toString() {
         return "TestManage{" +
                 "id=" + id +
-                ", testScore=" + testScore +
                 ", year='" + year + '\'' +
                 ", perExaminer=" + perExaminer +
                 ", eptExaminer=" + eptExaminer +

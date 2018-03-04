@@ -31,6 +31,8 @@
 		<property name="maxPoolSize" value="100" />
 		<property name="minPoolSize" value="10" />
 		<property name="maxStatements" value="10" />
+		<property name="maxStatementsPerConnection" value="100" />
+
 	</bean>
 
 	<!-- 配置 Hibernate 的SessionFactory 实例：通过Spring 提供的LocalSessionFactionryBean 

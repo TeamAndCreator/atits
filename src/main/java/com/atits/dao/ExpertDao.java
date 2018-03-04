@@ -82,7 +82,7 @@ public class ExpertDao {
 //    }
     /* 根据多个ID查询 */
     public List<Expert> findById(String ids) {
-        String sql = "SELECT * from t_expert where id in (" + ids + ")";
-        return getSession().createSQLQuery(sql).list();
+        String hql = "from t_expert where id in (" + ids + ")";
+        return getSession().createQuery(hql).list();
     }
 }
