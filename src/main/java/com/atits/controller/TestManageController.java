@@ -6,6 +6,7 @@ import com.atits.entity.TestStart;
 import com.atits.service.ExpertService;
 import com.atits.service.TestManageService;
 import com.atits.service.TestStartService;
+import com.atits.utils.PageUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONArray;
@@ -30,50 +31,30 @@ public class TestManageController {
     @RequestMapping(value = "/test_manage_find_all_ajax", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@RequestParam("params") String params) throws JsonProcessingException {
-        JSONArray jsonarray = JSONArray.fromObject(params);
-
-        String sEcho = "";// 记录操作的次数  每次加1
-        String iDisplayStart = "";// 起始
-        String iDisplayLength = "";// size
-        String sSearch = "";// 搜索的关键字
-        Long count = 0L ;  //查询出来的数量
-
-        for (int i = 0; i < jsonarray.size(); i++) {
-            JSONObject obj = (JSONObject) jsonarray.get(i);
-            if (obj.get("name").equals("sEcho"))
-                sEcho = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayStart"))
-                iDisplayStart = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayLength"))
-                iDisplayLength = obj.get("value").toString();
-            if (obj.get("name").equals("sSearch"))
-                sSearch = obj.get("value").toString();
-        }
-
-
-
-
-
+        PageUtil pageUtil=new PageUtil();
+        Map<String,String> map=pageUtil.pageParams(params);
         //为操作次数加1
-        int  initEcho = Integer.parseInt(sEcho)+1;
-        count = testManageService.findByPageCunnt();
+        int  initEcho = Integer.parseInt(map.get("sEcho"))+1;
+//        count = testManageService.findByPageCunnt();
         List<TestManage> persons = testManageService.findByPage(Integer
-                .parseInt(iDisplayStart), Integer.parseInt(iDisplayLength));
+                .parseInt(map.get("iDisplayStart")), Integer.parseInt(map.get("iDisplayLength")));
+       int  count=persons.size(); //查询出来的数量
 
-
-        /*// 执行搜索，把不属于关键字部分内容remove掉
+        // 执行搜索，把不属于关键字部分内容remove掉
+        String sSearch=map.get("sSearch");
         if(sSearch != null  && !sSearch.equals(""))
         {
             Iterator it = persons.iterator();
             while(it.hasNext())
             {
                 String[] s = (String[])it.next();
+
                 if(!s[0].contains(sSearch) || !s[1].contains(sSearch))
                 {
                     it.remove();
                 }
             }
-        }*/
+        }
 
 
         ObjectMapper mapper = new ObjectMapper();// json对象建立

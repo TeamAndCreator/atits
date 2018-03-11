@@ -10,6 +10,7 @@ import com.atits.service.ExpertService;
 import com.atits.service.PersonService;
 import com.atits.service.TestManageService;
 import com.atits.service.TestStartService;
+import com.atits.utils.PageUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -45,56 +46,38 @@ public class TestStartController {
     @RequestMapping(value = "/test_start_ajax/{params}", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@PathVariable("params") String params) throws IOException {
+        Map<String,String> map=new PageUtil().pageParams(params);
+        Long count = 0L ;  //查询出来的数量
 
-//        System.out.println(params);
-        JSONArray jsonarray = JSONArray.fromObject(params);
-        // 生成20条测试数据
 
-        String sEcho = "";// 记录操作的次数  每次加1
-        String iDisplayStart = "";// 起始
-        String iDisplayLength = "";// size
-        String sSearch = "";// 搜索的关键字
-        int count = 0;  //查询出来的数量
 
-        for (int i = 0; i < jsonarray.size(); i++) {
-
-            JSONObject obj = (JSONObject) jsonarray.get(i);
-            if (obj.get("name").equals("sEcho"))
-                sEcho = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayStart"))
-                iDisplayStart = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayLength"))
-                iDisplayLength = obj.get("value").toString();
-            if (obj.get("name").equals("sSearch"))
-                sSearch = obj.get("value").toString();
-        }
 
         //为操作次数加1
-        int initEcho = Integer.parseInt(sEcho) + 1;
+        int initEcho = Integer.parseInt(map.get("sEcho")) + 1;
         //     count = testStartService.findByPage(Integer
 //                .parseInt(iDisplayStart), Integer.parseInt(iDisplayLength),sSearch);
         List<TestStart> testStarts = testStartService.findByPage(Integer
-                .parseInt(iDisplayStart), Integer.parseInt(iDisplayLength));
+                .parseInt(map.get("iDisplayStart")), Integer.parseInt(map.get("iDisplayLength")));
 
         List<Map> list = new ArrayList<Map>();
         for (TestStart testStart : testStarts) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("testStarts", testStart);
+            Map<String, Object> map1 = new HashMap<String, Object>();
+            map1.put("testStarts", testStart);
             if (testStart.getEptId() != null) {
                 String idList = testStart.getEptId();
                 List<Expert> experts = expertService.findById(idList);
-                map.put("experts", experts);
+                map1.put("experts", experts);
             } else {
                 map.put("experts", null);
             }
             if (testStart.getSysperId() != null) {
                 String idList1 = testStart.getSysperId();
                 List<Person> sysPers = personService.findSysperById(idList1);
-                map.put("sysPers", sysPers);
+                map1.put("sysPers", sysPers);
             } else {
-                map.put("sysPers", null);
+                map1.put("sysPers", null);
             }
-            list.add(map);
+            list.add(map1);
         }
 
 

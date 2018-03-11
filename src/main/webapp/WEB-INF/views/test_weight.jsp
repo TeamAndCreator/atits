@@ -56,23 +56,23 @@
 
     <!-- /section:basics/sidebar -->
     <div class="main-content">
-        <div class="breadcrumbs" id="breadcrumbs">
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('breadcrumbs', 'fixed')
-                } catch (e) {
-                }
-            </script>
+        <%--<div class="breadcrumbs" id="breadcrumbs">--%>
+            <%--<script type="text/javascript">--%>
+                <%--try {--%>
+                    <%--ace.settings.check('breadcrumbs', 'fixed')--%>
+                <%--} catch (e) {--%>
+                <%--}--%>
+            <%--</script>--%>
 
-            <ul class="breadcrumb">
-                <li><i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">首页</a>
-                </li>
-                <li class="active">考评管理</li>
-            </ul>
-            <!-- /.breadcrumb -->
+            <%--<ul class="breadcrumb">--%>
+                <%--<li><i class="ace-icon fa fa-home home-icon"></i>--%>
+                    <%--<a href="#">首页</a>--%>
+                <%--</li>--%>
+                <%--<li class="active">考评管理</li>--%>
+            <%--</ul>--%>
+            <%--<!-- /.breadcrumb -->--%>
 
-        </div>
+        <%--</div>--%>
         <div class="page-content">
             <h1 class="header smaller lighter blue">权重设置</h1>
             <!--<div class="action-buttons">
@@ -85,15 +85,20 @@
                 <!-- /.page-header -->
 
                 <div class="row">
-                    <div class="col-sm-12 col-lg-10 ">
+                    <div class="col-sm-12 col-lg-12 ">
+                        <br/>
                         <div class="action-buttons">
                             <a class="btn btn-sm btn-primary" href="#modal-table" data-toggle="modal"> <i
                                     class="ace-icon fa  bigger-130">+添加</i>
                             </a>
                             <a class="btn btn-sm btn-danger" href="#"> <i class="ace-icon fa  bigger-130">×删除</i>
                             </a>
+
+                            <a class="btn btn-yellow  pull-right" href="test_manage"><i
+                                    class="ace-icon fa fa-arrow-left bigger-130">返回考评管理</i>
+                            </a>
                         </div>
-                        <br/>
+
                         <!-- PAGE CONTENT BEGINS -->
 
                         <div class="row">
@@ -109,11 +114,13 @@
                                         </label></th>
                                         <th>年度</th>
                                         <th>评分对象</th>
-                                        <th>农委</th>
-                                        <th>首席/副首席专家</th>
-                                        <th>岗位专家/试验站站长</th>
-                                        <th>外聘专家(可无)</th>
-                                        <th>操作</th>
+                                        <th>省体系办</th>
+                                        <th>行业主管部门</th>
+                                        <th>副首席专家、岗位专家和综合试验站站长</th>
+                                        <th>岗位专家和综合试验站站长</th>
+                                        <th>首席专家</th>
+                                        <th>省体系办和行业主管部门</th>
+                                        <th>首席专家和副首席专家</th>
 
                                         </thead>
 
@@ -128,6 +135,9 @@
                                                 <td>首席/副首席专家</td>
                                                 <td>0.6</td>
                                                 <td>/</td>
+                                                <td>0.2</td>
+                                                <td>0.2</td>
+                                                <td>0.2</td>
                                                 <td>0.2</td>
                                                 <td>0.2</td>
                                                 <td>
@@ -182,6 +192,9 @@
                                                 <td>2017</td>
                                                 <td>岗位专家/试验站站长</td>
                                                 <td>/</td>
+                                                <td>0.2</td>
+                                                <td>0.6</td>
+                                                <td>0.2</td>
                                                 <td>0.2</td>
                                                 <td>0.6</td>
                                                 <td>0.2</td>
@@ -255,7 +268,7 @@
                                             <tbody>
                                             <br/>
                                             <tr>
-                                                <td class="align-right">年度</td>
+                                                <td class="align-right">年度：</td>
                                                 <td>
                                                     <select class="form-control " id="form-field-select-1">
                                                         <option value="">2018</option>
@@ -265,54 +278,82 @@
                                                 </td>
                                             </tr>
 
+
                                             <tr>
-                                                <td class="align-right">评分对象</td>
+                                                <td class="align-right">考评对象：</td>
                                                 <td>
                                                     <div class="radio">
                                                         <label>
                                                             <input name="form-field-radio" type="radio" class="ace"
                                                                    id="id-disable-check1" autocomplete="off"/>
-                                                            <span class="lbl">对首席/副首席专家打分</span>
+                                                            <span class="lbl">首席专家</span>
                                                         </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
                                                             <input name="form-field-radio" type="radio" class="ace"
                                                                    id="id-disable-check2" autocomplete="off"/>
-                                                            <span class="lbl">对岗位专家/试验站站长打分</span>
+                                                            <span class="lbl">副首席专家</span>
                                                         </label>
                                                     </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input name="form-field-radio" type="radio" class="ace"
+                                                                   id="id-disable-check3" autocomplete="off"/>
+                                                            <span class="lbl">岗位专家和综合试验站站长</span>
+                                                        </label>
+                                                    </div>
+
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <td class="align-right ">农委：</td>
-                                                <td><input type="text" placeholder="" id="form-input-readonly1"
+                                                <td class="align-right ">省体系办：</td>
+                                                <td><input type="text" placeholder="" id="form-1"
                                                            placeholder="" class="col-xs-10 col-sm-8"
-                                                           autocomplete="off"/>
+                                                           autocomplete="off"/>％
                                                 </td>
                                             </tr>
                                             <tr>
 
-                                                <td class="align-right">首席/副首席专家：</td>
+                                                <td class="align-right">行业主管部门：</td>
                                                 <td>
-                                                    <input type="text" placeholder="" id="form-input-readonly2"
+                                                    <input type="text" placeholder="" id="form-2"
                                                            placeholder="" class="col-xs-10 col-sm-8"
-                                                           autocomplete="off"/>
+                                                           autocomplete="off"/>％
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="align-right">岗位专家/试验站站长：</td>
-                                                <td><input type="text" placeholder="" id="form-field-1" placeholder=""
-                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>
+                                                <td class="align-right">副首席专家、岗位专家和综合试验站站长：</td>
+                                                <td><input type="text" placeholder="" id="form-3" placeholder=""
+                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>％
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="align-right">外聘专家(可选)：</td>
-                                                <td><input type="text" placeholder="" id="form-field-2" placeholder=""
-                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>
+                                                <td class="align-right">岗位专家和综合试验站站长：</td>
+                                                <td><input type="text" placeholder="" id="form-4" placeholder=""
+                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>％
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td class="align-right">首席专家：</td>
+                                                <td><input type="text" placeholder="" id="form-5" placeholder=""
+                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>％
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-right">省体系办和行业主管部门：</td>
+                                                <td><input type="text" placeholder="" id="form-6" placeholder=""
+                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>％
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-right">首席专家和副首席专家：</td>
+                                                <td><input type="text" placeholder="" id="form-7" placeholder=""
+                                                           class="col-xs-10 col-sm-8" autocomplete="off"/>％
+                                                </td>
+                                            </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -409,7 +450,7 @@
                 "bAutoWidth": false,
                 "aoColumns": [{
                     "bSortable": false
-                }, null, {
+                }, null,  null, {
                     "bSortable": false
                 }, {
                     "bSortable": false
@@ -419,7 +460,9 @@
                     "bSortable": false
                 }, {
                     "bSortable": false
-                }, {
+                },{
+                    "bSortable": false
+                },{
                     "bSortable": false
                 },],
                 "aaSorting": [],
@@ -462,41 +505,72 @@
         });
 
 
+        var inp1 = $('#form-1').get(0);
+        var inp2 = $('#form-2').get(0);
+        var inp3 = $('#form-3').get(0);
+        var inp4 = $('#form-4').get(0);
+        var inp5 = $('#form-5').get(0);
+        var inp6 = $('#form-6').get(0);
+        var inp7 = $('#form-7').get(0);
         $('#id-disable-check1').on('click', function () {
-            var inp1 = $('#form-input-readonly1').get(0);
-            var inp2 = $('#form-input-readonly2').get(0);
-            if (inp2.hasAttribute('disabled')) {
+//            if (inp4.hasAttribute('disabled')) {
 //						inp2.removeAttribute('disabled');
 //						inp3.setAttribute('disabled' , 'disabled');
 //						inp2.value="这里随便写！";
 //						inp3.value="你变为只读";
-            }
-            else {
-                inp2.setAttribute('disabled', 'disabled');
+//            }
+//            else {
+                inp4.setAttribute('disabled', 'disabled');
+                inp5.setAttribute('disabled', 'disabled');
+                inp6.setAttribute('disabled', 'disabled');
+                inp7.setAttribute('disabled', 'disabled');
                 inp1.removeAttribute('disabled');
-                inp2.value = "不可输入";
+                inp2.removeAttribute('disabled');
+                inp3.removeAttribute('disabled');
+                inp4.value = "不可输入";
+                inp5.value = "不可输入";
+                inp6.value = "不可输入";
+                inp7.value = "不可输入";
                 inp1.value = "";
-
-            }
+                inp2.value = "";
+                inp3.value = "";
+//            }
         });
 
         $('#id-disable-check2').on('click', function () {
-            var inp1 = $('#form-input-readonly1').get(0);
-            var inp2 = $('#form-input-readonly2').get(0);
-            if (inp1.hasAttribute('disabled')) {
-//						inp2.removeAttribute('disabled');
-//						inp3.setAttribute('disabled' , 'disabled');
-//						inp2.value="这里随便写！";
-//						inp3.value="你变为只读";
-
-            }
-            else {
                 inp1.setAttribute('disabled', 'disabled');
-                inp2.removeAttribute('disabled');
+                inp2.setAttribute('disabled', 'disabled');
+                inp3.setAttribute('disabled', 'disabled');
+                inp7.setAttribute('disabled', 'disabled');
+                inp4.removeAttribute('disabled');
+                inp5.removeAttribute('disabled');
+                inp6.removeAttribute('disabled');
                 inp1.value = "不可输入";
-                inp2.value = "";
+                inp2.value = "不可输入";
+                inp3.value = "不可输入";
+                inp7.value = "不可输入";
+                inp4.value = "";
+                inp5.value = "";
+                inp6.value = "";
 
-            }
+        });
+
+        $('#id-disable-check3').on('click', function () {
+                inp1.setAttribute('disabled', 'disabled');
+                inp2.setAttribute('disabled', 'disabled');
+                inp3.setAttribute('disabled', 'disabled');
+                inp5.setAttribute('disabled', 'disabled');
+                inp6.setAttribute('disabled', 'disabled');
+                inp4.removeAttribute('disabled');
+                inp7.removeAttribute('disabled');
+                inp1.value = "不可输入";
+                inp2.value = "不可输入";
+                inp3.value = "不可输入";
+                inp5.value = "不可输入";
+                inp6.value = "不可输入";
+                inp4.value = "";
+                inp7.value = "";
+
         });
 
         function tooltip_placement(context, source) {

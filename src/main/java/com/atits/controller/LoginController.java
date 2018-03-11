@@ -114,7 +114,6 @@ public class LoginController {
         //session.invalidate();
 
 
-
 /*   ************************
         //添加验证码：
         //HttpSession session = request.getSession();

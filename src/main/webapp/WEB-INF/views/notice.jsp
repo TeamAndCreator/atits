@@ -86,9 +86,9 @@
                                     </a> <a class="btn btn-sm btn-danger red" href="#"> <i
                                         class="ace-icon fa  bigger-130">×删除</i>
                                 </a>
-                                    <a class="btn btn-sm green" href="#"> <i
-                                            class="ace-icon fa  bigger-130">置顶</i>
-                                    </a>
+                                    <%--<a class="btn btn-sm green" href="#"> <i--%>
+                                            <%--class="ace-icon fa  bigger-130">置顶</i>--%>
+                                    <%--</a>--%>
                                 </div>
                                 <!-- <div class="dataTables_borderWrap"> -->
                                 <table id="sample-table-1" class="table table-hover table-bordered">

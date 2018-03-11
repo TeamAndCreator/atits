@@ -271,16 +271,16 @@
 
                         <ul class="submenu">
                             <li class="" onclick="show(this)"><a
-                                    href="test_start" target="iframe">
+                                    href="bank" target="iframe">
                                 <i class="menu-icon fa fa-caret-right"></i> 考评启动管理
                             </a> <b class="arrow"></b></li>
 
-                                <li class="" onclick="show(this)"><a href="test_people" target="iframe">
+                                <li class="" onclick="show(this)"><a href="bank" target="iframe">
                                 <i class="menu-icon fa fa-shield"></i>
                                 <span class="menu-text"> 外聘人员注册</span>
                                 </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="test_manage" target="iframe">
+                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
                                 <i class="menu-icon fa fa-arrows"></i>
                                 <span class="menu-text"> 考评管理 </span>
                             </a> <b class="arrow"></b></li>
@@ -379,16 +379,16 @@
 
                         <ul class="submenu">
                             <li class="" onclick="show(this)"><a
-                                    href="test_start" target="iframe">
+                                    href="bank" target="iframe">
                                 <i class="menu-icon fa fa-caret-right"></i> 考评启动管理
                             </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="test_people" target="iframe">
+                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
                                 <i class="menu-icon fa fa-shield"></i>
                                 <span class="menu-text"> 外聘人员注册</span>
                             </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="test_manage" target="iframe">
+                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
                                 <i class="menu-icon fa fa-arrows"></i>
                                 <span class="menu-text"> 考评管理 </span>
                             </a> <b class="arrow"></b></li>
@@ -496,7 +496,8 @@
 
 
                     <li class="hidden" onclick="show(this)"><a
-                            href="per_funds?sysId=${person.system.id}&bearer=${person.name}"
+                            href="bank"
+                            <%--href="per_funds?sysId=${person.system.id}&bearer=${person.name}"--%>
                             target="iframe"> <i class="menu-icon fa fa-joomla"></i> <span
                             class="menu-text"> 经费信息汇总 </span>
                     </a> <b class="arrow"></b></li>

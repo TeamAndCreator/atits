@@ -1,5 +1,6 @@
 package com.atits.controller;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -7,6 +8,7 @@ import com.atits.entity.Laboratory;
 import com.atits.entity.Station;
 import com.atits.entity.System;
 import com.atits.service.*;
+import com.atits.utils.PageUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONArray;
@@ -113,37 +115,14 @@ public class PersonController {
     @RequestMapping(value = "/person_ajax/{params}", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@PathVariable("params") String params) throws JsonProcessingException {
-
-        JSONArray jsonarray = JSONArray.fromObject(params);
-
-        String sEcho = "";// 记录操作的次数  每次加1
-        String iDisplayStart = "";// 起始
-        String iDisplayLength = "";// size
-        String sSearch = "";// 搜索的关键字
+        Map<String,String> map=new PageUtil().pageParams(params);
         Long count = 0L ;  //查询出来的数量
 
-        for (int i = 0; i < jsonarray.size(); i++) {
-            JSONObject obj = (JSONObject) jsonarray.get(i);
-            if (obj.get("name").equals("sEcho"))
-                sEcho = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayStart"))
-                iDisplayStart = obj.get("value").toString();
-            if (obj.get("name").equals("iDisplayLength"))
-                iDisplayLength = obj.get("value").toString();
-            if (obj.get("name").equals("sSearch"))
-                sSearch = obj.get("value").toString();
-        }
-
-
-
-
-
         //为操作次数加1
-        int  initEcho = Integer.parseInt(sEcho)+1;
+        int  initEcho = Integer.parseInt(map.get("sEcho"))+1;
         count = personService.findByPageCunnt();
         List<Person> persons = personService.findByPage(Integer
-                .parseInt(iDisplayStart), Integer.parseInt(iDisplayLength));
-
+                .parseInt(map.get("iDisplayStart")), Integer.parseInt(map.get("iDisplayLength")));
 
         /*// 执行搜索，把不属于关键字部分内容remove掉
         if(sSearch != null  && !sSearch.equals(""))
@@ -159,7 +138,6 @@ public class PersonController {
             }
         }*/
 
-
         ObjectMapper mapper = new ObjectMapper();// json对象建立
         JSONObject getObj = new JSONObject();
         //HashMap<String,Object> getObj=new HashMap<>();
@@ -167,7 +145,6 @@ public class PersonController {
         getObj.put("sEcho", initEcho);// 不知道这个值h有什么用,有知道的请告知一下
         getObj.put("iTotalRecords", count);//实际的行数
         getObj.put("iTotalDisplayRecords", count);//显示的行数,这个要和上面写的一样
-        java.lang.System.out.println(getObj.toString());
         return getObj.toString();
 
     }
