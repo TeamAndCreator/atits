@@ -94,7 +94,7 @@ public class NoticeDao {
 
     public void updateFlag(String idList) {
 		String sql="update t_notice set flag=? where id in ("+idList+")";
-		getSession().createSQLQuery(sql).setParameter(0,1).executeUpdate();
+		getSession().createQuery(sql).setParameter(0,1).executeUpdate();
 		
     }
 }

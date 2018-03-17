@@ -1,5 +1,6 @@
 <%
-//License = ""
+//License = "2:50225:3:1:1::39.108.52.151:37152879757e75889ed0056a035b1af2"
+
 
 //Username = "admin"
 //Password = "admin"

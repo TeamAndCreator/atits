@@ -31,26 +31,23 @@ public class TestManageController {
     @RequestMapping(value = "/test_manage_find_all_ajax", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@RequestParam("params") String params) throws JsonProcessingException {
-        PageUtil pageUtil=new PageUtil();
-        Map<String,String> map=pageUtil.pageParams(params);
+        PageUtil pageUtil = new PageUtil();
+        Map<String, String> map = pageUtil.pageParams(params);
         //为操作次数加1
-        int  initEcho = Integer.parseInt(map.get("sEcho"))+1;
+        int initEcho = Integer.parseInt(map.get("sEcho")) + 1;
 //        count = testManageService.findByPageCunnt();
         List<TestManage> persons = testManageService.findByPage(Integer
                 .parseInt(map.get("iDisplayStart")), Integer.parseInt(map.get("iDisplayLength")));
-       int  count=persons.size(); //查询出来的数量
+        Long count = testManageService.findByPageCunnt(); //查询出来的数量
 
         // 执行搜索，把不属于关键字部分内容remove掉
-        String sSearch=map.get("sSearch");
-        if(sSearch != null  && !sSearch.equals(""))
-        {
+        String sSearch = map.get("sSearch");
+        if (sSearch != null && !sSearch.equals("")) {
             Iterator it = persons.iterator();
-            while(it.hasNext())
-            {
-                String[] s = (String[])it.next();
+            while (it.hasNext()) {
+                String[] s = (String[]) it.next();
 
-                if(!s[0].contains(sSearch) || !s[1].contains(sSearch))
-                {
+                if (!s[0].contains(sSearch) || !s[1].contains(sSearch)) {
                     it.remove();
                 }
             }

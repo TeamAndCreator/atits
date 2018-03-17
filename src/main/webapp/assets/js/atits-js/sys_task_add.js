@@ -1,3 +1,5 @@
+alert("123");
+
 KindEditor.ready(function(K) {
     window.editor = K.create('#editor',{
         height : '500px', //初始化高度
@@ -24,6 +26,7 @@ KindEditor.ready(function(K) {
     editor.html(content);
 
     $(document).on("change","#system",function () {
+
         $.ajax({
             url: "person_system_chief_ajax",
             type: "GET",

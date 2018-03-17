@@ -667,8 +667,8 @@
                             id: 'id'
                         },
                         render: function (mData) {
-                            stateBt_0 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>考&nbsp;&nbsp;&nbsp;&nbsp;评</button>';
-                            stateBt_1 = '<button class="btn btn-success btn-sm test" test-id=' + mData.id + '>已考评</button>';
+                            stateBt_0 = '<button  class="btn btn-danger btn-sm test" test-id=' + mData.id + '>考&nbsp;&nbsp;&nbsp;&nbsp;评</button>';
+                            stateBt_1 = '<button disabled="true" class="btn btn-success btn-sm test" test-id=' + mData.id + '>已考评</button>';
                             <%--return  '<td><div class="hidden-sm hidden-xs action-buttons"><a class="blue" href="person_detail?id=${person.id}"> <i class="ace-icon fa fa-search-plus bigger-130"></i></a> <a class="green" href="person_setting?id=${person.id}"> <i class="ace-icon fa fa-pencil bigger-130"></i></a><c:if test="${person.role.id!=1}"><a class="red" href="person_delete/${person.id}"><i class="ace-icon fa fa-trash-o bigger-130"></i></a></c:if></div></td>';--%>
                             if (mData.mstate === 0) {
                                 return stateBt_0;

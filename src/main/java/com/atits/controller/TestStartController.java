@@ -46,10 +46,8 @@ public class TestStartController {
     @RequestMapping(value = "/test_start_ajax/{params}", method = RequestMethod.GET)
     @ResponseBody
     public String findAll(@PathVariable("params") String params) throws IOException {
-        Map<String,String> map=new PageUtil().pageParams(params);
-        Long count = 0L ;  //查询出来的数量
-
-
+        Map<String, String> map = new PageUtil().pageParams(params);
+        Long count = 0L;  //查询出来的数量
 
 
         //为操作次数加1
@@ -201,6 +199,9 @@ public class TestStartController {
                     testManage.setSystem(testStart.getSystem());
                     testManage.setEptExaminer(experts.get(i));
                     testManage.setExamedner(persons.get(j));
+                    testManage.setExaminerOfJob(experts.get(i).getPost());
+                    testManage.setExamednerOfJob(persons.get(j).getJob());
+
                     testManageService.save(testManage);
                 }
             }
@@ -208,7 +209,8 @@ public class TestStartController {
 
         for (int i = 0; i < persons.size(); i++) {
             for (int j = 0; j < persons.size(); j++) {
-                if (persons.get(i).equals(persons.get(j))){
+
+                if (persons.get(i).equals(persons.get(j))) {
                     continue;
                 }
                 TestManage testManage = new TestManage();
@@ -217,6 +219,11 @@ public class TestStartController {
                 testManage.setSystem(testStart.getSystem());
                 testManage.setPerExaminer(persons.get(i));
                 testManage.setExamedner(persons.get(j));
+
+                String maxJob = getMaxJob(persons.get(i).getJob());
+                testManage.setExaminerOfJob(maxJob);
+                maxJob = getMaxJob(persons.get(j).getJob());
+                testManage.setExamednerOfJob(maxJob);
                 testManageService.save(testManage);
 
             }
@@ -227,6 +234,21 @@ public class TestStartController {
 //        testManage.setExamedner();
         String json = mapper.writeValueAsString(val);// 将map转换成json字符串
         return json;
+    }
+
+    private String getMaxJob(String job) {
+        String maxJob = "";
+        if ((job.contains("首席专家")) && (!job.contains("副"))) {
+            maxJob = "首席专家";
+        } else if (job.contains("副首席专家")) {
+            maxJob = "副首席专家";
+        } else if (job.contains("岗位专家")) {
+            maxJob = "岗位专家";
+        } else {
+            maxJob = "综合试验站站长";
+        }
+
+        return maxJob;
     }
 
 

@@ -25,6 +25,9 @@ public class TestManage {
     @JoinColumn(name = "examedner_id",referencedColumnName = "id")
     private Person examedner; //被评分人
 
+    private String examinerOfJob;//评分人的职位
+    private String examednerOfJob; //被评分人的职位
+
 //    @ManyToOne
 //    private System system;//所属体系
 
@@ -80,6 +83,23 @@ public class TestManage {
         this.examedner = examedner;
     }
 
+    public String getExaminerOfJob() {
+        return examinerOfJob;
+    }
+
+    public void setExaminerOfJob(String examinerOfJob) {
+        this.examinerOfJob = examinerOfJob;
+    }
+
+
+    public String getExamednerOfJob() {
+        return examednerOfJob;
+    }
+
+    public void setExamednerOfJob(String examednerOfJob) {
+        this.examednerOfJob = examednerOfJob;
+    }
+
     public System getSystem() {
         return system;
     }
@@ -111,6 +131,8 @@ public class TestManage {
                 ", year='" + year + '\'' +
                 ", perExaminer=" + perExaminer +
                 ", eptExaminer=" + eptExaminer +
+                ", examinerOfJob=" + examinerOfJob +
+                ", examednerOfJob=" + examednerOfJob +
                 ", examedner=" + examedner +
                 ", system=" + system +
                 ", date='" + date + '\'' +

@@ -66,9 +66,7 @@ public class TestScoreController {
         testScore.setSum(sum);
         testScore.setId(0);
         testScore.setTestManage(testManage);
-        System.out.println(testScore);
         testScoreService.save(testScore);// 封装到service层
-
         testManageService.updateState(id,1);
         //return "redirect:/test_score?test_manage_id=" + testScore.getTestManage().getId();// 转发到：test_score.jsp视图
         return "id";// 转发到：test_score.jsp视图

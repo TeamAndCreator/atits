@@ -271,16 +271,16 @@
 
                         <ul class="submenu">
                             <li class="" onclick="show(this)"><a
-                                    href="bank" target="iframe">
+                                    href="test_start" target="iframe">
                                 <i class="menu-icon fa fa-caret-right"></i> 考评启动管理
                             </a> <b class="arrow"></b></li>
 
-                                <li class="" onclick="show(this)"><a href="bank" target="iframe">
+                                <li class="" onclick="show(this)"><a href="test_people" target="iframe">
                                 <i class="menu-icon fa fa-shield"></i>
                                 <span class="menu-text"> 外聘人员注册</span>
                                 </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
+                            <li class="" onclick="show(this)"><a href="test_manage" target="iframe">
                                 <i class="menu-icon fa fa-arrows"></i>
                                 <span class="menu-text"> 考评管理 </span>
                             </a> <b class="arrow"></b></li>
@@ -379,16 +379,16 @@
 
                         <ul class="submenu">
                             <li class="" onclick="show(this)"><a
-                                    href="bank" target="iframe">
+                                    href="test_start" target="iframe">
                                 <i class="menu-icon fa fa-caret-right"></i> 考评启动管理
                             </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
+                            <li class="" onclick="show(this)"><a href="test_people" target="iframe">
                                 <i class="menu-icon fa fa-shield"></i>
                                 <span class="menu-text"> 外聘人员注册</span>
                             </a> <b class="arrow"></b></li>
 
-                            <li class="" onclick="show(this)"><a href="bank" target="iframe">
+                            <li class="" onclick="show(this)"><a href="test_manage" target="iframe">
                                 <i class="menu-icon fa fa-arrows"></i>
                                 <span class="menu-text"> 考评管理 </span>
                             </a> <b class="arrow"></b></li>
@@ -651,11 +651,11 @@
 <script src="assets/js/atits-js/home.js"></script>
 
 
-<%--<c:if test="${person.password eq '123456'}">--%>
-    <%--<script type="text/javascript">--%>
-        <%--alert("您的初始密码尚未修改，请及时修改密码！");--%>
-    <%--</script>--%>
-<%--</c:if>--%>
+<c:if test="${person.password eq '123456'}">
+    <script type="text/javascript">
+        alert("您的初始密码尚未修改，请及时修改密码！");
+    </script>
+</c:if>
 
 <script type="text/javascript">
     /*********************点击事件*********************/

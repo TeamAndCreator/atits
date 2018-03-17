@@ -140,7 +140,7 @@
                                         </c:when>
                                         <c:when test="${map.testStarts.state==1}">
                                             <td class="hidden-480">
-                                                    <button type="button" class="btn btn-success btn-xs state1"
+                                                    <button type="button" class="btn btn-success btn-xs state1" disabled="true"
                                                             id="${map.testStarts.id}">考&nbsp;评&nbsp;中
                                                     </button>
                                             </td>

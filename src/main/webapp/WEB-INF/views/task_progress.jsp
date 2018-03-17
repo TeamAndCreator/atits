@@ -695,7 +695,6 @@
 <script src="assets/bootstrap-fileinput/js/fileinput.min.js"></script>
 <script src="assets/bootstrap-fileinput/js/locales/zh.js"></script>
 
-<script src="assets/js/atits-js/dynamic_add.js"></script>
 </body>
 
 </html>

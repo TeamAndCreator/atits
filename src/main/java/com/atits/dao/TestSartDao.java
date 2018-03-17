@@ -21,11 +21,12 @@ public class TestSartDao {
     /*以下：是系统动态显示：相关方法*/
     /*
      * 查询所有的动态：方法
-	 */
+     */
     public List<TestStart> findAll() {
         String hql = "from t_test_start order by system.id";
         return getSession().createQuery(hql).list();
     }
+
     public TestStart findById(Integer id) {
         String hql = "from t_test_start where id=:id";
         return (TestStart) getSession().createQuery(hql).setParameter("id", id).uniqueResult();
@@ -33,7 +34,7 @@ public class TestSartDao {
 
     public List<TestStart> findAll(Integer state) {
         String hql = "from t_test_start where state=:state order by system.id";
-        return getSession().createQuery(hql).setParameter("state",state).list();
+        return getSession().createQuery(hql).setParameter("state", state).list();
     }
 
 
@@ -65,11 +66,16 @@ public class TestSartDao {
         getSession().createQuery("delete from  t_test_start where " + hql).executeUpdate();
     }
 
-    public void updateState(Integer id,Integer val) {
+    public void updateState(Integer id, Integer val) {
         // TODO Auto-generated method stub
         String hql = "update t_test_start set state=:state where id=:id";
         getSession().createQuery(hql).setParameter("state", val).setParameter("id", id).executeUpdate();
 
     }
 
+    public List<TestStart> findSysperIdBysysId(Integer id) {
+        System.out.println(id);
+        String hql = "from t_test_start where system.id=:id";
+        return getSession().createQuery(hql).setParameter("id", id).list();
+    }
 }

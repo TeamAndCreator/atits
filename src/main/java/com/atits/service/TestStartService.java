@@ -20,26 +20,26 @@ public class TestStartService {
         return testSartDao.findAll();
     }
 
-    public List<TestStart> findAll(Integer state){//与集合不同，列表通常允许重复元素
+    public List<TestStart> findAll(Integer state) {//与集合不同，列表通常允许重复元素
         return testSartDao.findAll(state);
     }
 
     public List<TestStart> findByPage(int startRow, int pageSize) {
-        return testSartDao.findByPage(startRow,pageSize);
+        return testSartDao.findByPage(startRow, pageSize);
     }
 
-    public void save(TestStart testStart){
+    public void save(TestStart testStart) {
         testSartDao.save(testStart);
     }
 
     /*批量删除：*/
-    public void  deletes(List<Integer> idList){//void 可以不用返回参数，int要返回参数
+    public void deletes(List<Integer> idList) {//void 可以不用返回参数，int要返回参数
         testSartDao.deletes(idList);
     }
 
-    public void updateState(Integer id,Integer val) throws IOException {
+    public void updateState(Integer id, Integer val) throws IOException {
         // TODO Auto-generated method stub
-        testSartDao.updateState(id,val);
+        testSartDao.updateState(id, val);
 //        TestStart testStart = testSartDao.findById(id);
 //        String fileId=notice.getFileId();
 //        ObjectMapper mapper = new ObjectMapper();// json对象建立
@@ -50,6 +50,12 @@ public class TestStartService {
     }
 
     public TestStart findById(Integer id) {
-       return testSartDao.findById(id);
+        return testSartDao.findById(id);
+    }
+
+
+    public List<TestStart> findSysperIdBysysId(int id) {
+
+        return testSartDao.findSysperIdBysysId(id);
     }
 }
