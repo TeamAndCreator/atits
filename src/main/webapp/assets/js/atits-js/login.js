@@ -15,23 +15,14 @@ $(function () {
 
 // 登录
 $("#login").click(function () {
-    if ($("#sysId").val()==0){
+    if ($("#sysId").val() == 0) {
         alert("请选择体系名称！");
         return false
     }
     name = $("#userName").val();
-// 	alert(name.length);
-//     var reg = new RegExp("[\\u4E00-\\u9FFF]+", "g");
-//     if (reg.test(name) && name.length == 2) {//2个字的姓名
-//         temp = name.split('');
-//         temp.splice(1, 0, "    ");//空格的个数
-//         temp = temp.join("");
-//         name=temp;
-//
-//
-//     }
+
     var params = {
-        "sysId":$("#sysId").val(),
+        "sysId": $("#sysId").val(),
         "userName": name,
         "password": $("#password").val(),
         "imageCode": $("#imageCode").val()
@@ -44,16 +35,20 @@ $("#login").click(function () {
         },
         dataType: 'json',
         success: function (result) {
-            if (result.state == 0) {
-                alert("用户名或密码有错误！");
-            } else if (result.state == 1) {
-                alert("用户未激活，请联系管理员！");
+
+            if (result.code === 300) {
+                alert(result.msg);
+            } else if (result.code === 400) {
+                alert(result.msg);
                 //} else {
-            } else if (result.state == 2) {
-                alert("验证码错误！");
-                //} else {
+            } else if (result.code === 100) {
+                alert(result.msg);
             } else {
+                person = result.data["person"];
+                console.log(person);
+                sessionStorage.setItem('person', JSON.stringify(person));
                 window.location.href = "home";
+
             }
 
         }

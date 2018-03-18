@@ -54,25 +54,27 @@
 	</mvc:annotation-driven>
 
 	<!--登录拦截器 -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<mvc:exclude-mapping path="/assets/**" />
-			<mvc:exclude-mapping path="/docs/**" />
-			<bean class="com.atits.interceptor.LoginInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors>
+	<!--<mvc:interceptors>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**" />-->
+			<!--<mvc:exclude-mapping path="/assets/**" />-->
+			<!--<mvc:exclude-mapping path="/docs/**" />-->
+			<!--<bean class="com.atits.interceptor.LoginInterceptor"/>-->
+		<!--</mvc:interceptor>-->
+	<!--</mvc:interceptors>-->
 
 	<!-- 访问静态资源 -->
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:resources mapping="/docs/**" location="/docs/" />
 
-	<!-- 转发或重定向 -->
+	<!-- 页面跳转 -->
 	<mvc:view-controller path="/" view-name="login" />
 	<mvc:view-controller path="/image" view-name="image" />
 	<mvc:view-controller path="/home" view-name="home" />
 	<mvc:view-controller path="/test_start" view-name="test_start" />
 	<mvc:view-controller path="/person" view-name="person" />
+	<mvc:view-controller path="/activity" view-name="activity" />
+	<mvc:view-controller path="/activity_add" view-name="activity_add" />
 
 
 	<mvc:view-controller path="/person_home" view-name="person_home" />

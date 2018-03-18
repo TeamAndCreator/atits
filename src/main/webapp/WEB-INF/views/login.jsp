@@ -34,13 +34,22 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .row {
+            padding-top: 18%;
 
+        }
+    </style>
 
 
 </head>
 
-<body onload="loadTopWindow()" class="login-layout blur-login backg-img"
-      style="background-image: url(assets/images/log_background.jpg)">
+<body onload="loadTopWindow()">
+
+<div style="position:absolute; width:100%; height:100%; z-index:-1; left:0; top:0;">
+    <img src="${pageContext.request.contextPath}/assets/images/log_background.jpg" height="100%" width="100%"
+         style="position:absolute;left:0; top:0;">
+</div>
 <div class="main-container">
     <div class="main-content">
         <!-- /.row ------------------------------------全局框架：----------------------------------------------------->
@@ -48,14 +57,10 @@
 
             <%--添加响应式布局： <div class="col-sm-10 col-md-10 col-sm-offset-1">--%>
             <%--<div class="col-xs-6 col-md-10 col-lg-12">--%>
-            <div class="col-sm-10 col-md-10 col-sm-offset-1">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-xs-offset-8 col-sm-offset-8 col-md-offset-8">
                 <%-----------------------------------------------页面+登录信息框架---------------------------------------------------%>
                 <%--<div class="col-xs-6 col-md-10 col-lg-12">--%>
-                <div class="login-container login-pos">
 
-                    <div class="space-6"></div>
-
-                    <div class="position-relative">
                         <div id="login-box" class="login-box visible  border1 ">
                             <%-- 添加响应式布局：--%>
                             <%----------------------------------用户登录信息框架：--------------------------------------------------------%>
@@ -70,11 +75,10 @@
                                     <!-- 显示页面：验证码错误 -->
                                     <%--<div class='error_a' id="login_errMsg">${errMsg }</div>--%>
 
-                                    <form method="post" id="" onsubmit="return checkLoginForm();">
-                                        <fieldset>
-                                            <label class="block clearfix">
+                                    <fieldset>
+                                        <label class="block clearfix">
 													<span class="block input-icon input-icon-right">
-														<select name="system.id" id="sysId" class="form-control" >
+														<select name="system.id" id="sysId" class="form-control">
 															<option value="0">请选择体系名称</option>
 															<option value="1">省体系办</option>
 															<option value="2">水稻产业技术体系</option>
@@ -94,29 +98,28 @@
 															<option value="16">农业生态环保与质量安全产业技术体系</option>
 														</select>
 												</span>
-                                            </label>
-                                            <label class="block clearfix">
+                                        </label>
+                                        <label class="block clearfix">
 													<span class="block input-icon input-icon-right"> <input
                                                             type="text" class="form-control" placeholder="姓名或用户名"
                                                             id="userName"/>
 														<i class="ace-icon fa fa-user"></i>
 												</span>
-                                            </label>
-                                            <label class="block clearfix">
+                                        </label>
+                                        <label class="block clearfix">
 													<span class="block input-icon input-icon-right">
 														<input type="password" class="form-control" placeholder="密码"
                                                                id="password"/>
 														<i class="ace-icon fa fa-lock"></i>
 												</span>
-                                            </label>
+                                        </label>
 
-                                            <label class="block clearfix"><%--<label class="block clearfix">--%>
-                                                <%--<span>输入验证码:</span>--%>
-                                                <%--<span class="block input-icon input-icon-right">--%>
-                                                <span class="block input-icon input-icon-right">
+                                        <label class="block clearfix"><%--<label class="block clearfix">--%>
+                                            <%--<span>输入验证码:</span>--%>
+                                            <%--<span class="block input-icon input-icon-right">--%>
+                                            <span class="block input-icon input-icon-right">
 														<td>
-															<input class="text" placeholder="验证码"
-                                                                   style="width: 250px;margin-right: 10px;"
+															<input class="form-control col-ms-4" placeholder="验证码"
                                                                    type="text" value="${imageCode }" name="imageCode"
                                                                    id="imageCode">
 														</td>
@@ -128,36 +131,35 @@
 														</td>
 														<%--<i class="ace-icon fa fa-lock">锁</i>--%>
 													</span>
+                                        </label>
+
+
+                                        <div class="space"></div>
+
+                                        <div class="clearfix">
+                                            <label class="inline">
+                                                <%--<input type="checkbox" class="ace"/>--%>
+                                                <%--<span class="lbl"> 记住我</span>--%>
+                                                <div class="btn btn-xs btn-danger no-border" id="tip">
+                                                    <i class="icon-bolt bigger-110"></i>
+                                                    首次登录提示
+                                                    <i class="icon-arrow-right icon-on-right"></i>
+                                                </div>
+                                                <%--<div class="action-buttons">--%>
+                                                <%--<a class="btn btn-sm btn-primary" href="#modal-table" data-toggle="modal"> <i class="ace-icon fa  bigger-130">+添加</i>--%>
+                                                <%--</a>--%>
+                                                <%--</div>--%>
                                             </label>
 
+                                            <button type="button" class="width-35 pull-right btn btn-sm btn-primary"
+                                                    id="login">
+                                                <i class="ace-icon fa fa-key"></i>
+                                                <span class="bigger-110">登录</span>
+                                            </button>
+                                        </div>
 
-                                            <div class="space"></div>
-
-                                            <div class="clearfix">
-                                                <label class="inline">
-                                                    <%--<input type="checkbox" class="ace"/>--%>
-                                                    <%--<span class="lbl"> 记住我</span>--%>
-                                                        <div class="btn btn-xs btn-danger no-border" id="tip">
-                                                            <i class="icon-bolt bigger-110"></i>
-                                                                首次登录提示
-                                                            <i class="icon-arrow-right icon-on-right"></i>
-                                                        </div>
-                                                        <%--<div class="action-buttons">--%>
-                                                            <%--<a class="btn btn-sm btn-primary" href="#modal-table" data-toggle="modal"> <i class="ace-icon fa  bigger-130">+添加</i>--%>
-                                                            <%--</a>--%>
-                                                        <%--</div>--%>
-                                                </label>
-
-                                                <button type="button" class="width-35 pull-right btn btn-sm btn-primary"
-                                                        id="login">
-                                                    <i class="ace-icon fa fa-key"></i>
-                                                    <span class="bigger-110">登录</span>
-                                                </button>
-                                            </div>
-
-                                            <div class="space-4"></div>
-                                        </fieldset>
-                                    </form>
+                                        <div class="space-4"></div>
+                                    </fieldset>
 
 
                                 </div>
@@ -182,60 +184,56 @@
                         <!-- /.login-box -->
 
 
-                    </div>
-                    <!-- /.position-relative -->
-
 
                 </div>
             </div>
-                <%--模态框--%>
-                <div id="modal_table" class="modal fade" tabindex="-1" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header no-padding">
-                                <div class="table-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">
-                                        <span class="white">&times;</span>
-                                    </button>
-                                    登录提示
-                                </div>
-                            </div>
-                            <div class="modal-body no-padding">
-                                <table
-                                        class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                    <ul class="list-unstyled spaced inline bigger-150 ">
-                                        <div id="demo-summernote-edit" style="display: block;padding-left: 1em;">
-                                            <br />
-                                            <p>首次登录有两种登录方式供您选择：</p>
-                                            <p style="color: red;">①姓名登录</p>（例如：农业信息化产业技术体系，张三）
-                                            <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
-                                            <p style="text-indent: 2em;">●输入姓名：张三</p>
-                                            <p style="text-indent: 2em;">●默认密码：123456</p>
-                                            <p style="text-indent: 2em;">●输入验证码点击登录</p><br /><br />
-
-                                            <p style="color: red;">②用户名登录</p>（例如：农业信息化产业技术体系，李四）
-                                            <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
-                                            <p style="text-indent: 2em;">●输入姓名首字母+0001(人名三个字的后跟001)：ls0001</p>
-                                            <p style="text-indent: 2em;">●默认密码：123456</p>
-                                            <p style="text-indent: 2em;">●输入验证码点击登录</p>
-                                        </div>
-                                    </ul>
-                                </table>
-                            </div>
-
-                            <div class="modal-footer no-margin-top">
-                                <button class="btn btn-sm btn-success pull-left"
-                                        data-dismiss="modal" >
-                                    <i class="ace-icon fa fa-check"></i>知道了
+            <%--模态框--%>
+            <div id="modal_table" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header no-padding">
+                            <div class="table-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">
+                                    <span class="white">&times;</span>
                                 </button>
+                                登录提示
                             </div>
                         </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
+                        <div class="modal-body no-padding">
+                            <table
+                                    class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                <ul class="list-unstyled spaced inline bigger-150 ">
+                                    <div id="demo-summernote-edit" style="display: block;padding-left: 1em;">
+                                        <br/>
+                                        <p>首次登录有两种登录方式供您选择：</p>
+                                        <p style="color: red;">①姓名登录</p>（例如：农业信息化产业技术体系，张三）
+                                        <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
+                                        <p style="text-indent: 2em;">●输入姓名：张三</p>
+                                        <p style="text-indent: 2em;">●默认密码：123456</p>
+                                        <p style="text-indent: 2em;">●输入验证码点击登录</p><br/><br/>
 
+                                        <p style="color: red;">②用户名登录</p>（例如：农业信息化产业技术体系，李四）
+                                        <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
+                                        <p style="text-indent: 2em;">●输入姓名首字母+0001(人名三个字的后跟001)：ls0001</p>
+                                        <p style="text-indent: 2em;">●默认密码：123456</p>
+                                        <p style="text-indent: 2em;">●输入验证码点击登录</p>
+                                    </div>
+                                </ul>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer no-margin-top ">
+                            <button class="btn btn-sm btn-success pull-right"
+                                    data-dismiss="modal">
+                                <i class="ace-icon fa fa-check"></i>知道了
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
 
 
             <!-- /.col -->

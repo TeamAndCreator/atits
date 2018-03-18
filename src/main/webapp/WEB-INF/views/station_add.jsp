@@ -196,8 +196,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"
-									   for="form-field-1-1"> 综合试验站基本信息 </label>
+								<label class="col-sm-3 control-label no-padding-right"> 综合试验站基本信息 </label>
 								<div class="col-sm-4">
 										<textarea name="content"
 												  class="autosize-transition form-control"
