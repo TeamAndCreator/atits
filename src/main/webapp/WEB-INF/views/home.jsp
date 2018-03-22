@@ -79,7 +79,7 @@
                         <c:when
                                 test="${person.permission!=1}">
                             <i class="fa fa-leaf"></i>
-                            <span class="biaoti">${person.system.sysName}</span>
+                            <span class="biaoti">${sessionScope.person.system.sysName}</span>
                         </c:when>
                         <c:otherwise>
                             <i class="fa fa-leaf"></i>

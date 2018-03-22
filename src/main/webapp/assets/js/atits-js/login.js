@@ -15,7 +15,7 @@ $(function () {
 
 // 登录
 $("#login").click(function () {
-    if ($("#sysId").val() == 0) {
+    if ($("#sysId").val() === 0) {
         alert("请选择体系名称！");
         return false
     }

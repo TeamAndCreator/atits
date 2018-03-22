@@ -61,188 +61,187 @@
                 <%-----------------------------------------------页面+登录信息框架---------------------------------------------------%>
                 <%--<div class="col-xs-6 col-md-10 col-lg-12">--%>
 
-                        <div id="login-box" class="login-box visible  border1 ">
-                            <%-- 添加响应式布局：--%>
-                            <%----------------------------------用户登录信息框架：--------------------------------------------------------%>
+                <div id="login-box" class="login-box visible  border1 ">
+                    <%-- 添加响应式布局：--%>
+                    <%----------------------------------用户登录信息框架：--------------------------------------------------------%>
 
-                            <div class="widget-body">
-                                <div class="widget-main">
-                                    <h4 class="header blue lighter bigger">
-                                        <i class="ace-icon fa fa-coffee green"></i> 用户登录信息
-                                    </h4>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <h4 class="header blue lighter bigger">
+                                <i class="ace-icon fa fa-coffee green"></i> 用户登录信息
+                            </h4>
 
-                                    <div class="space-6"></div>
-                                    <!-- 显示页面：验证码错误 -->
-                                    <%--<div class='error_a' id="login_errMsg">${errMsg }</div>--%>
+                            <div class="space-6"></div>
+                            <!-- 显示页面：验证码错误 -->
+                            <%--<div class='error_a' id="login_errMsg">${errMsg }</div>--%>
 
-                                    <fieldset>
-                                        <label class="block clearfix">
-													<span class="block input-icon input-icon-right">
-														<select name="system.id" id="sysId" class="form-control">
-															<option value="0">请选择体系名称</option>
-															<option value="1">省体系办</option>
-															<option value="2">水稻产业技术体系</option>
-															<option value="3">小麦产业技术体系</option>
-															<option value="4">玉米产业技术体系</option>
-															<option value="5">油菜棉花产业技术体系</option>
-															<option value="6">生猪产业技术体系</option>
-															<option value="7">家禽产业技术体系</option>
-															<option value="8">牛羊产业技术体系</option>
-															<option value="9">水产产业技术体系</option>
-															<option value="10">蔬菜产业技术体系</option>
-															<option value="11">果树产业技术体系</option>
-															<option value="12">茶叶产业技术体系</option>
-															<option value="13">蚕桑中药材产业技术体系</option>
-															<option value="14">农业信息化产业技术体系</option>
-															<option value="15">农机装备应用产业技术体系</option>
-															<option value="16">农业生态环保与质量安全产业技术体系</option>
-														</select>
-												</span>
-                                        </label>
-                                        <label class="block clearfix">
-													<span class="block input-icon input-icon-right"> <input
-                                                            type="text" class="form-control" placeholder="姓名或用户名"
-                                                            id="userName"/>
-														<i class="ace-icon fa fa-user"></i>
-												</span>
-                                        </label>
-                                        <label class="block clearfix">
+
+                            <div class=" clearfix ">
+                                <span class="block input-icon input-icon-right">
+                                    <select name="system.id" id="sysId" class="form-control">
+                                        <option value="0">请选择体系名称</option>
+                                        <option value="1">省体系办</option>
+                                        <option value="2">水稻产业技术体系</option>
+                                        <option value="3">小麦产业技术体系</option>
+                                        <option value="4">玉米产业技术体系</option>
+                                        <option value="5">油菜棉花产业技术体系</option>
+                                        <option value="6">生猪产业技术体系</option>
+                                        <option value="7">家禽产业技术体系</option>
+                                        <option value="8">牛羊产业技术体系</option>
+                                        <option value="9">水产产业技术体系</option>
+                                        <option value="10">蔬菜产业技术体系</option>
+                                        <option value="11">果树产业技术体系</option>
+                                        <option value="12">茶叶产业技术体系</option>
+                                        <option value="13">蚕桑中药材产业技术体系</option>
+                                        <option value="14">农业信息化产业技术体系</option>
+                                        <option value="15">农机装备应用产业技术体系</option>
+                                        <option value="16">农业生态环保与质量安全产业技术体系</option>
+                                    </select>
+                            </span>
+                            </div>
+                            <div class="space-6"></div>
+                            <div class="block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input type="text" class="form-control" placeholder="姓名或用户名"
+                                           id="userName"/>
+										<i class="ace-icon fa fa-user"></i>
+                                </span>
+                            </div>
+                            <div class="space-6"></div>
+                            <div class="block clearfix">
 													<span class="block input-icon input-icon-right">
 														<input type="password" class="form-control" placeholder="密码"
                                                                id="password"/>
 														<i class="ace-icon fa fa-lock"></i>
 												</span>
-                                        </label>
-
-                                        <label class="block clearfix"><%--<label class="block clearfix">--%>
-                                            <%--<span>输入验证码:</span>--%>
-                                            <%--<span class="block input-icon input-icon-right">--%>
-                                            <span class="block input-icon input-icon-right">
-														<td>
-															<input class="form-control col-ms-4" placeholder="验证码"
-                                                                   type="text" value="${imageCode }" name="imageCode"
-                                                                   id="imageCode">
-														</td>
-														<td>
-															<img onclick="loadimage();" title="换一张试试" name="randImage"
-                                                                 id="randImage" src="image.jsp" width="72" height="28"
-                                                                 border="1"
-                                                                 align="absmiddle">
-														</td>
-														<%--<i class="ace-icon fa fa-lock">锁</i>--%>
-													</span>
-                                        </label>
-
-
-                                        <div class="space"></div>
-
-                                        <div class="clearfix">
-                                            <label class="inline">
-                                                <%--<input type="checkbox" class="ace"/>--%>
-                                                <%--<span class="lbl"> 记住我</span>--%>
-                                                <div class="btn btn-xs btn-danger no-border" id="tip">
-                                                    <i class="icon-bolt bigger-110"></i>
-                                                    首次登录提示
-                                                    <i class="icon-arrow-right icon-on-right"></i>
-                                                </div>
-                                                <%--<div class="action-buttons">--%>
-                                                <%--<a class="btn btn-sm btn-primary" href="#modal-table" data-toggle="modal"> <i class="ace-icon fa  bigger-130">+添加</i>--%>
-                                                <%--</a>--%>
-                                                <%--</div>--%>
-                                            </label>
-
-                                            <button type="button" class="width-35 pull-right btn btn-sm btn-primary"
-                                                    id="login">
-                                                <i class="ace-icon fa fa-key"></i>
-                                                <span class="bigger-110">登录</span>
-                                            </button>
+                            </div>
+                            <div class="space-6"></div>
+                            <div class="block clearfix">
+                                <span class="block input-icon input-icon-right ">
+                                    <div class="col-xs-7 pull-left">
+                                        <input class="form-control " placeholder="验证码"
+                                               type="text" value="${imageCode }"
+                                               id="imageCode"/>
                                         </div>
-
-                                        <div class="space-4"></div>
-                                    </fieldset>
-
-
-                                </div>
-                                <!-- /.widget-main -->
-
-                                <div class="toolbar clearfix">
-                                    <div></div>
-
-                                    <div>
-                                        <a href="to_register"
-                                           class="user-signup-link"> <span
-                                                class="h4">立即注册</span> <i class="ace-icon fa fa-arrow-right"></i>
-                                        </a>
+                                    <div class=" col-xs-5 ">
+                                        <img onclick="loadimage();" title="换一张试试" class="pull-right"
+                                             id="randImage" src="image.jsp" width="72" height="35"
+                                             border="1"
+                                             align="absmiddle">
                                     </div>
-                                </div>
+                                </span>
                             </div>
+                            <div class="space-6"></div>
+
+                            <div class=" clearfix">
+                                <label class="inline">
+                                    <%--<input type="checkbox" class="ace"/>--%>
+                                    <%--<span class="lbl"> 记住我</span>--%>
+                                    <div class="btn btn-sm btn-danger no-border" id="tip">
+                                        <i class="icon-bolt bigger-110"></i>
+                                        首次登录提示
+                                        <i class="icon-arrow-right icon-on-right"></i>
+                                    </div>
+                                    <%--<div class="action-buttons">--%>
+                                    <%--<a class="btn btn-sm btn-primary" href="#modal-table" data-toggle="modal"> <i class="ace-icon fa  bigger-130">+添加</i>--%>
+                                    <%--</a>--%>
+                                    <%--</div>--%>
+                                </label>
 
 
-                            <%--</div>&lt;%&ndash; ：响应式布局：&ndash;%&gt;--%>
-                            <!-- /.widget-body -->
-                        </div>
-                        <!-- /.login-box -->
 
-
-
-                </div>
-            </div>
-            <%--模态框--%>
-            <div id="modal_table" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header no-padding">
-                            <div class="table-header">
-                                <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">
-                                    <span class="white">&times;</span>
+                               <button type="button" class="width-35 pull-right btn btn-sm btn-primary"
+                                        id="login">
+                                    <i class="ace-icon fa fa-key"></i>
+                                    <span class="bigger-110">登录</span>
                                 </button>
-                                登录提示
                             </div>
-                        </div>
-                        <div class="modal-body no-padding">
-                            <table
-                                    class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                <ul class="list-unstyled spaced inline bigger-150 ">
-                                    <div id="demo-summernote-edit" style="display: block;padding-left: 1em;">
-                                        <br/>
-                                        <p>首次登录有两种登录方式供您选择：</p>
-                                        <p style="color: red;">①姓名登录</p>（例如：农业信息化产业技术体系，张三）
-                                        <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
-                                        <p style="text-indent: 2em;">●输入姓名：张三</p>
-                                        <p style="text-indent: 2em;">●默认密码：123456</p>
-                                        <p style="text-indent: 2em;">●输入验证码点击登录</p><br/><br/>
 
-                                        <p style="color: red;">②用户名登录</p>（例如：农业信息化产业技术体系，李四）
-                                        <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
-                                        <p style="text-indent: 2em;">●输入姓名首字母+0001(人名三个字的后跟001)：ls0001</p>
-                                        <p style="text-indent: 2em;">●默认密码：123456</p>
-                                        <p style="text-indent: 2em;">●输入验证码点击登录</p>
-                                    </div>
-                                </ul>
-                            </table>
-                        </div>
+                            <div class="space-4"></div>
+                        </
+                        >
 
-                        <div class="modal-footer no-margin-top ">
-                            <button class="btn btn-sm btn-success pull-right"
-                                    data-dismiss="modal">
-                                <i class="ace-icon fa fa-check"></i>知道了
-                            </button>
+
+                    </div>
+                    <!-- /.widget-main -->
+
+                    <div class="toolbar clearfix">
+                        <div></div>
+
+                        <div>
+                            <a href="to_register"
+                               class="user-signup-link"> <span
+                                    class="h4">立即注册</span> <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
+
+
+                <%--</div>&lt;%&ndash; ：响应式布局：&ndash;%&gt;--%>
+                <!-- /.widget-body -->
             </div>
+            <!-- /.login-box -->
 
 
-            <!-- /.col -->
         </div>
+    </div>
+    <%--模态框--%>
+    <div id="modal_table" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">
+                            <span class="white">&times;</span>
+                        </button>
+                        登录提示
+                    </div>
+                </div>
+                <div class="modal-body no-padding">
+                    <table
+                            class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                        <ul class="list-unstyled spaced inline bigger-150 ">
+                            <div id="demo-summernote-edit" style="display: block;padding-left: 1em;">
+                                <br/>
+                                <p>首次登录有两种登录方式供您选择：</p>
+                                <p style="color: red;">①姓名登录</p>（例如：农业信息化产业技术体系，张三）
+                                <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
+                                <p style="text-indent: 2em;">●输入姓名：张三</p>
+                                <p style="text-indent: 2em;">●默认密码：123456</p>
+                                <p style="text-indent: 2em;">●输入验证码点击登录</p><br/><br/>
 
-        <!-- /.row -->
+                                <p style="color: red;">②用户名登录</p>（例如：农业信息化产业技术体系，李四）
+                                <p style="text-indent: 2em;">●选择体系：农业信息化产业技术体系</p>
+                                <p style="text-indent: 2em;">●输入姓名首字母+0001(人名三个字的后跟001)：ls0001</p>
+                                <p style="text-indent: 2em;">●默认密码：123456</p>
+                                <p style="text-indent: 2em;">●输入验证码点击登录</p>
+                            </div>
+                        </ul>
+                    </table>
+                </div>
+
+                <div class="modal-footer no-margin-top ">
+                    <button class="btn btn-sm btn-success pull-right"
+                            data-dismiss="modal">
+                        <i class="ace-icon fa fa-check"></i>知道了
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 
-    <!-- /.main-content -->
+
+    <!-- /.col -->
+</div>
+
+<!-- /.row -->
+</div>
+
+<!-- /.main-content -->
 </div>
 <!-- /.main-container -->
 
