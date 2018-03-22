@@ -64,6 +64,7 @@ $(function () {
             type: "POST",
             data: $("#task_progress_add_form").serialize(),
             success: function (result) {
+                    alert(result);
                     location.reload();
                 // $(document).ready(function () {
                 // });

@@ -95,7 +95,11 @@ public class TaskProgressController {
         HttpSession session = request.getSession();
         Person person = (Person) session.getAttribute("person");
         ObjectMapper mapper = new ObjectMapper();// json对象建立
-
+        try {
+            taskProgressService.save(taskProgress);// 封装到service层
+        } catch (Exception e) {
+            return "bank";
+        }
         return "ok";
     }
 
