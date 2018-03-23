@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>安徽省现代农业产业技术体系展示</title>
+    <title>现代农业产业技术体系展示</title>
 
     <meta name="description" content="overview &amp; stats"/>
     <meta name="viewport"
@@ -134,20 +134,25 @@
              role="navigation">
             <ul class="nav ace-nav log_backg">
                 <!-- #section:basics/navbar.user_menu -->
+
+                <%--<li class="light-blue">--%>
+                <%--<a data-toggle="dropdown"  class="dropdown-toggle">--%>
+                <%--<p id="time" class="bigger-110"></p>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+
+
                 <li class="light-blue">
-                    <a data-toggle="dropdown"  class="dropdown-toggle">
-                        <p id="time" class="bigger-110"></p>
+                    <a href='system_detail?id=1'>
+                        &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
                 <li class="light-blue">
-                    <a data-toggle="dropdown" href='system_detail?id=1' class="dropdown-toggle">
-                        <img class="nav-user-photo" src="assets/avatars/avatar4.png" />
-                        <span class="user-info">
-                            <small>欢迎,</small>点击登录
-                        </span>
-                        <%--<i class="ace-icon fa fa-caret-down"></i>--%>
+                    <a href='system_detail?id=1'>
+                        &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
+
 
                 <!-- /section:basics/navbar.user_menu -->
 
@@ -220,18 +225,19 @@
                                                                                  title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                <a href="notice_detail?id=${notice.id}"
-                                                                                   class="right">详情</a>
                                                                                 <span class="pull-right">${notice.time}</span>
+                                                                                <a href="notice_detail?id=${notice.id}"
+                                                                                   class="pull-right">详情</a>
+
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <li class="news-item "
-                                                                            id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                                href="notice_detail?id=${notice.id}"
-                                                                                class="right">详情</a>
+                                                                            id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${notice.time}</span>
+                                                                            <a href="notice_detail?id=${notice.id}"
+                                                                                    class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -246,18 +252,18 @@
                                                                                  title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                <a href="notice_detail?id=${notice.id}"
-                                                                                   class="right">详情</a>
                                                                                 <span class="pull-right">${notice.time}</span>
+                                                                                <a href="notice_detail?id=${notice.id}"
+                                                                                class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <li class="news-item "
-                                                                            id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                                href="notice_detail?id=${notice.id}"
-                                                                                class="right">详情</a>
+                                                                            id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${notice.time}</span>
+                                                                            <a href="notice_detail?id=${notice.id}"
+                                                                            class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -296,18 +302,18 @@
                                                                                  title=${dynamic.title}>${dynamic.title.substring(0,22)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                <a href="dynamic_detail?id=${dynamic.id}"
-                                                                                   class="right">详情</a>
                                                                                 <span class="pull-right">${dynamic.time}</span>
+                                                                                <a href="dynamic_detail?id=${dynamic.id}"
+                                                                                class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <li class="news-item "
-                                                                            id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                                href="dynamic_detail?id=${dynamic.id}"
-                                                                                class="right">详情</a>
+                                                                            id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${dynamic.time}</span>
+                                                                            <a href="dynamic_detail?id=${dynamic.id}"
+                                                                            class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -331,18 +337,18 @@
                                                                                  title=${dynamic.title}>${dynamic.title.substring(0,22)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                <a href="dynamic_detail?id=${dynamic.id}"
-                                                                                   class="right">详情</a>
                                                                                 <span class="pull-right">${dynamic.time}</span>
+                                                                                <a href="dynamic_detail?id=${dynamic.id}"
+                                                                                class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <li class="news-item "
-                                                                            id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                                href="dynamic_detail?id=${dynamic.id}"
-                                                                                class="right">详情</a>
+                                                                            id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${dynamic.time}</span>
+                                                                            <a href="dynamic_detail?id=${dynamic.id}"
+                                                                            class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -383,18 +389,18 @@
                                                                          title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a href="notice_detail?id=${notice.id}"
-                                                                           class="right">详情</a>
                                                                         <span class="pull-right">${notice.time}</span>
+                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                        href="notice_detail?id=${notice.id}"
-                                                                        class="right">详情</a>
+                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
+                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -428,18 +434,18 @@
                                                                          title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a href="notice_detail?id=${notice.id}"
-                                                                           class="right">详情</a>
                                                                         <span class="pull-right">${notice.time}</span>
+                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                        href="notice_detail?id=${notice.id}"
-                                                                        class="right">详情</a>
+                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
+                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -579,18 +585,18 @@
                                                                          title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a href="notice_detail?id=${notice.id}"
-                                                                           class="right">详情</a>
                                                                         <span class="pull-right">${notice.time}</span>
+                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                        href="notice_detail?id=${notice.id}"
-                                                                        class="right">详情</a>
+                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
+                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -624,18 +630,18 @@
                                                                          title=${notice.title}>${notice.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a href="notice_detail?id=${notice.id}"
-                                                                           class="right">详情</a>
                                                                         <span class="pull-right">${notice.time}</span>
+                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                                                        href="notice_detail?id=${notice.id}"
-                                                                        class="right">详情</a>
+                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
+                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
