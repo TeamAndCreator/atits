@@ -293,10 +293,15 @@
                             class="menu-icon fa fa-cloud-download"></i>
                         <span class="menu-text"> 下载中心 </span>
                     </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="/activity"
+                    <li class="" onclick="show(this)"><a href="activity"
                                                          target="iframe"> <i
                             class="menu-icon fa fa-cloud-download"></i>
                         <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
                     </a> <b class="arrow"></b></li>
 
 

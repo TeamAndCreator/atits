@@ -3,8 +3,10 @@ package com.atits.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "t_activity")
-public class Activity {
+@Entity(name = "t_report")
+public class Report {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -45,14 +47,6 @@ public class Activity {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public System getSystem() {
-        return system;
-    }
-
-    public void setSystem(System system) {
-        this.system = system;
     }
 
     public String getContent() {
@@ -103,10 +97,17 @@ public class Activity {
         this.state = state;
     }
 
+    public System getSystem() {
+        return system;
+    }
+
+    public void setSystem(System system) {
+        this.system = system;
+    }
 
     @Override
     public String toString() {
-        return "Activity{" +
+        return "Report{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

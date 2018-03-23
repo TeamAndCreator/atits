@@ -102,7 +102,7 @@ public class RegulationController {
              {
         Regulation regulation = regulationService.findById(id);
 
-        if (regulation.getFileId() != "") {
+        if (!regulation.getFileId().equals("")) {
             String[] temp = regulation.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
