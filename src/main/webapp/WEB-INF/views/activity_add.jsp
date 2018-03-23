@@ -132,18 +132,14 @@
         $("input[name='editor.id']").val(person.id);
 
         $(".btn").click(function () {
+            $.ajax({
+                url: "activity_save",
+                type: "POST",
+                data: $("#from-add").serialize(),
+                success: function () {
 
-            activity = JSON.parse($("#from-add").serialize());
-            console.log(activity);
-
-            // $.ajax({
-            //     url: "activity_save",
-            //     type: "POST",
-            //     data: $("#from-add").serialize(),
-            //     success: function () {
-            //
-            //     }
-            // });
+                }
+            });
         });
 
     });

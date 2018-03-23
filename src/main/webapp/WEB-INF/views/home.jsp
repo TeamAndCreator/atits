@@ -303,6 +303,11 @@
                             class="menu-icon fa fa-cloud-download"></i>
                         <span class="menu-text"> 重大成果 </span>
                     </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
 
 
                     <li class="" onclick="show(this)"><a href="help"
@@ -426,6 +431,22 @@
 							下载中心</span>
                     </a> <b class="arrow"></b></li>
 
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
+
                     <li class="" onclick="show(this)"><a href="person_home">
                         <i class="menu-icon fa fa-male"></i> <span class="menu-text">
 									个人管理平台 </span>
@@ -524,6 +545,22 @@
                             href="sys_files?sysId=${person.system.id}" target="iframe"><i
                             class="menu-icon fa fa-cloud-download"></i><span class="menu-text">
 							下载中心</span>
+                    </a> <b class="arrow"></b></li>
+
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
                     </a> <b class="arrow"></b></li>
 
 
