@@ -45,12 +45,12 @@
     <br>
     <div class="row">
         <div class="col-xs-12">
-            <table id="example" class="display table table-striped table-bordered" style="width:100%">
+            <table id="example" class="display table table-striped" style="width:100%">
                 <thead>
                 <tr>
                     <th class="text-center">
                         <label>
-                            <input type="checkbox" class="checkbox-inline disabled" name="cb-check-all"/>
+                            <input type="checkbox" class="checkbox-inline" name="cb-check-all"/>
                         </label>
                     </th>
                     <th class="text-center">标题</th>
