@@ -503,13 +503,14 @@
             dataType: 'json',
             success: function (result) {
                 $('#' + $("#state_id").val()).addClass('disabled');
-                if (result == 1) {
-                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-success").html("通&nbsp;&nbsp;&nbsp;&nbsp;过");
-
-                }
-                else {
-                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-danger").html("未通过");
-                }
+//                if (result == 1) {
+//                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-success").html("通&nbsp;&nbsp;&nbsp;&nbsp;过");
+//
+//                }
+//                else {
+//                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-danger").html("未通过");
+//                }
+                location.reload();
             }
         });
         $('#mySmallModalLabel').modal('hide');
