@@ -236,9 +236,7 @@
                                        class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="center"><label class="position-relative">
-                                            <input type="checkbox" class="ace"/> <span class="lbl"></span>
-                                        </label></th>
+                                        <th class="center"></th>
                                         <th class="text-center">承担人</th>
                                         <th class="text-center">所属体系</th>
                                         <th class="text-center">任务合同</th>

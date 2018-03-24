@@ -135,6 +135,18 @@ public class TaskProgressController {
     @RequestMapping(value = "/task_progress_detail", method = RequestMethod.GET)
     public String findById(@RequestParam("id") Integer id, Model model) {
         TaskProgress taskProgress = taskProgressService.findById(id);
+        if (taskProgress.getFileId() != "") {
+            String[] temp = taskProgress.getFileId().split(",");// 以逗号拆分字符串
+            Integer[] ids = new Integer[temp.length];// int类型数组
+            for (int i = 0; i < temp.length; i++) {
+                ids[i] = Integer.parseInt(temp[i]);// 整数数组
+            }
+            List<Files> files = filesService.findByIds(ids);
+            if (files.isEmpty()) {
+                files = null;
+            }
+            model.addAttribute("files", files);
+        }
         model.addAttribute("taskProgress", taskProgress);
         return "task_progress_detail";
     }
@@ -163,7 +175,7 @@ public class TaskProgressController {
      * @return
      */
     @RequestMapping(value = "/task_progress_deletes/{idList}", method = RequestMethod.DELETE)
-    public String deteles(@PathVariable("idList") List<Integer> idList, HttpServletRequest request) {
+    public String deteles(@PathVariable("idList") List<Integer> idList, HttpServletRequest request)throws IOException {
         taskProgressService.deletes(idList);//
         HttpSession session = request.getSession();
         Person person = (Person) session.getAttribute("person");

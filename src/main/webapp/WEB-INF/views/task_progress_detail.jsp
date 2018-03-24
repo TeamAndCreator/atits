@@ -66,7 +66,22 @@
     <!-- /section:basics/sidebar -->
     <div class="main-content">
         <!-- #section:basics/content.breadcrumbs -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
 
+            <ul class="breadcrumb">
+                <li><i class="ace-icon fa fa-home home-icon"></i> <a href="index">首页</a>
+                </li>
+
+                <li><a href="task_progress">工作进展</a></li>
+                <li class="active">详情</li>
+            </ul>
+        </div>
 
         <!-- /section:basics/content.breadcrumbs -->
         <div class="page-content">
@@ -83,7 +98,7 @@
                         <div class="error-container">
                             <div class="well">
                                     <ul class="pager">
-                                        <c:if test="${person.permission != 1}">
+                                        <c:if test="${person.permission != 1&&taskProgress.subTask.task.bearer.name==person.name}">
                                             <li class="next  bigger-120 hidden">
                                                 <a href="#"><i class="ace-icon fa fa-pencil"></i> 修改</a>
                                             </li>
@@ -97,8 +112,13 @@
                                     <h3 class="blue center">${taskProgress.title}</h3>
                                 </div>
                                 <h5 class="publish">
-                                    <span>编辑人:${taskProgress.subTask.bearer.name}</span> &nbsp;
-                                    &nbsp;&nbsp;&nbsp;<span>时间:${taskProgress.time}</span>
+                                    <span>
+											来源&nbsp;:&nbsp;${taskProgress.subTask.task.system.sysName}
+										</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span >编辑人&nbsp;:&nbsp;${taskProgress.subTask.task.bearer.name}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span>时间&nbsp;:&nbsp;${taskProgress.time}</span>&nbsp;<span>${taskProgress.date}</span>
                                 </h5><hr/>
                                 <div class="col-md-11"  style="float: none;display: block;margin-left: auto;margin-right: auto;">
                                     <div class="space"></div>
@@ -135,69 +155,6 @@
                 <!-- /.row -->
             </div>
             <!-- /.page-content-area -->
-            <div id="modal-table" class="modal fade" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header no-padding">
-                            <div class="table-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    <span class="white">&times;</span>
-                                </button>
-                                详情
-                            </div>
-                        </div>
-                        <form id="task_progress_add_form">
-                            <div class="modal-body no-padding">
-                                <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                    <tbody>
-                                    <br/>
-                                    <tr>
-                                        <td class="align-right">标题：</td>
-                                        <td><textarea name="title" id="form-field-1" cols="50" rows="1"></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-right">任务安排：</td>
-                                        <td><select class="form-control" id="subTasks" name="subTask.id">
-                                            <option value="0">--请选择--</option>
-                                        </select>
-                                        </td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-right">进展描述：</td>
-                                        <td><textarea class="form-control" type="text" name="content" id="form-field-2"
-                                                      placeholder="请输入详细工作进展"
-                                                      style="height: 150px"></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-right">上传附件：</td>
-                                        <td>
-                                            <!-- #section:custom/file-input -->
-                                            <input type="file" id="id-input-file-2" name="fileId"/>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="modal-footer no-margin-top">
-                                <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
-                                    <i class="ace-icon fa fa-times"></i>关闭
-                                </button>
-                                <button class="btn btn-sm btn-success pull-left" data-dismiss="modal"
-                                        id="task_progress_save" >
-                                    <%--onclick="javasript:window.alert('提交成功！')"--%>
-                                    <i class="ace-icon fa fa-check"></i>提交
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
         </div>
         <!-- /.page-content -->
     </div>
