@@ -64,30 +64,33 @@ $(function () {
             type: "POST",
             data: $("#task_progress_add_form").serialize(),
             success: function (result) {
-                    alert(result);
                     location.reload();
-                // $(document).ready(function () {
-                // });
-
-
             }
         });
     });
 
+    params={
+        "sysId":$("#sysId").val(),
+        "type":"工作进展",
+        "personId":$("#personId").val()
+    };
+
 
     $(".input-id").fileinput({
-        language: 'zh',// 设置语言
-        uploadUrl: 'files_upload', // 上传的地址ZF
-        allowedFileExtensions: ['xls', 'xlsx', 'doc', 'docx', 'pdf', 'txt'],// 接收的文件后缀
-        maxFileCount: 10, // 文件数量
-        showUpload: true, // 是否显示上传按钮
+        language : 'zh',// 设置语言
+        uploadUrl : 'files_upload/'+JSON.stringify(params), // 上传的地址ZF
+        allowedPreviewTypes: ['image'],
+        allowedFileExtensions : [ 'xls','xlsx', 'doc', 'docx', 'pdf','txt'],// 接收的文件后缀
+        maxFileCount : 10, // 文件数量
+        maxFileSize : 100000,
+        showUpload : true, // 是否显示上传按钮
         // showCaption : true,// 是否显示标题
-        browseClass: "btn btn-sm btn-primary",
-        removeClass: "btn btn-sm btn-default",
-        uploadClass: "btn btn-sm btn-default",// 按钮样式
+        browseClass : "btn btn-sm btn-primary",
+        removeClass : "btn btn-sm btn-default",
+        uploadClass : "btn btn-sm btn-default",// 按钮样式
         dropZoneEnabled: true,//是否显示拖拽区域
         enctype: 'multipart/form-data',
-        slugCallback: function (filename) {
+        slugCallback : function(filename) {
             return filename.replace('(', '_').replace(']', '_');
         }
     });
@@ -95,60 +98,11 @@ $(function () {
 
 //上传完成后数据处理
     var fileId = new Array();
-    $(".input-id").on("fileuploaded", function (event, data, previewId, index) {
+    $(".input-id").on("fileuploaded", function(event, data, previewId, index) {
         fileId.push(JSON.stringify(data.response));
         $('#fileId').val(fileId.toString());
-        alert(fileId.toString());
     });
 
-
-    // $(document).on("click", ".add1", function () {
-    //     $("#subTasks1").empty();
-    //     var optionEle = $("<option></option>").append("--请选择--").attr("value", 0);
-    //     optionEle.appendTo("#subTasks1");
-    //     getSubTasks1();
-    //     $("#modal-table1").modal();
-    // });
-    //
-    // function getSubTasks1() {
-    //     alert($("#sysId").val());
-    //     //清空之前下拉列表的值
-    //     //$(subTasks).empty();
-    //     $.ajax({
-    //         url: "sub_task_ajax1",
-    //         type: "GET",
-    //         data: {
-    //             sysId: $("#sysId").val()
-    //         },
-    //         success: function (result) {
-    //             subTasks = $.parseJSON(result);
-    //             $.each(subTasks, function (index, subTask) {
-    //                     var optionEle = $("<option></option>").append(subTask.title).attr("value", subTask.id);
-    //                     optionEle.appendTo("#subTasks1");
-    //                     // alert();
-    //                 }
-    //             );
-    //         }
-    //     })
-    //     ;
-    // }
-    //
-    // $("select#title").change(function () {
-    //     $("#title").empty();
-    //     $("#title").append("<option value='0'>--请选择--</option>");
-    //     getSubTasks1();
-    // });
-    //
-    // $("#task_progress_save1").click(function () {
-    //     $.ajax({
-    //         url: "task_progress_save",
-    //         type: "POST",
-    //         data: $("#task_progress_add_form1").serialize(),
-    //         success: function (result) {
-    //             location.reload();
-    //         }
-    //     });
-    // })
 
 });
 

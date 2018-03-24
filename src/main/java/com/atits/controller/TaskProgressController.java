@@ -77,7 +77,6 @@ public class TaskProgressController {
     @RequestMapping(value = "/task_progress_save", method = RequestMethod.POST)
     @ResponseBody
     public String save(TaskProgress taskProgress,HttpServletRequest request)  {
-        java.lang.System.out.println(taskProgress.toString());
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
         SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式
@@ -112,7 +111,6 @@ public class TaskProgressController {
      */
     @RequestMapping(value = "/task_progress_save", method = RequestMethod.PUT)
     public String update(TaskProgress taskProgress) {
-        java.lang.System.out.println("updata:"+taskProgress.toString());
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
         SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式

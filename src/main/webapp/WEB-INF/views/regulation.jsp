@@ -425,6 +425,9 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                <form action="" method="POST">
+                                      <input type="hidden" name="_method" value="DELETE"/>       
+                                </form>
 
                             </c:otherwise>
                         </c:choose>

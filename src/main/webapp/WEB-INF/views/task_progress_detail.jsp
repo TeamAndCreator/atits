@@ -1,6 +1,6 @@
-<%--<%@ page language="java" contentType="text/html; charset=UTF-8"--%>
-         <%--pageEncoding="UTF-8" %>--%>
-<%--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,17 +108,17 @@
 
 
                                 <c:if test="${files!=null}">
-                                    <div class="row ">
-                                        <div class=" col-xs-2 text-right bigger-120">下载附件：</div>
-                                        <div class="col-xs-9 bigger-120">
-                                            <c:forEach items="${files}" var="file">
-                                                <div class="row">
-                                                    <a href="files_download/${file.id}">${file.title}</a>
-                                                </div>
-                                            </c:forEach>
-                                        </div>
+                                <div class="row ">
+                                    <div class=" col-xs-2 text-right bigger-120">下载附件：</div>
+                                    <div class="col-xs-9 bigger-120">
+                                        <c:forEach items="${files}" var="file">
+                                            <div class="row">
+                                                <a href="files_download/${file.id}">${file.title}</a>
+                                            </div>
+                                        </c:forEach>
                                     </div>
-                                </c:if>
+                                </div>
+                            </c:if>
 
 
                                 <br/> <br/>
