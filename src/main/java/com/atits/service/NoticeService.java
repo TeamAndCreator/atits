@@ -42,13 +42,13 @@ public class NoticeService {
 	}
 
 	public void deletes(List<Integer> idList) throws IOException {
-		for (int i = 0; i < idList.size(); i++) {
-			Notice notice=noticeDao.findById(idList.get(i));
-			String fileId=notice.getFileId();
-            ObjectMapper mapper = new ObjectMapper();// json对象建立
-            List<Integer> fileIdList = mapper.readValue("["+fileId+"]", List.class);
-            if (fileIdList.size()!=0){
-            	filesDao.deletes(fileIdList);
+		for (Integer anIdList : idList) {
+			Notice notice = noticeDao.findById(anIdList);
+			String fileId = notice.getFileId();
+			ObjectMapper mapper = new ObjectMapper();// json对象建立
+			List<Integer> fileIdList = mapper.readValue("[" + fileId + "]", List.class);
+			if (fileIdList.size() != 0) {
+				filesDao.deletes(fileIdList);
 			}
 		}
 		noticeDao.deletes(idList);
@@ -66,8 +66,8 @@ public class NoticeService {
 		String fileId=notice.getFileId();
 		ObjectMapper mapper = new ObjectMapper();// json对象建立
 		List<Integer> fileIdList = mapper.readValue("["+fileId+"]", List.class);
-		for (int i = 0;i< fileIdList.size();i ++){
-			filesDao.updateState(fileIdList.get(i),val);
+		for (Integer aFileIdList : fileIdList) {
+			filesDao.updateState(aFileIdList, val);
 		}
 	}
 

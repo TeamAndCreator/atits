@@ -1,0 +1,42 @@
+
+.header {
+    line-height: 28px;
+    margin-bottom: 16px;
+    margin-top: 18px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #CCC
+}
+
+.header.blue {
+    border-bottom-color: #d5e3ef
+
+}
+
+h1.smaller {
+    font-size: 31px
+}
+
+.blue {
+    color: #478fca !important
+}
+
+.light-blue {
+    color: #93cbf9 !important
+}
+
+.green {
+    color: #69aa46 !important
+}
+
+.space {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 12px 0
+}
+
+.margin-1 {
+    margin: 0px 10px 0px 10px;
+}
+
+

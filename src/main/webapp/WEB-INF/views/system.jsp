@@ -81,13 +81,7 @@
                     <div class="col-lg-8 col-md-9 col-sm-11">
                         <h1 class="header smaller lighter blue">体系管理</h1>
                         <br/>
-                        <div class="action-buttons">
-                            <a class="btn btn-sm btn-primary" href="system_add"> <i
-                                    class="ace-icon fa  bigger-130">+添加</i>
-                            </a> <a class="btn btn-sm btn-danger red" href="#"> <i
-                                class="ace-icon fa  bigger-130">×删除</i>
-                        </a>
-                        </div>
+
                         <div>
                             <table id="sample-table-1"
                                    class="table table-striped table-bordered table-hover">
@@ -123,9 +117,6 @@
                                   <input type="hidden" name="_method" value="DELETE"/>       
                             </form>
                         </div>
-
-
-
 
 
                         <div id="updata" class="modal fade" tabindex="-1">
@@ -256,14 +247,13 @@
         var oTable1 = $('#sample-table-1')
         //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
             .dataTable({
+                "sDom": "<'row'<'col-md-5 toolbar'><'col-md-3'l><'col-md-4'f>r>t<'row'<'col-md-4'i><'col-md-8'p>>",
                 "bAutoWidth": false,
                 "aoColumns": [{
                     "bSortable": false
                 }, null, null],
                 "aaSorting": [],
 
-                "searching": true,// 搜索
-                "bPaginate": true,//显示（使用）分页器
                 "pagingType": "full_numbers",//分页样式的类型
                 "oLanguage": {//语言设置
                     "sLengthMenu": "每页显示 _MENU_ 条记录",
@@ -280,6 +270,14 @@
                     }
                 }
             });
+        $("div.toolbar").html('<div class="action-buttons"><a class="btn btn-xs btn-primary" href="system_add"> <i\n' +
+            '                                    class="ace-icon fa  bigger-130">+添加</i>\n' +
+            '                            </a> <a class="btn btn-xs btn-danger red" href="#"> <i\n' +
+            '                                class="ace-icon fa  bigger-130">×删除</i>\n' +
+            '                        </a>\n' +
+            '                        </div>');
+
+        oTable1.add({"pagingType": "full_numbers"});
 
         $(document).on(
             'click',

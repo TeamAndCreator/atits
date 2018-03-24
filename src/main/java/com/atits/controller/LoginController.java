@@ -2,6 +2,7 @@ package com.atits.controller;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.atits.entity.Msg;
 import com.atits.utils.ImageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -102,7 +104,8 @@ public class LoginController {
      */
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Map<String, Object> login(@RequestParam("params") String params, HttpSession session) throws Exception {
+    public Msg login(@RequestParam("params") String params, HttpSession session) throws Exception {
+        Msg msg=new Msg();
         Map<String, String> map = new HashMap<String, String>();
         ObjectMapper mapper = new ObjectMapper();
         map = mapper.readValue(params, Map.class);
@@ -110,48 +113,28 @@ public class LoginController {
         String imageCode =map.get("imageCode");//获取页面参数：imageCode
         //person对象
         Person person = loginService.login(Integer.parseInt(map.get("sysId")),map.get("userName"), map.get("password"));
-        Map<String, Object> map1 = new HashMap<String, Object>();
+
         //session.invalidate();
-
-
-/*   ************************
-        //添加验证码：
-        //HttpSession session = request.getSession();
-        //boolean flag = false;//比对
-        //页面调用的参数：
-        String checkCode = request.getParameter("checkCode");//securityCode
-        if(checkCode == null || "".equals(checkCode)) {//忽视大小写：
-            map1.put("errMsg", "请填写验证码");
-            return map1;
-        }
-        //session 验证码信息比对
-        String check_Code = String.valueOf(request.getSession().getAttribute(checkCode));
-        if(!checkCode.equalsIgnoreCase(check_Code)) {
-            map1.put("errMsg", "验证码填写错误");
-            return map1;
-        }
-  */
-        //判断：验证码：是否正确：
-        /*String imageCode = (String)session.getAttribute("imageCode");//imageCode
-        if(!code.equalsIgnoreCase(imageCode)) {
-            map1.put("errMsg", "验证码填写错误");//IMAGE_CODE_ERROR=3
-            return map1;
-        }*/
-
        if(imageCode.equals(session.getAttribute("sRand"))){//判断验证码正确：
            if (person == null) {
-               map1.put("state", 0);
+               msg.setCode(300);
+               msg.setMsg("用户名不存在或密码错误");
            } else {
                if (person.getState() == 1) {
                    session.setAttribute("person", person);
+                   msg.setCode(200);
+                   msg.setMsg("登录成功");
+                   msg.add("person",person);
                } else {
-                   map1.put("state", 1);
+                   msg.setCode(400);
+                   msg.setMsg("用户未激活，请联系管理员！");
                }
            }
        }else {//验证码对：但用户名不对
-           map1.put("state",2);
+           msg.setCode(100);
+           msg.setMsg("验证码错误！");
        }
-        return map1;
+        return msg;
 
     }
 

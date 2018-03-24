@@ -132,6 +132,16 @@
 										</span>
 										</div>
 									</div>
+									<div class="form-group has-info">
+										<label for="inputWarning" class="col-xs-12 col-sm-3 control-label no-padding-right bigger-130">产业概况</label>
+
+										<div class="col-xs-12 col-sm-5">
+											<span class="block input-icon input-icon-right"> <form:textarea
+													type="text" id="inputWarning" cols="10" rows="10" class="width-100" path="overview"/>
+
+										</span>
+										</div>
+									</div>
 
 
 									<%--<div class="form-group has-info">--%>

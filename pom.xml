@@ -41,7 +41,6 @@
         </dependency>
 
 
-
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -86,16 +85,12 @@
         </dependency>
 
 
-
-
-
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.1</version>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->

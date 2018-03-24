@@ -79,7 +79,7 @@
                         <c:when
                                 test="${person.permission!=1}">
                             <i class="fa fa-leaf"></i>
-                            <span class="biaoti">${person.system.sysName}</span>
+                            <span class="biaoti">${sessionScope.person.system.sysName}</span>
                         </c:when>
                         <c:otherwise>
                             <i class="fa fa-leaf"></i>
@@ -275,10 +275,10 @@
                                 <i class="menu-icon fa fa-caret-right"></i> 考评启动管理
                             </a> <b class="arrow"></b></li>
 
-                                <li class="" onclick="show(this)"><a href="test_people" target="iframe">
+                            <li class="" onclick="show(this)"><a href="test_people" target="iframe">
                                 <i class="menu-icon fa fa-shield"></i>
                                 <span class="menu-text"> 外聘人员注册</span>
-                                </a> <b class="arrow"></b></li>
+                            </a> <b class="arrow"></b></li>
 
                             <li class="" onclick="show(this)"><a href="test_manage" target="iframe">
                                 <i class="menu-icon fa fa-arrows"></i>
@@ -293,6 +293,23 @@
                             class="menu-icon fa fa-cloud-download"></i>
                         <span class="menu-text"> 下载中心 </span>
                     </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
+
+
                     <li class="" onclick="show(this)"><a href="help"
                     > <i class="menu-icon fa fa-wrench"></i>
                         <span
@@ -414,6 +431,22 @@
 							下载中心</span>
                     </a> <b class="arrow"></b></li>
 
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
+
                     <li class="" onclick="show(this)"><a href="person_home">
                         <i class="menu-icon fa fa-male"></i> <span class="menu-text">
 									个人管理平台 </span>
@@ -497,7 +530,7 @@
 
                     <li class="hidden" onclick="show(this)"><a
                             href="bank"
-                            <%--href="per_funds?sysId=${person.system.id}&bearer=${person.name}"--%>
+                        <%--href="per_funds?sysId=${person.system.id}&bearer=${person.name}"--%>
                             target="iframe"> <i class="menu-icon fa fa-joomla"></i> <span
                             class="menu-text"> 经费信息汇总 </span>
                     </a> <b class="arrow"></b></li>
@@ -512,6 +545,22 @@
                             href="sys_files?sysId=${person.system.id}" target="iframe"><i
                             class="menu-icon fa fa-cloud-download"></i><span class="menu-text">
 							下载中心</span>
+                    </a> <b class="arrow"></b></li>
+
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
                     </a> <b class="arrow"></b></li>
 
 
@@ -556,7 +605,7 @@
             <div class="page-content-area">
 
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 ">
                         <!-- PAGE CONTENT BEGINS -->
 
 
@@ -584,7 +633,7 @@
     </div>
     <!-- /.main-content -->
     <a href="#" id="btn-scroll-up"
-       class="btn-scroll-up btn btn-sm btn-inverse"> <i
+       class="btn-scroll-up btn btn-sm btn-inverse s"> <i
             class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
     </a>
 </div>
@@ -678,9 +727,9 @@
         }, 1000);
 
 
-        window.onresize = function () {
-            changeFrameHeight();
-        }
+        // window.onresize = function () {
+        //     changeFrameHeight();
+        // }
     });
 
     function iFrameHeight() {

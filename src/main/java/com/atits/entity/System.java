@@ -33,6 +33,9 @@ public class System implements Serializable {
     @Column(name = "content", length = 100000)
     private String content;
 
+    @Column(name = "overview", length = 1000)
+    private String overview;
+
     @OneToMany(mappedBy = "system", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Person> persons;
@@ -67,6 +70,14 @@ public class System implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public String getChief() {
@@ -119,6 +130,7 @@ public class System implements Serializable {
                 ", chief=" + chief +'\'' +
                 ", subChief=" + subChief +'\'' +
                 ", content='" + content + '\'' +
+                ", overview='" + overview + '\'' +
                 '}';
     }
 }
