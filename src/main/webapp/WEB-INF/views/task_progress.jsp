@@ -236,9 +236,7 @@
                                        class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="center"><label class="position-relative">
-                                            <input type="checkbox" class="ace"/> <span class="lbl"></span>
-                                        </label></th>
+                                        <th class="center"></th>
                                         <th class="text-center">承担人</th>
                                         <th class="text-center">所属体系</th>
                                         <th class="text-center">任务合同</th>
@@ -505,13 +503,14 @@
             dataType: 'json',
             success: function (result) {
                 $('#' + $("#state_id").val()).addClass('disabled');
-                if (result == 1) {
-                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-success").html("通&nbsp;&nbsp;&nbsp;&nbsp;过");
-
-                }
-                else {
-                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-danger").html("未通过");
-                }
+//                if (result == 1) {
+//                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-success").html("通&nbsp;&nbsp;&nbsp;&nbsp;过");
+//
+//                }
+//                else {
+//                    $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-danger").html("未通过");
+//                }
+                location.reload();
             }
         });
         $('#mySmallModalLabel').modal('hide');
@@ -520,6 +519,7 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
+        localStorage.personId=$("#personId").val();
         var oTable1 = $('#sample-table-1')
         //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
             .dataTable({

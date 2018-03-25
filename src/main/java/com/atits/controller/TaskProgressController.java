@@ -77,7 +77,6 @@ public class TaskProgressController {
     @RequestMapping(value = "/task_progress_save", method = RequestMethod.POST)
     @ResponseBody
     public String save(TaskProgress taskProgress,HttpServletRequest request)  {
-        java.lang.System.out.println(taskProgress.toString());
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
         SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式
@@ -95,7 +94,11 @@ public class TaskProgressController {
         HttpSession session = request.getSession();
         Person person = (Person) session.getAttribute("person");
         ObjectMapper mapper = new ObjectMapper();// json对象建立
-
+        try {
+            taskProgressService.save(taskProgress);// 封装到service层
+        } catch (Exception e) {
+            return "bank";
+        }
         return "ok";
     }
 
@@ -108,7 +111,6 @@ public class TaskProgressController {
      */
     @RequestMapping(value = "/task_progress_save", method = RequestMethod.PUT)
     public String update(TaskProgress taskProgress) {
-        java.lang.System.out.println("updata:"+taskProgress.toString());
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
         SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式
@@ -133,6 +135,18 @@ public class TaskProgressController {
     @RequestMapping(value = "/task_progress_detail", method = RequestMethod.GET)
     public String findById(@RequestParam("id") Integer id, Model model) {
         TaskProgress taskProgress = taskProgressService.findById(id);
+        if (taskProgress.getFileId() != "") {
+            String[] temp = taskProgress.getFileId().split(",");// 以逗号拆分字符串
+            Integer[] ids = new Integer[temp.length];// int类型数组
+            for (int i = 0; i < temp.length; i++) {
+                ids[i] = Integer.parseInt(temp[i]);// 整数数组
+            }
+            List<Files> files = filesService.findByIds(ids);
+            if (files.isEmpty()) {
+                files = null;
+            }
+            model.addAttribute("files", files);
+        }
         model.addAttribute("taskProgress", taskProgress);
         return "task_progress_detail";
     }
@@ -161,7 +175,7 @@ public class TaskProgressController {
      * @return
      */
     @RequestMapping(value = "/task_progress_deletes/{idList}", method = RequestMethod.DELETE)
-    public String deteles(@PathVariable("idList") List<Integer> idList, HttpServletRequest request) {
+    public String deteles(@PathVariable("idList") List<Integer> idList, HttpServletRequest request)throws IOException {
         taskProgressService.deletes(idList);//
         HttpSession session = request.getSession();
         Person person = (Person) session.getAttribute("person");
@@ -236,13 +250,13 @@ public class TaskProgressController {
 
     }
 
-//    @RequestMapping(value = "/research_progress", method = RequestMethod.GET)
-//    public String findAll(Model model) {
-//        List<TaskProgress> taskProgresses = taskProgressService.findAll();
-//        model.addAttribute("taskProgresses", taskProgresses);
-//        return "research_progress";
-//
-//    }
+    @RequestMapping(value = "/task_progress_ajax/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public TaskProgress findById(@PathVariable Integer id) {
+        TaskProgress taskProgress = taskProgressService.findById(id);
+        return taskProgress;
+
+    }
 
 
 }
