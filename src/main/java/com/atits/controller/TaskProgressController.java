@@ -250,13 +250,13 @@ public class TaskProgressController {
 
     }
 
-//    @RequestMapping(value = "/research_progress", method = RequestMethod.GET)
-//    public String findAll(Model model) {
-//        List<TaskProgress> taskProgresses = taskProgressService.findAll();
-//        model.addAttribute("taskProgresses", taskProgresses);
-//        return "research_progress";
-//
-//    }
+    @RequestMapping(value = "/task_progress_ajax/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public TaskProgress findById(@PathVariable Integer id) {
+        TaskProgress taskProgress = taskProgressService.findById(id);
+        return taskProgress;
+
+    }
 
 
 }

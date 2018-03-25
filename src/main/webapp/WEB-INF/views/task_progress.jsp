@@ -519,6 +519,7 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
+        localStorage.personId=$("#personId").val();
         var oTable1 = $('#sample-table-1')
         //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
             .dataTable({

@@ -36,7 +36,8 @@
     <![endif]-->
 
     <!-- inline styles related to this page -->
-
+    <link rel="stylesheet"
+          href="assets/bootstrap-fileinput/css/fileinput.css"/>
     <!-- ace settings handler -->
     <script src="assets/js/ace-extra.min.js"></script>
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
@@ -97,18 +98,39 @@
                         <!-- #section:pages/error -->
                         <div class="error-container">
                             <div class="well">
-                                    <ul class="pager">
-                                        <c:if test="${person.permission != 1&&taskProgress.subTask.task.bearer.name==person.name}">
-                                            <li class="next  bigger-120 hidden">
-                                                <a href="#"><i class="ace-icon fa fa-pencil"></i> 修改</a>
-                                            </li>
-                                        </c:if>
-
+                                <c:choose>
+                                    <c:when test="${person.permission != 1}">
+                                        <ul class="pager">
                                             <li class="previous  bigger-120">
                                                 <a href="javascript:history.back()"><i class="ace-icon fa fa-arrow-left"></i> 返回</a>
                                             </li>
-                                     </ul>
-                                <div class="col-md-10"  style="float: none;display: block;margin-left: auto;margin-right: auto;">
+                                            <li class="next  bigger-120 ">
+                                                <a href="#" data-toggle="modal" class="update" id="${taskProgress.id}" ><i class="ace-icon fa fa-pencil "></i> 修改</a>
+                                            </li>
+
+                                        </ul>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <ul class="pager">
+                                            <li class="previous  bigger-120">
+                                                <a href="javascript:history.back()"><i class="ace-icon fa fa-arrow-left"></i> 返回</a>
+                                            </li>
+                                        </ul>
+                                    </c:otherwise>
+                                </c:choose>
+                                <%--<ul class="pager">--%>
+                                    <%--<c:if test="${taskProgress.subTask.task.bearer.name==person.name}">--%>
+                                        <%--<li class="next  bigger-120 hidden">--%>
+                                            <%--<a href="#"><i class="ace-icon fa fa-pencil"></i> 修改</a>--%>
+                                        <%--</li>--%>
+                                    <%--</c:if>--%>
+
+                                    <%--<li class="previous  bigger-120">--%>
+                                        <%--<a href="javascript:history.back()"><i class="ace-icon fa fa-arrow-left"></i> 返回</a>--%>
+                                    <%--</li>--%>
+                                <%--</ul>--%>
+                                <div class="col-md-10"
+                                     style="float: none;display: block;margin-left: auto;margin-right: auto;">
                                     <h3 class="blue center">${taskProgress.title}</h3>
                                 </div>
                                 <h5 class="publish">
@@ -116,11 +138,14 @@
 											来源&nbsp;:&nbsp;${taskProgress.subTask.task.system.sysName}
 										</span> &nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;
-                                    <span >编辑人&nbsp;:&nbsp;${taskProgress.subTask.task.bearer.name}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>编辑人&nbsp;:&nbsp;${taskProgress.subTask.bearer.name}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;
                                     <span>时间&nbsp;:&nbsp;${taskProgress.time}</span>&nbsp;<span>${taskProgress.date}</span>
-                                </h5><hr/>
-                                <div class="col-md-11"  style="float: none;display: block;margin-left: auto;margin-right: auto;">
+                                </h5>
+                                <hr/>
+                                <div class="col-md-11"
+                                     style="float: none;display: block;margin-left: auto;margin-right: auto;">
                                     <div class="space"></div>
                                     <div class="widget-main">${taskProgress.content}</div>
                                 </div>
@@ -128,22 +153,23 @@
 
 
                                 <c:if test="${files!=null}">
-                                <div class="row ">
-                                    <div class=" col-xs-2 text-right bigger-120">下载附件：</div>
-                                    <div class="col-xs-9 bigger-120">
-                                        <c:forEach items="${files}" var="file">
-                                            <div class="row">
-                                                <a href="files_download/${file.id}">${file.title}</a>
-                                            </div>
-                                        </c:forEach>
+                                    <div class="row ">
+                                        <div class=" col-xs-2 text-right bigger-120">下载附件：</div>
+                                        <div class="col-xs-9 bigger-120">
+                                            <c:forEach items="${files}" var="file">
+                                                <div class="row">
+                                                    <a href="files_download/${file.id}">${file.title}</a>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
                                     </div>
-                                </div>
-                            </c:if>
+                                </c:if>
 
 
                                 <br/> <br/>
 
                             </div>
+
                         </div>
 
                         <!-- /section:pages/error -->
@@ -155,6 +181,79 @@
                 <!-- /.row -->
             </div>
             <!-- /.page-content-area -->
+            <div id="modalUpdatetable" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header no-padding">
+                            <div class="table-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <span class="white">&times;</span>
+                                </button>
+                                详情
+                            </div>
+                        </div>
+                        <form id="task_progress_add_form">
+                            <div class="modal-body no-padding">
+                                <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                    <tbody>
+                                    <br/>
+                                    <tr>
+                                        <td class="align-right">标题：</td>
+                                        <td><textarea name="title" id="title" cols="50" rows="1"></textarea>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="align-right">任务安排：</td>
+                                        <%--<td><select class="form-control" id="subTasks" name="subTask.id">--%>
+                                        <%--<option value="0">--请选择--</option>--%>
+                                        <%--</select>--%>
+                                        <%--</td>--%>
+                                        <td>
+                                            <select class="form-control" id="subTasks" name="subTask.id">
+                                            </select>
+                                        </td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="align-right">进展描述：</td>
+                                        <td><textarea class="form-control" type="text" name="content" id="content"
+                                                      placeholder="请输入详细工作进展"
+                                                      style="height: 150px"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-right">上传附件：</td>
+                                        <td>
+                                            <!-- #section:custom/file-input -->
+                                            <input id="input-id" type="file" class="file input-id" multiple
+                                                   name="files" data-show-caption="true"/>
+                                            <input type='hidden' name="fileId" id="fileId" value=''/>
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer no-margin-top">
+                                <button class="btn btn-sm btn-default pull-left" data-dismiss="modal">
+                                    <i class="ace-icon fa fa-times"></i>关闭
+                                </button>
+                                <button class="btn btn-sm btn-success pull-left" data-dismiss="modal"
+                                        id="task_progress_save">
+                                    <%--onclick="javasript:window.alert('提交成功！')"--%>
+                                    <i class="ace-icon fa fa-check"></i>更新
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div>
         <!-- /.page-content -->
     </div>
@@ -181,7 +280,6 @@
 <!-- /.main-container -->
 
 <!-- basic scripts -->
-
 <!--[if !IE]> -->
 <script type="text/javascript">
     window.jQuery
@@ -205,7 +303,8 @@
 <script src="assets/js/bootstrap.min.js"></script>
 
 <!-- page specific plugin scripts -->
-
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- ace scripts -->
 <script src="assets/js/ace-elements.min.js"></script>
 <script src="assets/js/ace.min.js"></script>
@@ -216,6 +315,10 @@
 <link rel="stylesheet" href="assets/css/ace.onpage-help.css"/>
 <link rel="stylesheet" href="docs/assets/js/themes/sunburst.css"/>
 
+<script type="text/javascript">
+    ace.vars['base'] = '..';
+</script>
+
 <!-- <script type="text/javascript"> ace.vars['base'] = '..'; </script> -->
 <script src="assets/js/ace/elements.onpage-help.js"></script>
 <script src="assets/js/ace/ace.onpage-help.js"></script>
@@ -225,5 +328,13 @@
 <script src="docs/assets/js/language/css.js"></script>
 <script src="docs/assets/js/language/javascript.js"></script>
 <script src="assets/js/atits-js/task_progress.js"></script>
+
+<!-- bootstrap-fileinput -->
+<script src="assets/bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="assets/bootstrap-fileinput/js/locales/zh.js"></script>
+
 </body>
+<script type="text/javascript">
+
+</script>
 </html>
