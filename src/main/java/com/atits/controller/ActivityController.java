@@ -2,19 +2,21 @@ package com.atits.controller;
 
 
 import com.atits.entity.Activity;
+import com.atits.entity.Msg;
 import com.atits.service.ActivityService;
 import com.atits.service.FilesService;
 import com.atits.utils.PageUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONObject;
+import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -66,9 +68,37 @@ public class ActivityController {
 
 
     @RequestMapping(value = "/activity_save", method = RequestMethod.POST)
-    public String save(Activity activity) {
-        System.out.println(activity.toString());
-        return null;
+    @ResponseBody
+    public Msg save(Activity activity) {
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
+        activity.setTime(time.format(new Date()));// new Date()为获取当前系统时间
+        activity.setDate(date.format(new Date()));//为获取当前系统时间点
+        activityService.save(activity);
+        return Msg.success();
+    }
+
+
+    @RequestMapping(value = "/activity_delete/{idList}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg deletes(@PathVariable List<Integer> idList) {
+        try {
+            activityService.deletes(idList);
+            return Msg.success();
+        } catch (Exception e) {
+            return Msg.fail();
+        }
+    }
+
+    @RequestMapping(value = "/activity_state/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public Msg updateState(@PathVariable Integer id, @RequestParam("state") Integer state) {
+        try {
+            activityService.updateState(id, state);
+            return Msg.success();
+        } catch (IOException e) {
+            return Msg.fail();
+        }
     }
 
 

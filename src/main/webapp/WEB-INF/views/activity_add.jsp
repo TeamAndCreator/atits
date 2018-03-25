@@ -136,8 +136,8 @@
                 url: "activity_save",
                 type: "POST",
                 data: $("#from-add").serialize(),
-                success: function () {
-
+                success: function (result) {
+                    console.log(result.msg);
                 }
             });
         });

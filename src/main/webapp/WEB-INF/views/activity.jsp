@@ -65,8 +65,79 @@
                 </tbody>
             </table>
 
+            <!-- Modal -->
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" id="from-add">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label ">标题</label>
+                                    <label class="col-sm-6">
+                                        <input type="text" class="form-control" name="title"/>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">编辑人</label>
+                                    <label class="col-sm-6">
+                                        <input type="text" class="form-control" id="editor" disabled>
+                                        <input type="hidden" class="form-control" name="editor.id"/>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">发布者</label>
+                                    <label class="col-sm-6">
+                                        <input type="text" class="form-control" id="system" disabled>
+                                        <input type="hidden" class="form-control" name="system.id"/>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">上传文件</label>
+                                    <label class="col-sm-6">
+                                        <input id="input-id" type="file" multiple class="file"/>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">内容</label>
+                                    <label class="col-sm-6">
+                                        <textarea class="form-control " cols="100" rows="10"
+                                                  placeholder="100字以内"></textarea>
+                                    </label>
+                                </div>
+                                <%--<div class="form-group">--%>
+
+                                <%--<div class="col-xs-offset-6 col-sm-1">--%>
+                                <%--<button type="submit" class="btn btn-primary ">取消</button>--%>
+                                <%--</div>--%>
+                                <%--<div class="col-sm-1">--%>
+                                <%--<button type="submit" class="btn btn-success">提交</button>--%>
+                                <%--</div>--%>
+
+                                <%--</div>--%>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-success">提交</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
         </div>
+
     </div>
+</div>
 </div>
 
 
@@ -82,7 +153,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#example').DataTable({
+        table = $('#example').DataTable({
             "sDom": "<'row'<'col-md-2'l><'col-md-6 toolbar'><'col-md-4'f>r>t<'row'<'col-md-4'i><'col-md-8'p>>",
             "pagingType": "full_numbers",//分页样式的类型
             "aoColumns": [{
@@ -105,12 +176,15 @@
                 {mData: "system.sysName"},
                 {mData: "date"},
                 {
-                    mData: "state",
+                    mData: {
+                        state: "state",
+                        id: "id"
+                    },
                     render: function (mData) {
                         var btn = null;
-                        switch (mData) {
+                        switch (mData.state) {
                             case 0:
-                                btn = '<button href="activity_add" class="btn btn-primary btn-sm margin-1" role="button">审核</button>';
+                                btn = '<button class="btn btn-primary btn-sm state" id="' + mData.id + '" role="button">审核</button>';
                                 break;
                             case 1:
                                 btn = '';
@@ -158,17 +232,62 @@
                     params: JSON.stringify(aoData)
                 }, //以json格式传递
                 "success": function (resp) {
-                    console.log(resp);
                     fnCallback(resp); //服务器端返回的对象的returnObject部分是要求的格式
                 }
             });
         }
 
-        // language=HTML
-        $("div.toolbar").html('<a href="activity_add" class="btn btn-primary btn-sm margin-1">添加</a><a href="#" class="btn btn-danger btn-sm margin-1" role="button">删除</a>');
+        // 添加与删除按钮
+        $("div.toolbar").html('<a href="activity_add" class="btn btn-primary btn-sm margin-1">添加</a><button class="btn btn-danger btn-sm margin-1" id="deletes" role="button">删除</button>');
 
+        //全选功能设置
+        $(document).on('click', 'th input:checkbox', function () {
+            var that = this;
+            $(this).closest('table').find(
+                'tr > td:first-child input:checkbox').each(
+                function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+        });
 
+        //删除功能
+        $('#deletes').click(function () {
+            var checkedNum = $("input[name='subcheck']:checked").length;
+            if (checkedNum === 0) {
+                alert("请至少选择一项！");
+                return false;
+            }
+            if (confirm("确定删除所选项目？")) {
+                var checkedList = [];
+                $("input[name='subcheck']:checked").each(function () {
+                    checkedList.push($(this).val())
+                });
 
+                $.ajax({
+                    url: "activity_delete/" + checkedList,
+                    type: "DELETE",
+                    success: function (result) {
+                        table.ajax.reload();
+                    },
+                    error: function () {
+                        alert("出错了！")
+                    }
+                });
+            }
+        });
+
+        //修改状态
+        $(document).on('click', '.state', function () {
+            $.ajax({
+                url: "activity_state/" + $(this).attr('id'),
+                type: "PUT",
+                success: function (result) {
+                    table.ajax.reload();
+                }
+            });
+            table.ajax.reload();
+        });
     });
 </script>
 
