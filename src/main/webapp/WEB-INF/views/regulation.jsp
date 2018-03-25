@@ -301,9 +301,10 @@
                                 <div class="action-buttons">
                                     <a class="btn btn-sm btn-primary" href="regulation_add"> <i
                                             class="ace-icon fa  bigger-130">+添加</i>
-                                    </a><a class="btn btn-sm btn-danger red" href="#"> <i
+                                    </a>
+                                    <a class="btn btn-sm btn-danger red" href="#"> <i
                                         class="ace-icon fa  bigger-130">×删除</i>
-                                </a>
+                                    </a>
                                 </div>
                                 <h2 class="header smaller lighter blue"><i class="ace-icon fa fa-share "></i>省体系规章制度</h2>
                                 <table id="sample-table-2" class="table table-hover table-bordered">
@@ -315,7 +316,7 @@
                                         <th class="col-md-4 col-sm-5 text-center">标题</th>
                                         <th class="col-md-3 col-sm-2 text-center">发布者</th>
                                         <th class="col-md-2 col-sm-2 text-center">发布时间</th>
-                                        <th class="col-md-2 col-sm-2 text-center">状态</th>
+                                        <th class="col-md-2 col-sm-2 text-center">状态</th>。
                                     </tr>
                                     </thead>
 
@@ -347,9 +348,7 @@
                                 <table id="sample-table-22" class="table table-hover table-bordered">
                                     <thead>
                                     <tr>
-                                        <th class=" text-center col-md-1 col-sm-1"><label class="position-relative">
-                                            <input type="checkbox" class="ace"/> <span class="lbl"></span>
-                                        </label></th>
+                                        <th class=" text-center col-md-1 col-sm-1"></th>
                                         <th class="col-md-4 col-sm-5 text-center">标题</th>
                                         <th class="col-md-3 col-sm-2 text-center">发布者</th>
                                         <th class="col-md-2 col-sm-2 text-center">发布时间</th>
@@ -426,6 +425,9 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                <form action="" method="POST">
+                                      <input type="hidden" name="_method" value="DELETE"/>       
+                                </form>
 
                             </c:otherwise>
                         </c:choose>

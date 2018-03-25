@@ -204,10 +204,8 @@ public class FilesController {
     @RequestMapping(value = "/files_upload/{params}", method = RequestMethod.POST)
     public String upload(@RequestParam("files") MultipartFile[] multipartFiles, @PathVariable("params") String params)
             throws IOException {
-        System.out.println("===============:" + params);
         ObjectMapper mapper = new ObjectMapper();// json对象建立
         HashMap map = mapper.readValue(params, HashMap.class);
-        System.out.println(map.toString());
         int id = filesService.upload(multipartFiles, map);
         String json = mapper.writeValueAsString(id);// 将map转换成json字符串
         return json;
