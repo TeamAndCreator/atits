@@ -144,12 +144,12 @@
 
                 <li class="light-blue">
                     <a href='system_detail?id=1'>
-                        &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">注册</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
                 <li class="light-blue">
                     <a href='system_detail?id=1'>
-                        &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;<span style="font-size: large">登录</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
 
@@ -189,12 +189,13 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <article>
-
-                                                ${systems[0].content}
-                                                <%--系统平台是指在电脑里让软件运行的系统环境，包括硬件环境和软件环境。--%>
-                                                <%--典型的系统平台包括一台电脑的架构（computer architecture）、操作系统、编程语言等。--%>
+                                            <article >
+                                                <div id="article"></div>
+                                            <%--${systems[0].content}--%>
+                                            <%--&lt;%&ndash;系统平台是指在电脑里让软件运行的系统环境，包括硬件环境和软件环境。&ndash;%&gt;--%>
+                                            <%--&lt;%&ndash;典型的系统平台包括一台电脑的架构（computer architecture）、操作系统、编程语言等。&ndash;%&gt;--%>
                                             </article>
+                                            <%--<div id="article"></div>--%>
                                         </div>
                                     </div>
                                 </div>
@@ -202,6 +203,107 @@
                             </div>
                         </div>
                     </div>
+
+                    <br>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="my-widget-header" style="height: 32px">
+                                <h4 class="widget-title lighter fon-til tixishow white">体系展示</h4>
+                            </div>
+
+                            <div class="widget-box widget-color-blue2">
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <div class="row">
+
+                                            <div id="demo">
+                                                <table border=0 align=center cellpadding=1 cellspacing=1 cellspace=0>
+                                                    <tr>
+                                                        <td valign=top bgcolor=ffffff id=marquePic1>
+                                                            <table width='100%' border='0' cellspacing='0'>
+                                                                <tr>
+                                                                    <td align="center"><a href='system_detail?id=2'>
+                                                                        <img src="assets/images/rice.jpg"
+                                                                             class="pic"><br><br>水稻产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=3'>
+                                                                        <img src="assets/images/wheat.jpg"
+                                                                             class="pic"><br><br>小麦产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=4'>
+                                                                        <img src="assets/images/corn.jpg"
+                                                                             class="pic"><br><br>玉米产业技术体系</a>
+                                                                    </td>
+                                                                    <td align="center"><a href='system_detail?id=5'>
+                                                                        <img src="assets/images/rape_cotton.jpg"
+                                                                             class="pic"><br><br>油菜棉花产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=6'>
+                                                                        <img src="assets/images/pig.jpg"
+                                                                             class="pic"><br><br>生猪产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=7'>
+                                                                        <img src="assets/images/poultry.jpg"
+                                                                             class="pic"><br><br>家禽产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=8'>
+                                                                        <img src="assets/images/cattle_sheep.jpg"
+                                                                             class="pic"><br><br>牛羊产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=9'>
+                                                                        <img src="assets/images/aquatic.jpg"
+                                                                             class="pic"><br><br>水产产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=10'>
+                                                                        <img src="assets/images/vegetables.jpg" class="pic"><br><br>蔬菜产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=11'>
+                                                                        <img src="assets/images/fruit_trees.jpg"
+                                                                             class="pic"><br><br>果树产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=12'>
+                                                                        <img src="assets/images/tea.jpg"
+                                                                             class="pic"><br><br>茶叶产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=13'>
+                                                                        <img src="assets/images/sericulture.jpg"
+                                                                             class="pic"><br><br>蚕桑中药材产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=14'>
+                                                                        <img src="assets/images/information.jpg"
+                                                                             class="pic"><br><br>农业信息化产业技术体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=15'>
+                                                                        <img src="assets/images/equipment.jpg"
+                                                                             class="pic"><br>农机装备应用产业技术<br>体系</a>
+                                                                    </td>
+                                                                    <td align=center><a href='system_detail?id=16'>
+                                                                        <img src="assets/images/ecology.jpg"
+                                                                             class="pic"><br>农业生态环保与质量安全<br>产业技术体系</a>
+                                                                    </td>
+
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td id=marquePic2 valign=top></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div><br><br>
+                    <!-- /.row -->
+
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="col-md-6">
@@ -237,7 +339,7 @@
                                                                             id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${notice.time}</span>
                                                                             <a href="notice_detail?id=${notice.id}"
-                                                                                    class="pull-right">详情</a>
+                                                                               class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -254,7 +356,7 @@
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <span class="pull-right">${notice.time}</span>
                                                                                 <a href="notice_detail?id=${notice.id}"
-                                                                                class="pull-right">详情</a>
+                                                                                   class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
@@ -263,7 +365,7 @@
                                                                             id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${notice.time}</span>
                                                                             <a href="notice_detail?id=${notice.id}"
-                                                                            class="pull-right">详情</a>
+                                                                               class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -304,7 +406,7 @@
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <span class="pull-right">${dynamic.time}</span>
                                                                                 <a href="dynamic_detail?id=${dynamic.id}"
-                                                                                class="pull-right">详情</a>
+                                                                                   class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
@@ -313,7 +415,7 @@
                                                                             id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${dynamic.time}</span>
                                                                             <a href="dynamic_detail?id=${dynamic.id}"
-                                                                            class="pull-right">详情</a>
+                                                                               class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -339,7 +441,7 @@
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <span class="pull-right">${dynamic.time}</span>
                                                                                 <a href="dynamic_detail?id=${dynamic.id}"
-                                                                                class="pull-right">详情</a>
+                                                                                   class="pull-right">详情</a>
                                                                             </div>
                                                                         </li>
                                                                     </c:when>
@@ -348,7 +450,7 @@
                                                                             id="content">${dynamic.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <span class="pull-right">${dynamic.time}</span>
                                                                             <a href="dynamic_detail?id=${dynamic.id}"
-                                                                            class="pull-right">详情</a>
+                                                                               class="pull-right">详情</a>
                                                                         </li>
                                                                     </c:otherwise>
                                                                 </c:choose>
@@ -365,7 +467,7 @@
                             </div>
                         </div>
                         <!-- PAGE CONTENT ENDS -->
-                    </div>
+                    </div><br>
                     <!-- /.col -->
 
                     <div class="col-xs-12">
@@ -391,7 +493,7 @@
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                                         <span class="pull-right">${notice.time}</span>
                                                                         <a href="notice_detail?id=${notice.id}"
-                                                                        class="pull-right">详情</a>
+                                                                           class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
@@ -400,7 +502,7 @@
                                                                     id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
                                                                     <a href="notice_detail?id=${notice.id}"
-                                                                    class="pull-right">详情</a>
+                                                                       class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -436,7 +538,7 @@
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                                         <span class="pull-right">${notice.time}</span>
                                                                         <a href="notice_detail?id=${notice.id}"
-                                                                        class="pull-right">详情</a>
+                                                                           class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
@@ -445,7 +547,7 @@
                                                                     id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
                                                                     <a href="notice_detail?id=${notice.id}"
-                                                                    class="pull-right">详情</a>
+                                                                       class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -462,107 +564,9 @@
                     </div>
 
                 </div>
-                <br>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="my-widget-header" style="height: 32px">
-                            <h4 class="widget-title lighter fon-til tixishow white">体系展示</h4>
-                        </div>
-
-                        <div class="widget-box widget-color-blue2">
-                            <div class="widget-body">
-                                <div class="widget-main">
-                                    <div class="row">
-
-                                        <div id="demo">
-                                            <table border=0 align=center cellpadding=1 cellspacing=1 cellspace=0>
-                                                <tr>
-                                                    <td valign=top bgcolor=ffffff id=marquePic1>
-                                                        <table width='100%' border='0' cellspacing='0'>
-                                                            <tr>
-                                                                <td align="center"><a href='system_detail?id=2'>
-                                                                    <img src="assets/images/rice.jpg"
-                                                                         class="pic"><br><br>水稻产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=3'>
-                                                                    <img src="assets/images/wheat.jpg"
-                                                                         class="pic"><br><br>小麦产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=4'>
-                                                                    <img src="assets/images/corn.jpg"
-                                                                         class="pic"><br><br>玉米产业技术体系</a>
-                                                                </td>
-                                                                <td align="center"><a href='system_detail?id=5'>
-                                                                    <img src="assets/images/rape_cotton.jpg"
-                                                                         class="pic"><br><br>油菜棉花产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=6'>
-                                                                    <img src="assets/images/pig.jpg"
-                                                                         class="pic"><br><br>生猪产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=7'>
-                                                                    <img src="assets/images/poultry.jpg"
-                                                                         class="pic"><br><br>家禽产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=8'>
-                                                                    <img src="assets/images/cattle_sheep.jpg"
-                                                                         class="pic"><br><br>牛羊产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=9'>
-                                                                    <img src="assets/images/aquatic.jpg"
-                                                                         class="pic"><br><br>水产产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=10'>
-                                                                    <img src="assets/images/vegetables.jpg" class="pic"><br><br>蔬菜产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=11'>
-                                                                    <img src="assets/images/fruit_trees.jpg"
-                                                                         class="pic"><br><br>果树产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=12'>
-                                                                    <img src="assets/images/tea.jpg"
-                                                                         class="pic"><br><br>茶叶产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=13'>
-                                                                    <img src="assets/images/sericulture.jpg"
-                                                                         class="pic"><br><br>蚕桑中药材产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=14'>
-                                                                    <img src="assets/images/information.jpg"
-                                                                         class="pic"><br><br>农业信息化产业技术体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=15'>
-                                                                    <img src="assets/images/equipment.jpg"
-                                                                         class="pic"><br>农机装备应用产业技术<br>体系</a>
-                                                                </td>
-                                                                <td align=center><a href='system_detail?id=16'>
-                                                                    <img src="assets/images/ecology.jpg"
-                                                                         class="pic"><br>农业生态环保与质量安全<br>产业技术体系</a>
-                                                                </td>
-
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                    <td id=marquePic2 valign=top></td>
-                                                </tr>
-                                            </table>
-                                        </div>
 
 
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
-
-                <!--尾部一行--><br><br>
+                <!--尾部一行--><br>
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
@@ -575,33 +579,33 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <ul class="demo2">
-                                                <c:forEach items="${notices}" var="notice">
-                                                    <c:if test="${notice.state==1}">
-                                                        <c:choose>
-                                                            <c:when test="${notice.title.length()>22}">
-                                                                <li class="news-item">
-                                                                    <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${notice.title}>${notice.title.substring(0,22)}...
+                                            <ul class="demo2 notices" id="lll">
+                                                <%--<c:forEach items="${notices}" var="notice">--%>
+                                                    <%--<c:if test="${notice.state==1}">--%>
+                                                        <%--<c:choose>--%>
+                                                            <%--<c:when test="${notice.title.length()>22}">--%>
+                                                                <%--<li class="news-item">--%>
+                                                                    <%--<div style="text-overflow:ellipsis;overflow:hidden;"--%>
+                                                                         <%--title=${notice.title}>${notice.title.substring(0,22)}...--%>
 
-                                                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${notice.time}</span>
-                                                                        <a href="notice_detail?id=${notice.id}"
-                                                                        class="pull-right">详情</a>
-                                                                    </div>
-                                                                </li>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${notice.time}</span>
-                                                                    <a href="notice_detail?id=${notice.id}"
-                                                                    class="pull-right">详情</a>
-                                                                </li>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </c:if>
-                                                </c:forEach>
+                                                                        <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                                                                        <%--<span class="pull-right">${notice.time}</span>--%>
+                                                                        <%--<a href="notice_detail?id=${notice.id}"--%>
+                                                                           <%--class="pull-right">详情</a>--%>
+                                                                    <%--</div>--%>
+                                                                <%--</li>--%>
+                                                            <%--</c:when>--%>
+                                                            <%--<c:otherwise>--%>
+                                                                <%--<li class="news-item "--%>
+                                                                    <%--id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                                                                    <%--<span class="pull-right">${notice.time}</span>--%>
+                                                                    <%--<a href="notice_detail?id=${notice.id}"--%>
+                                                                       <%--class="pull-right">详情</a>--%>
+                                                                <%--</li>--%>
+                                                            <%--</c:otherwise>--%>
+                                                        <%--</c:choose>--%>
+                                                    <%--</c:if>--%>
+                                                <%--</c:forEach>--%>
                                             </ul>
                                         </div>
                                     </div>
@@ -632,7 +636,7 @@
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                                         <span class="pull-right">${notice.time}</span>
                                                                         <a href="notice_detail?id=${notice.id}"
-                                                                        class="pull-right">详情</a>
+                                                                           class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
@@ -641,7 +645,7 @@
                                                                     id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <span class="pull-right">${notice.time}</span>
                                                                     <a href="notice_detail?id=${notice.id}"
-                                                                    class="pull-right">详情</a>
+                                                                       class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -665,6 +669,7 @@
         <!-- /.page-content -->
     </div>
     <!-- /.main-content -->
+    <div id="aaa"></div>
 
     <div class="footer">
         <div class="footer-inner">
@@ -709,7 +714,8 @@
                 + "<" + "/script>");
 </script>
 <script src="assets/js/bootstrap.min.js"></script>
-
+<!-- 引入js -->
+<script src="${pageContext.request.contextPath}/assets/js/atits-js/main.js"></script>
 <!-- page specific plugin scripts -->
 
 
@@ -763,13 +769,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('article').readmore({
-            maxHeight: 250,
-            speed: 700,
-            moreLink: '<a HREF="#" style="text-align: center;color:#CC0033;font-size: larger">▼阅读更多</a>',
-            lessLink: '<a HREF="#" style="text-align: center;color:#CC0033;font-size: larger">▲收起</a>',
-            heightMargin: 16,
-        });
+
     });
 </script>
 <!--[if lte IE 8]>
@@ -845,5 +845,6 @@
 
 
 </script>
+
 </body>
 </html>

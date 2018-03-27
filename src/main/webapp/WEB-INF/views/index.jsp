@@ -126,10 +126,10 @@
                                                         <c:when test="${person.permission == 1 || person.permission == 2}">
                                                             <c:if test="${notice.state==1}">
                                                                 <c:choose>
-                                                                    <c:when test="${notice.title.length()>22}">
+                                                                    <c:when test="${notice.title.length()>17}">
                                                                         <li class="news-item">
                                                                             <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                                 title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                                 title=${notice.title}>${notice.title.substring(0,17)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <a href="notice_detail?id=${notice.id}"
@@ -152,10 +152,10 @@
                                                         <c:otherwise>
                                                             <c:if test="${notice.state==1&&notice.system.id==1 || notice.state==1&&notice.system.id==person.system.id}">
                                                                 <c:choose>
-                                                                    <c:when test="${notice.title.length()>22}">
+                                                                    <c:when test="${notice.title.length()>17}">
                                                                         <li class="news-item">
                                                                             <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                                 title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                                 title=${notice.title}>${notice.title.substring(0,17)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <a href="notice_detail?id=${notice.id}"
@@ -201,10 +201,10 @@
                                                             <c:if test="${dynamic.state==1 || dynamic.state==3}">
 
                                                                 <c:choose>
-                                                                    <c:when test="${dynamic.title.length()>22}">
+                                                                    <c:when test="${dynamic.title.length()>17}">
                                                                         <li class="news-item">
                                                                             <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                                 title=${dynamic.title}>${dynamic.title.substring(0,22)}...
+                                                                                 title=${dynamic.title}>${dynamic.title.substring(0,17)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <a href="dynamic_detail?id=${dynamic.id}"
@@ -236,10 +236,10 @@
                                                                 <%--<span class="pull-right">${dynamic.time}</span>--%>
                                                                 <%--</li>--%>
                                                                 <c:choose>
-                                                                    <c:when test="${dynamic.title.length()>22}">
+                                                                    <c:when test="${dynamic.title.length()>17}">
                                                                         <li class="news-item">
                                                                             <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                                 title=${dynamic.title}>${dynamic.title.substring(0,22)}...
+                                                                                 title=${dynamic.title}>${dynamic.title.substring(0,17)}...
 
                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 <a href="dynamic_detail?id=${dynamic.id}"
