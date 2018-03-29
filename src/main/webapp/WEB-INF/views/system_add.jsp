@@ -137,7 +137,7 @@
 
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon input-icon-right"> <form:textarea
-													type="text" id="inputWarning" cols="10" rows="10" class="width-100" path="overview"/>
+													type="text" id="inputWarning" cols="10" rows="10" placeholder="500字以内" class="width-100" path="overview" />
 
 										</span>
 										</div>

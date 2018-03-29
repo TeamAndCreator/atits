@@ -75,7 +75,7 @@
             <div class="page-content-area">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h1 class="header smaller lighter blue">重大成果</h1>
+                        <h1 class="header smaller lighter blue">重大活动</h1>
                         <br/>
                         <!-- PAGE CONTENT BEGINS -->
                         <c:choose>
@@ -119,7 +119,7 @@
                                                    class="blue" data-toggle="modal">${activity.title}</a>
                                             </td>
                                             <td>${activity.system.sysName}</td>
-                                            <td>${activity.time}</td>
+                                            <td>${activity.date}</td>
 
                                             <c:choose>
                                                 <c:when test="${activity.state==0}">
@@ -238,7 +238,7 @@
                                                        class="blue" data-toggle="modal">${activity.title}</a>
                                                 </td>
                                                 <td>${activity.system.sysName}</td>
-                                                <td>${activity.time}</td>
+                                                <td>${activity.date}</td>
 
                                                 <c:choose>
                                                     <c:when test="${activity.state==0}">
@@ -298,7 +298,7 @@
                                                        class="blue" data-toggle="modal">${activity.title}</a>
                                                 </td>
                                                 <td>${activity.system.sysName}</td>
-                                                <td>${activity.time}</td>
+                                                <td>${activity.date}</td>
                                             </tr>
                                         </c:if>
                                     </c:forEach>

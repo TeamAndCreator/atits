@@ -84,7 +84,7 @@ public class ActivityController extends Thread {
     public String findById(@RequestParam("id") Integer id, Model model) {
         Activity activity = activityService.findById(id);
 
-        if (!activity.getFileId().equals("")) {
+        if (activity.getFileId()!= "") {
             String[] temp = activity.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
@@ -124,10 +124,10 @@ public class ActivityController extends Thread {
     @RequestMapping(value = "/activity_save", method = RequestMethod.POST)
     public String save(Activity activity, HttpServletRequest request) {
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-        SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
-        activity.setDate(df1.format(new Date()));
-        activity.setTime(df.format(new Date()));// new Date()为获取当前系统时间
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
+        activity.setDate(date.format(new Date()));
+        activity.setTime(time.format(new Date()));// new Date()为获取当前系统时间
         if (!activity.getFileId().equals("")) {
             String[] ids = activity.getFileId().split(",");
             for (String id : ids) {
@@ -148,10 +148,10 @@ public class ActivityController extends Thread {
      */
     @RequestMapping(value = "/activity_save", method = RequestMethod.PUT)
     public String update(Activity activity) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-        SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
-        activity.setTime(df.format(new Date()));// new Date()为获取当前系统时间
-        activity.setDate(df1.format(new Date()));
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
+        activity.setTime(time.format(new Date()));// new Date()为获取当前系统时间
+        activity.setDate(date.format(new Date()));
 
         if (!activity.getFileId().equals("")) {
             String[] ids = activity.getFileId().split(",");
