@@ -58,26 +58,7 @@
 
     <!-- /section:basics/sidebar -->
     <div class="main-content">
-        <%--<div class="breadcrumbs" id="breadcrumbs">--%>
-            <%--<script type="text/javascript">--%>
-                <%--try {--%>
-                    <%--ace.settings.check('breadcrumbs', 'fixed')--%>
-                <%--} catch (e) {--%>
-                <%--}--%>
-            <%--</script>--%>
 
-            <%--<ul class="breadcrumb">--%>
-                <%--<li>--%>
-                    <%--<i class="ace-icon fa fa-home home-icon"></i>--%>
-                    <%--<a href="#">首页</a>--%>
-                <%--</li>--%>
-
-                <%--<li class="active">工作任务</li>--%>
-
-            <%--</ul>--%>
-            <%--<!-- /.breadcrumb -->--%>
-
-        <%--</div>--%>
         <div class="page-content">
             <h1 class="header smaller lighter blue">工作任务</h1>
             <br/>

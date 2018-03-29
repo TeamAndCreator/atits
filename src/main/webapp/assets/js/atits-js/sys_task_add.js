@@ -1,5 +1,3 @@
-alert("123");
-
 KindEditor.ready(function(K) {
     window.editor = K.create('#editor',{
         height : '500px', //初始化高度
