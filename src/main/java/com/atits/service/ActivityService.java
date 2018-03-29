@@ -71,4 +71,8 @@ public class ActivityService {
     public Long findByPageCunnt() {
         return activityDao.findByPageCunnt();
     }
+
+    public void updateFlag(String idList) {
+        activityDao.updateFlag(idList);
+    }
 }
