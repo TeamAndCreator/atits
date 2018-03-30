@@ -30,4 +30,8 @@ public class TestWeightService {
     public Long findByPageCunnt() {
         return testWeightDao.findByPageCunnt();
     }
+
+    public void deletes(List<Integer> idList) {
+        testWeightDao.deletes(idList);
+    }
 }
