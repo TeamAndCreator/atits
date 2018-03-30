@@ -109,36 +109,39 @@
                                         <th class="center">发布者</th>
                                         <th class="center">文件来源</th>
                                         <th class="center">时间</th>
-                                        <th></th>
+                                        <th class="center"></th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
                                     <c:forEach items="${filess}" var="files">
-                                        <tr>
-                                            <td class="center col-md-1 subcheck"><label
-                                                    class="position-relative"> <input type="checkbox"
-                                                                                      class="ace" name="subcheck"
-                                                                                      value="${files.id}"/> <span
-                                                    class="lbl"></span>
-                                            </label></td>
-                                            <td><a href="files_download/${files.id}" role="button"
-                                                   class="blue" data-toggle="modal">${files.title}</a>
-                                            </td>
-                                            <td><span>${files.system.sysName}</span></td>
-                                            <td><span>${files.fileType}</span></td>
-                                            <td>${files.time}</td>
-                                            <td class="text-right">
-                                                <div class="left hidden-sm hidden-xs action-buttons">
-                                                    <a class="green" href="files_download/${files.id}"
-                                                       title="下载"> <i
-                                                            class="ace-icon fa fa-cloud-download  bigger-130"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                        <c:if test="${fn:contains(files.fileType,'通知公告') or fn:contains(files.fileType,'体系动态') or fn:contains(files.fileType,'规章制度') or fn:contains(files.fileType,'重大文件')}">
+                                            <tr>
+                                                <td class="center col-md-1 subcheck"><label
+                                                        class="position-relative"> <input type="checkbox"
+                                                                                          class="ace" name="subcheck"
+                                                                                          value="${files.id}"/> <span
+                                                        class="lbl"></span>
+                                                </label></td>
+                                                <td><a href="files_download/${files.id}" role="button"
+                                                       class="blue" data-toggle="modal">${files.title}</a>
+                                                </td>
+                                                <td><span>${files.system.sysName}</span></td>
+                                                <td><span>${files.fileType}</span></td>
+                                                <td>${files.time}</td>
+                                                <td class="text-right">
+                                                    <div class="left hidden-sm hidden-xs action-buttons">
+                                                        <a class="green" href="files_download/${files.id}"
+                                                           title="下载"> <i
+                                                                class="ace-icon fa fa-cloud-download  bigger-130"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
 
 
-                                        </tr>
+                                            </tr>
+                                        </c:if>
+
                                     </c:forEach>
                                     </tbody>
                                 </table>
@@ -147,7 +150,7 @@
                                 <table id="sample-table-2" class="table table-hover table-bordered">
                                     <thead >
                                     <tr >
-                                        <th ><label class="position-relative center">
+                                        <th class="center" ><label class="position-relative center">
                                             <input type="checkbox" class="ace center"/> <span class="lbl"></span>
                                         </label></th>
                                         <th class="center">文件名</th>
@@ -160,7 +163,7 @@
 
                                     <tbody>
                                     <c:forEach items="${filess}" var="files">
-                                        <c:if test="${fn:contains(files.fileType,'通知公告')}">
+                                        <c:if test="${fn:contains(files.fileType,'通知公告') or fn:contains(files.fileType,'重大文件')}">
                                             <tr>
                                                 <td class="center col-md-1 subcheck"><label
                                                         class="position-relative"> <input type="checkbox"
@@ -259,7 +262,7 @@
                                         <th class="center">发布者</th>
                                         <th class="center">文件来源</th>
                                         <th class="center">时间</th>
-                                        <th></th>
+                                        <th class="center"></th>
                                     </tr>
                                     </thead>
 
@@ -458,5 +461,6 @@
 <script src="docs/assets/js/language/javascript.js"></script>
 <!-- 引入js -->
 <script src="assets/js/atits-js/files.js"></script>
+<script src="assets/js/atits-js/files_add.js"></script>
 </body>
 </html>

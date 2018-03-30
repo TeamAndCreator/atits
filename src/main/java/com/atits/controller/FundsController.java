@@ -104,7 +104,6 @@ public class FundsController {
      */
     @RequestMapping(value = "/funds_save", method = RequestMethod.POST)
     public String save(Funds funds,HttpServletRequest request) {
-        System.out.print(funds.toString());
         fundsService.save(funds);// 封装到service层
         HttpSession session = request.getSession();
         Person person = (Person) session.getAttribute("person");

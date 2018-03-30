@@ -87,7 +87,6 @@ public class RegulationDao {
 	}
 
 	public void updateFileId(Integer id) {
-		java.lang.System.out.print("dao:"+id);
 		String hql = "update t_regulation set fileId=:fileId where id=:id";
 		getSession().createQuery(hql).setParameter("fileId", "").setParameter("id", id).executeUpdate();
 	}

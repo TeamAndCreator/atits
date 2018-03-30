@@ -542,7 +542,7 @@
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
-                            href="sys_files?sysId=${person.system.id}" target="iframe"><i
+                            href="files" target="iframe"><i
                             class="menu-icon fa fa-cloud-download"></i><span class="menu-text">
 							下载中心</span>
                     </a> <b class="arrow"></b></li>

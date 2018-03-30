@@ -44,7 +44,6 @@ public class NoticeDao {
 	}
 
 	public void save(Notice notice) {
-		System.out.println(notice.toString());
 		if (notice.getId()==0) {
 			getSession().save(notice);
 		}else {

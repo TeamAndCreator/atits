@@ -67,7 +67,6 @@ public class ActivityController {
 
     @RequestMapping(value = "/activity_save", method = RequestMethod.POST)
     public String save(Activity activity) {
-        System.out.println(activity.toString());
         return null;
     }
 
