@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -41,13 +40,17 @@ public class MainController {
     private RegulationService regulationService;// 注入业务层
 
     @Resource
+    private ReportService reportService;// 注入业务层
+
+
+    @Resource
     private DynamicService dynamicService;// 注入业务层
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        List<System> systems= systemService.findAll();
-        model.addAttribute("systems",systems);
+        List<System> systems = systemService.findAll();
+        model.addAttribute("systems", systems);
 
         List<Notice> notices = noticeService.findAll();
         model.addAttribute("notices", notices);
@@ -82,7 +85,7 @@ public class MainController {
     public String findById(@RequestParam("id") Integer id, Model model) {
         Notice notice = noticeService.findById(id);
 
-        if (notice.getFileId() != "") {
+        if (!notice.getFileId().equals("") | notice.getFileId() != null) {
             String[] temp = notice.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
@@ -112,7 +115,7 @@ public class MainController {
     public String findById2(@RequestParam("id") Integer id, Model model) throws Exception {
         Dynamic dynamic = dynamicService.findById(id);
 
-        if (dynamic.getFileId() != "") {
+        if (!dynamic.getFileId().equals("") | dynamic.getFileId() != null) {
             String[] temp = dynamic.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
@@ -141,7 +144,7 @@ public class MainController {
     public String findById3(@RequestParam("id") Integer id, Model model) {
         Harvest harvest = harvestService.findById(id);
 
-        if (harvest.getFileId()!="" || harvest.getFileId() !=null) {
+        if (!harvest.getFileId().equals("") | harvest.getFileId() != null) {
             String[] temp = harvest.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
@@ -158,6 +161,7 @@ public class MainController {
         return "main_harvest";
     }
 //
+
     /**
      * 查看详情重大活动
      *
@@ -170,7 +174,7 @@ public class MainController {
     public String findById4(@RequestParam("id") Integer id, Model model) {
         Activity activity = activityService.findById(id);
 
-        if (activity.getFileId()!= "") {
+        if (!activity.getFileId().equals("") | activity.getFileId() != null) {
             String[] temp = activity.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
@@ -187,50 +191,37 @@ public class MainController {
         return "main_activity";
     }
 
-//    /**
-//     * 文件下载
-//     *
-//     * @param id
-//     * @param response
-//     * @throws IOException
-//     */
-//    @RequestMapping(value = "/files_download/{id}", method = RequestMethod.GET)
-//    public void download(@PathVariable("id") Integer id, HttpServletResponse response) throws IOException {
-//        Files files = filesService.findById(id);
-//
-//        String filePath = FILE_PATH + files.getSystem().getId() + "/" + files.getFileType() + "/" + files.getEditor().getId() + "/" + files.getFileName();
-//        java.lang.System.out.println("file:"+filePath);
-//        File file = new File(filePath);
-//        if (file.exists()) {
-//            String filename = URLEncoder.encode(files.getFileName(), "UTF-8");
-//            //response.setContentType("application/pdf");
-//            response.setHeader("Content-disposition", "attachment;filename=" + filename);
-//            byte[] buffer = new byte[1024];
-//            FileInputStream fis = null;
-//            BufferedInputStream bis = null;
-//            fis = new FileInputStream(file);
-//            bis = new BufferedInputStream(fis);
-//            OutputStream os = response.getOutputStream();
-//            int i = bis.read(buffer);
-//            while (i != -1) {
-//                os.write(buffer, 0, i);
-//                i = bis.read(buffer);
-//            }
-//            os.flush();
-//            os.close();
-//            bis.close();
-//            fis.close();
-//
-//        } else {
-//            response.setContentType("text/html");
-//            response.setCharacterEncoding("UTF-8");
-//            PrintWriter pwt = response.getWriter();
-//            pwt.println("文件不存在");
-//            pwt.close();
-//        }
-//
-//    }
-//
+
+
+    /**
+     * 查看详情,重大文件
+     *
+     * @param id
+     * @param model
+     * @return
+     */
+
+    @RequestMapping(value = "/main_report", method = RequestMethod.GET)
+    public String findById5(@RequestParam("id") Integer id, Model model) {
+        Report report = reportService.findById(id);
+
+        if (!report.getFileId().equals("") | report.getFileId() != null) {
+            String[] temp = report.getFileId().split(",");// 以逗号拆分字符串
+            Integer[] ids = new Integer[temp.length];// int类型数组
+            for (int i = 0; i < temp.length; i++) {
+                ids[i] = Integer.parseInt(temp[i]);// 整数数组
+            }
+            List<Files> files = filesService.findByIds(ids);
+            if (files.isEmpty()) {
+                files = null;
+            }
+            model.addAttribute("files", files);
+        }
+
+        model.addAttribute("report", report);
+        return "main_report";
+    }
+
     /**
      * 查看详情：规章制度
      *
@@ -240,11 +231,10 @@ public class MainController {
      * @throws Exception
      */
     @RequestMapping(value = "/main_regulation", method = RequestMethod.GET)
-    public String findById6(@RequestParam("id") Integer id, Model model)
-    {
+    public String findById6(@RequestParam("id") Integer id, Model model) {
         Regulation regulation = regulationService.findById(id);
 
-        if (!regulation.getFileId().equals("")) {
+        if (!regulation.getFileId().equals("") | regulation.getFileId() != null) {
             String[] temp = regulation.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {
