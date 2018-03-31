@@ -68,7 +68,7 @@
 	<mvc:resources mapping="/docs/**" location="/docs/" />
 
 	<!-- 页面跳转 -->
-	<mvc:view-controller path="/" view-name="login" />
+	<mvc:view-controller path="/tologin" view-name="login" />
 	<mvc:view-controller path="/image" view-name="image" />
 	<mvc:view-controller path="/home" view-name="home" />
 	<mvc:view-controller path="/test_start" view-name="test_start" />

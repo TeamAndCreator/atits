@@ -228,6 +228,22 @@
                         <span class="menu-text"> 综合试验站 </span>
                     </a> <b class="arrow"></b></li>
 
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
+
                     <li class="" onclick="show(this)"><a href="notice"
                                                          target="iframe"> <i class="menu-icon fa fa-comments-o"></i>
                         <span
@@ -293,21 +309,7 @@
                             class="menu-icon fa fa-cloud-download"></i>
                         <span class="menu-text"> 下载中心 </span>
                     </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="activity"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大活动 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="harvest"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大成果 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="report"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大文件报告 </span>
-                    </a> <b class="arrow"></b></li>
+
 
 
                     <li class="" onclick="show(this)"><a href="help"
@@ -349,6 +351,21 @@
 
                         </ul>
                     </li>
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="notice" target="iframe"><i
@@ -431,22 +448,6 @@
 							下载中心</span>
                     </a> <b class="arrow"></b></li>
 
-                    <li class="" onclick="show(this)"><a href="activity"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大活动 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="harvest"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大成果 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="report"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大文件报告 </span>
-                    </a> <b class="arrow"></b></li>
-
                     <li class="" onclick="show(this)"><a href="person_home">
                         <i class="menu-icon fa fa-male"></i> <span class="menu-text">
 									个人管理平台 </span>
@@ -489,6 +490,22 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="" onclick="show(this)"><a href="activity"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大活动 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="harvest"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大成果 </span>
+                    </a> <b class="arrow"></b></li>
+                    <li class="" onclick="show(this)"><a href="report"
+                                                         target="iframe"> <i
+                            class="menu-icon fa fa-cloud-download"></i>
+                        <span class="menu-text"> 重大文件报告 </span>
+                    </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="notice" target="iframe"><i
@@ -547,21 +564,7 @@
 							下载中心</span>
                     </a> <b class="arrow"></b></li>
 
-                    <li class="" onclick="show(this)"><a href="activity"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大活动 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="harvest"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大成果 </span>
-                    </a> <b class="arrow"></b></li>
-                    <li class="" onclick="show(this)"><a href="report"
-                                                         target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
-                        <span class="menu-text"> 重大文件报告 </span>
-                    </a> <b class="arrow"></b></li>
+
 
 
                     <li class="" onclick="show(this)"><a href="person_home">

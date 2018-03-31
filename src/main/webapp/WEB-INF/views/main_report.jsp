@@ -140,12 +140,12 @@
                      role="navigation">
                     <ul class="nav ace-nav log_backg">
                         <li class="light-blue">
-                            <a href='to_login'>
+                            <a href='system_detail?id=1'>
                                 &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
                             </a>
                         </li>
                         <li class="light-blue">
-                            <a href='to_register'>
+                            <a href='system_detail?id=1'>
                                 &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
                             </a>
                         </li>
@@ -211,14 +211,14 @@
 
                                 <div class="col-md-10"
                                      style="float: none;display: block;margin-left: auto;margin-right: auto;">
-                                    <h2 class="blue center">${harvest.title}</h2>
+                                    <h2 class="blue center">${report.title}</h2>
                                 </div>
 
                                 <h5 class="publish">
-                                    <span>来源&nbsp;:&nbsp;${harvest.system.sysName}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span>编辑人&nbsp;:&nbsp;${harvest.editor.name}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>来源&nbsp;:&nbsp;${report.system.sysName}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span>编辑人&nbsp;:&nbsp;${report.editor.name}</span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;
-                                    <span>时间&nbsp;:&nbsp;${harvest.time}</span>&nbsp;<span>${harvest.date}</span>
+                                    <span>时间&nbsp;:&nbsp;${report.time}</span>&nbsp;<span>${report.date}</span>
                                 </h5>
                                 <hr/>
                                 <div class="col-md-11"
@@ -226,7 +226,7 @@
                                     <div class="space"></div>
                                     <%--<div class="widget-main">${notice.content}</div>--%>
                                     <div class="widget-main">
-                                        ${harvest.content}
+                                        ${report.content}
                                     </div>
 
                                 </div>

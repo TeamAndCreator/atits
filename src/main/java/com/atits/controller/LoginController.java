@@ -147,7 +147,7 @@ public class LoginController {
     @RequestMapping(value = "/to_login", method = RequestMethod.GET)
     public String toLogin(HttpSession session) {
         session.invalidate();//
-        return "redirect:/";
+        return "login";
     }
 
     /**

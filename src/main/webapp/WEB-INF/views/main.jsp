@@ -143,12 +143,12 @@
 
 
                 <li class="light-blue">
-                    <a href='#'>
+                    <a href='to_login'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
                 <li class="light-blue">
-                    <a href='#'>
+                    <a href='to_register'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
@@ -544,32 +544,31 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading ">
                                     <span class="glyphicon glyphicon-list-alt"></span><b
-                                        style="font-size:larger">重要文件</b>
+                                        style="font-size:larger">重大文件报告</b>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul class="demo2">
-                                                <c:forEach items="${filess}" var="files">
+                                                <c:forEach items="${reports}" var="report">
 
                                                         <c:choose>
-                                                            <c:when test="${files.title.length()>22}">
+                                                            <c:when test="${report.title.length()>22}">
                                                                 <li class="news-item">
                                                                     <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${files.title}>${files.title.substring(0,22)}...
-
+                                                                         title=${report.title}>${report.title.substring(0,22)}...
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${files.time}</span>
-                                                                        <a href="files_download/${files.id}"
+                                                                        <span class="pull-right">${report.time}</span>
+                                                                        <a href="main_report?id=${report.id}"
                                                                         class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <li class="news-item "
-                                                                    id="content">${files.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${files.time}</span>
-                                                                    <a href="files_download/${files.id}"
+                                                                <li class="news-item"
+                                                                    id="content">${report.title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <span class="pull-right">${report.time}</span>
+                                                                    <a href="main_report?id=${report.id}"
                                                                     class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
