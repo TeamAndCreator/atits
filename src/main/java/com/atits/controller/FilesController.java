@@ -40,8 +40,6 @@ public class FilesController {
     @Resource
     private SystemService systemService;
 
-    private final String FILE_PATH = "C:/file/";
-
     // get和set方法：
 
     public FilesService getfilesService() {
@@ -224,6 +222,7 @@ public class FilesController {
     public void download(@PathVariable("id") Integer id, HttpServletResponse response) throws IOException {
         Files files = filesService.findById(id);
 
+        String FILE_PATH = "C:/file/";
         String filePath = FILE_PATH + files.getSystem().getId() + "/" + files.getFileType() + "/" + files.getEditor().getId() + "/" + files.getFileName();
         System.out.println("file:"+filePath);
         File file = new File(filePath);
