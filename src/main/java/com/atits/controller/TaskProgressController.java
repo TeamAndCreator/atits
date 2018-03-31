@@ -77,6 +77,7 @@ public class TaskProgressController {
     @RequestMapping(value = "/task_progress_save", method = RequestMethod.POST)
     @ResponseBody
     public String save(TaskProgress taskProgress,HttpServletRequest request)  {
+
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
         SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式
@@ -100,35 +101,6 @@ public class TaskProgressController {
             return "bank";
         }
         return "ok";
-    }
-
-
-    /**
-     * 修改方法：save方法
-     *
-     * @param taskProgress
-     * @return
-     */
-    @RequestMapping(value = "/task_progress_save", method = RequestMethod.PUT)
-    public String update(TaskProgress taskProgress) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-        taskProgress.setTime(df.format(new Date()));// new Date()为获取当前系统时间
-        SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");//设置日期格式
-        taskProgress.setDate(df1.format(new Date()));// new Date()为获取当前系统时间
-        SubTask subTask= subTaskService.findById(taskProgress.getId());
-        Task task =taskService.findById(subTask.getTask().getId());
-        if (taskProgress.getFileId() != "") {
-            String[] ids = taskProgress.getFileId().split(",");
-            for (String id : ids) {
-                filesService.updateTimeAndEditor(Integer.valueOf(id), taskProgress.getTime(),taskProgress.getDate(), subTask.getBearer().getId(), task.getSystem().getId(),"工作进展");
-            }
-        }
-        try {
-            taskProgressService.save(taskProgress);// 封装到service层
-        } catch (Exception e) {
-            return "bank";
-        }
-        return "task_progress";
     }
 
 

@@ -78,9 +78,9 @@
                             <a class="btn btn-sm btn-primary" href="test_start_add?sysId=${person.system.id}"> <i
                                     class="ace-icon fa  bigger-130">+添加</i>
                             </a>
-                            <a class="btn btn-sm btn-danger red" href="#"> <i
-                                class="ace-icon fa  bigger-130">×删除</i>
-                        </a>
+                            <%--<a class="btn btn-sm btn-danger red" href="#"> <i--%>
+                                <%--class="ace-icon fa  bigger-130">×删除</i>--%>
+                        <%--</a>--%>
                         </div>
                         <div>
                             <table id="sample-table-1"

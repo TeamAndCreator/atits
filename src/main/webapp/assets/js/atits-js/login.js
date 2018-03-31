@@ -45,7 +45,6 @@ $("#login").click(function () {
                 alert(result.msg);
             } else {
                 person = result.data["person"];
-                console.log(person);
                 sessionStorage.setItem('person', JSON.stringify(person));
                 window.location.href = "home";
 

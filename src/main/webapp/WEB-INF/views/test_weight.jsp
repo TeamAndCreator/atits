@@ -91,8 +91,8 @@
                             <button class="btn btn-sm btn-primary" id="add_test_weight"><i
                                     class="ace-icon fa  bigger-130">+添加</i>
                             </button>
-                            <a class="btn btn-sm btn-danger" href="#"> <i class="ace-icon fa  bigger-130">×删除</i>
-                            </a>
+                            <button class="btn btn-sm btn-danger" id="test_weight_deletes"> <i class="ace-icon fa  bigger-130">×删除</i>
+                            </button>
 
                             <a class="btn btn-yellow  pull-right" href="test_manage"><i
                                     class="ace-icon fa fa-arrow-left bigger-130">返回考评管理</i>
@@ -341,6 +341,17 @@
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     jQuery(function ($) {
+
+        $(document).on('click','th input:checkbox',function () {
+                var that = this;
+                $(this).closest('table').find(
+                    'tr > td:first-child input:checkbox').each(
+                    function () {
+                        this.checked = that.checked;
+                        $(this).closest('tr').toggleClass(
+                            'selected');
+                    });
+            });
 
 
         var inp1 = $('#form-1').get(0);

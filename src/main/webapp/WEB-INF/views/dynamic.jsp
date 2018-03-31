@@ -486,6 +486,7 @@
                 else {
                     $('#' + $("#state_id").val()).removeClass("btn-primary").addClass("disabled btn-danger").html("未通过");
                 }
+                location.reload();
             }
         });
         $('#mySmallModalLabel').modal('hide');

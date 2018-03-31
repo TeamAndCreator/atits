@@ -173,7 +173,6 @@ public class FilesController {
     public String findAll(Model model) {
         List<Files> filess = filesService.findAll();
         model.addAttribute("filess", filess);// 所有的实体：filess
-        System.out.println(filess.toString());
         return "files";
     }
 
@@ -225,7 +224,6 @@ public class FilesController {
         Files files = filesService.findById(id);
 
         String filePath = FILE_PATH + files.getSystem().getId() + "/" + files.getFileType() + "/" + files.getEditor().getId() + "/" + files.getFileName();
-        System.out.println("file:"+filePath);
         File file = new File(filePath);
         if (file.exists()) {
             String filename = URLEncoder.encode(files.getFileName(), "UTF-8");

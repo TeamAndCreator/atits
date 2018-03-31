@@ -131,7 +131,7 @@ public class ReportController extends Thread {
         if (!report.getFileId().equals("")) {
             String[] ids = report.getFileId().split(",");
             for (String id : ids) {
-                filesService.updateTimeAndEditor(Integer.valueOf(id), report.getTime(), report.getDate(), report.getEditor().getId(), report.getSystem().getId(), "通知公告");
+                filesService.updateTimeAndEditor(Integer.valueOf(id), report.getTime(), report.getDate(), report.getEditor().getId(), report.getSystem().getId(), "重大文件");
             }
         }
         reportService.save(report);
@@ -156,7 +156,7 @@ public class ReportController extends Thread {
         if (!report.getFileId().equals("")) {
             String[] ids = report.getFileId().split(",");
             for (String id : ids) {
-                filesService.updateTimeAndEditor(Integer.valueOf(id), report.getTime(), report.getDate(), report.getEditor().getId(), report.getSystem().getId(), "通知公告");
+                filesService.updateTimeAndEditor(Integer.valueOf(id), report.getTime(), report.getDate(), report.getEditor().getId(), report.getSystem().getId(), "重大文件");
             }
         }
         reportService.save(report);
@@ -185,7 +185,6 @@ public class ReportController extends Thread {
     @RequestMapping(value = "/report_set_flag/{idList}", method = RequestMethod.POST)
     @ResponseBody
     public String updateFlag(@PathVariable("idList") String idList) {
-        System.out.println(idList);
         reportService.updateFlag(idList);
         return "ok";
     }

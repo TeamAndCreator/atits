@@ -116,7 +116,6 @@ public class FilesService {
                 String uuid = UUID.randomUUID().toString();
                 fileName = uuid + "." + fileEnd;
                 String filePath = "C:/file/" + map.get("sysId") + "/" + map.get("type") + "/" + map.get("personId") + "/" + fileName;
-                System.out.println(filePath);
                 File file = new File(filePath);
 
                 //判断目标文件所在的目录是否存在

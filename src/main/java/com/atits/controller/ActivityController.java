@@ -224,6 +224,7 @@ public class ActivityController extends Thread {
      * @return
      */
 
+
     // @RequestMapping(value = "", method = RequestMethod.GET)
     public String findByPage(@RequestParam("page") String page, Model model) {
 

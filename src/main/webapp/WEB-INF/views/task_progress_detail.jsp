@@ -192,14 +192,14 @@
                                 详情
                             </div>
                         </div>
-                        <form id="task_progress_add_form">
+                        <form id="task_progress_update_form">
                             <div class="modal-body no-padding">
                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                     <tbody>
                                     <br/>
                                     <tr>
                                         <td class="align-right">标题：</td>
-                                        <td><textarea name="title" id="title" cols="50" rows="1"></textarea>
+                                        <td><textarea name="title" id="title_update" cols="50" rows="1"></textarea>
                                         </td>
                                     </tr>
 
@@ -210,7 +210,7 @@
                                         <%--</select>--%>
                                         <%--</td>--%>
                                         <td>
-                                            <select class="form-control" id="subTasks" name="subTask.id">
+                                            <select class="form-control" id="subTasks_update" name="subTask.id">
                                             </select>
                                         </td>
                                         </td>
@@ -218,7 +218,7 @@
 
                                     <tr>
                                         <td class="align-right">进展描述：</td>
-                                        <td><textarea class="form-control" type="text" name="content" id="content"
+                                        <td><textarea class="form-control" type="text" name="content" id="content_update"
                                                       placeholder="请输入详细工作进展"
                                                       style="height: 150px"></textarea>
                                         </td>
@@ -229,8 +229,8 @@
                                             <!-- #section:custom/file-input -->
                                             <input id="input-id" type="file" class="file input-id" multiple
                                                    name="files" data-show-caption="true"/>
-                                            <input type='hidden' name="fileId" id="fileId" value=''/>
-
+                                            <input type='hidden' name="fileId" id="fileId_update" value=''/>
+                                            <input type='hidden' name="id" id = "progressId_update"/>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -242,7 +242,7 @@
                                     <i class="ace-icon fa fa-times"></i>关闭
                                 </button>
                                 <button class="btn btn-sm btn-success pull-left" data-dismiss="modal"
-                                        id="task_progress_save">
+                                        id="task_progress_update">
                                     <%--onclick="javasript:window.alert('提交成功！')"--%>
                                     <i class="ace-icon fa fa-check"></i>更新
                                 </button>

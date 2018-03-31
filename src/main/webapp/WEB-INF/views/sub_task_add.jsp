@@ -78,7 +78,7 @@
             <ul class="breadcrumb">
                 <li><i class="ace-icon fa fa-home home-icon"></i> <a
                         href="index">首页</a></li>
-                <li><a href="sub_task?sysId=${taskNum.sysId}">体系任务</a></li>
+                <li><a href="sub_task?sysId=${person.system.id}&&taskId=${task.id}">细化安排</a></li>
                 <li class="active">修改&amp;添加</li>
             </ul>
             <!-- /.breadcrumb -->

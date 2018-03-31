@@ -185,7 +185,6 @@ public class NoticeController extends Thread {
     @RequestMapping(value = "/notice_set_flag/{idList}",method=RequestMethod.POST)
     @ResponseBody
     public String updateFlag(@PathVariable("idList") String idList){
-        System.out.println(idList);
        noticeService.updateFlag(idList);
        return "ok";
     }

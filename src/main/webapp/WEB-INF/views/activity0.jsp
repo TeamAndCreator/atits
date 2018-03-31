@@ -283,6 +283,7 @@
                 url: "activity_state/" + $(this).attr('id'),
                 type: "PUT",
                 success: function (result) {
+
                     table.ajax.reload();
                 }
             });

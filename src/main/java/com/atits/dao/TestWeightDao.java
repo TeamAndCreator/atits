@@ -41,4 +41,17 @@ public class TestWeightDao {
         List count = getSession().createQuery(hql).list();
         return (Long) count.get(0);
     }
+
+    public void deletes(List<Integer> idList) {
+        for (Integer id : idList) {
+            TestWeight testWeight = findById(id);
+            //执行为删除方法
+            getSession().delete(testWeight);
+        }
+    }
+
+    private TestWeight findById(Integer id) {
+        String hql = "from t_test_weight where id =:id";
+        return (TestWeight) getSession().createQuery(hql).setParameter("id", id).uniqueResult();
+    }
 }

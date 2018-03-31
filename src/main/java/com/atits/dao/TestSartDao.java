@@ -74,7 +74,6 @@ public class TestSartDao {
     }
 
     public List<TestStart> findSysperIdBysysId(Integer id) {
-        System.out.println(id);
         String hql = "from t_test_start where system.id=:id";
         return getSession().createQuery(hql).setParameter("id", id).list();
     }
