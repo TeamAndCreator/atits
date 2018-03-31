@@ -709,6 +709,9 @@
 <script type="text/javascript">
     /*********************点击事件*********************/
     $(document).ready(function () {
+        if (sessionStorage.person==null){
+            window.location.href = "home";
+        }
 
 //时间设置
         function currentTime() {
