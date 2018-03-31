@@ -196,10 +196,10 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right"> 综合试验站基本信息 </label>
+								<label class="col-sm-3 control-label no-padding-right"> 建设依托单位基本概括 </label>
 								<div class="col-sm-4">
 										<textarea name="content"
-												  class="autosize-transition form-control" cols="10" rows="10"
+												  class="autosize-transition form-control" cols="10" rows="10" placeholder="此信息主要填写建设依托单位简介，字数200字以内，另附挂牌图片一张。"
 										></textarea>
 								</div>
 							</div>

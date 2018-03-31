@@ -84,7 +84,7 @@ public class HarvestController extends Thread {
     public String findById(@RequestParam("id") Integer id, Model model) {
         Harvest harvest = harvestService.findById(id);
 
-        if (harvest.getFileId() != "") {
+        if (!harvest.getFileId().equals("")) {
             String[] temp = harvest.getFileId().split(",");// 以逗号拆分字符串
             Integer[] ids = new Integer[temp.length];// int类型数组
             for (int i = 0; i < temp.length; i++) {

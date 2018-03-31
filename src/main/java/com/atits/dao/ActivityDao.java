@@ -89,4 +89,7 @@ public class ActivityDao {
         List activity=getSession().createQuery(hql).list();
         return (Long) activity.get(0);
     }
+
+    public void updateFlag(String idList) {
+    }
 }

@@ -55,7 +55,7 @@ $(".input-id").fileinput({
 	language : 'zh',// 设置语言
 	uploadUrl : 'files_upload/'+JSON.stringify(params), // 上传的地址ZF
     allowedPreviewTypes: ['image'],
-	allowedFileExtensions : ['pdf','doc','docx'],// 接收的文件后缀
+	allowedFileExtensions : [ 'xls', 'xlsx', 'doc', 'docx', 'pdf', 'txt',"pptx",'ppt','zip','rar' ],// 接收的文件后缀
 	maxFileCount : 10, // 文件数量
     maxFileSize : 100000,
 	showUpload : true, // 是否显示上传按钮

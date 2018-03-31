@@ -4,7 +4,7 @@
         resizeType:1,  //只能改变编辑器高度
         // pasteType:1,  //txt文本粘贴
         allowImageRemote:false,  //不显示网络图片
-        autoHeightMode:true,  //自动高度
+        autoHeightMode:true //自动高度
         // items:[
         //     'undo', 'redo', '|', 'preview', 'print',  'cut', 'copy', 'paste',
         //     'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
@@ -28,7 +28,7 @@
 $(function () {
     $("#delete").click(function () {
         $.ajax({
-            url : 'notice_fileId',
+            url : 'activity_fileId',
             type : 'post',
             data : {
                 "id":$("#id").val(),

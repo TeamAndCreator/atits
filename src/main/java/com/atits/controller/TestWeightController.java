@@ -1,6 +1,7 @@
 package com.atits.controller;
 
 
+import com.atits.entity.Msg;
 import com.atits.entity.TestWeight;
 import com.atits.service.TestWeightService;
 import com.atits.utils.PageUtil;
@@ -8,10 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -31,9 +29,9 @@ public class TestWeightController {
      */
     @RequestMapping(value = "/test_weight_save_ajax", method = RequestMethod.POST)
     @ResponseBody
-    public String save(TestWeight testWeight) {
+    public Msg save(TestWeight testWeight) {
         testWeightService.save(testWeight);
-        return "ok";
+        return Msg.success();
     }
 
     @RequestMapping(value = "/test_weight_find_all_ajax", method = RequestMethod.GET)
@@ -56,5 +54,18 @@ public class TestWeightController {
         getObj.put("iTotalDisplayRecords", count);//显示的行数,这个要和上面写的一样
 
         return getObj.toString();
+    }
+
+
+    @RequestMapping(value = "/test_weight_deletes/{idList}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg deletes(@PathVariable List<Integer> idList) {
+        System.out.println(idList.toString());
+        try {
+            testWeightService.deletes(idList);
+            return Msg.success();
+        } catch (Exception e) {
+            return Msg.fail();
+        }
     }
 }

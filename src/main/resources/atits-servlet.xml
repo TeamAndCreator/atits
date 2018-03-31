@@ -73,8 +73,8 @@
 	<mvc:view-controller path="/home" view-name="home" />
 	<mvc:view-controller path="/test_start" view-name="test_start" />
 	<mvc:view-controller path="/person" view-name="person" />
-	<mvc:view-controller path="/activity" view-name="activity" />
-	<mvc:view-controller path="/activity_add" view-name="activity_add" />
+	<mvc:view-controller path="/activity" view-name="activity0" />
+	<mvc:view-controller path="/activity_add" view-name="activity_add0" />
 
 
 	<mvc:view-controller path="/person_home" view-name="person_home" />

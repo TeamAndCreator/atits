@@ -24,7 +24,7 @@ $("#input-1").fileinput({
 	slugCallback : function(filename) {
 		return filename.replace('(', '_').replace(']', '_');
 	},
-	showPreview : true,
+	showPreview : true
 
 });
 

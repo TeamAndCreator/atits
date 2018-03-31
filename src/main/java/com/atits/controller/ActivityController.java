@@ -1,73 +1,258 @@
 package com.atits.controller;
 
-
+import com.atits.entity.Files;
 import com.atits.entity.Activity;
-import com.atits.service.ActivityService;
+import com.atits.entity.Person;
 import com.atits.service.FilesService;
-import com.atits.utils.PageUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.atits.service.ActivityService;
+import com.atits.service.SystemService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
+
 
 @Controller
-public class ActivityController {
+public class ActivityController extends Thread {
+
+
     @Resource
-    private FilesService filesService;// 注入业务层
+    private ActivityService activityService;
 
     @Resource
-    private ActivityService activityService;// 注入业务层
+    private FilesService filesService;
+
+    @Resource
+    private SystemService systemService;// 注入业务层
 
 
-    @RequestMapping(value = "/activity_find_all_ajax", method = RequestMethod.GET)
-    @ResponseBody
-    public String findAll(@RequestParam("params") String params) throws JsonProcessingException {
-        PageUtil pageUtil = new PageUtil();
-        Map<String, String> map = pageUtil.pageParams(params);
-        //为操作次数加1
-        int initEcho = Integer.parseInt(map.get("sEcho")) + 1;
-        List<Activity> activities = activityService.findByPage(Integer
-                .parseInt(map.get("iDisplayStart")), Integer.parseInt(map.get("iDisplayLength")));
-        Long count = activityService.findByPageCunnt(); //查询出来的数量
+    public SystemService getSystemService() {
+        return systemService;
+    }
 
-        // 执行搜索，把不属于关键字部分内容remove掉
-//        String sSearch = map.get("sSearch");
-//        if (sSearch != null && !sSearch.equals("")) {
-//            Iterator it = persons.iterator();
-//            while (it.hasNext()) {
-//                String[] s = (String[]) it.next();
-//
-//                if (!s[0].contains(sSearch) || !s[1].contains(sSearch)) {
-//                    it.remove();
-//                }
-//            }
-//        }
+    public void setSystemService(SystemService systemService) {
+        this.systemService = systemService;
+    }
 
+    /**
+     * 跳转添加页面
+     *
+     * @param id
+     * @param model
+     * @return
+     */
 
-        ObjectMapper mapper = new ObjectMapper();// json对象建立
-        JSONObject getObj = new JSONObject();
-        //HashMap<String,Object> getObj=new HashMap<>();
-        getObj.put("aaData", mapper.writeValueAsString(activities));
-        getObj.put("sEcho", initEcho);// 不知道这个值h有什么用,有知道的请告知一下
-        getObj.put("iTotalRecords", count);//实际的行数
-        getObj.put("iTotalDisplayRecords", count);//显示的行数,这个要和上面写的一样
-
-        return getObj.toString();
-
+    @RequestMapping(value = "/activity_setting", method = RequestMethod.GET)
+    public String activity_add(@RequestParam("id") Integer id, Model model) {
+        model.addAttribute("system", systemService.findAll());
+        model.addAttribute("activity", activityService.findById(id));
+        return "activity_add";
     }
 
 
+    /**
+     * 跳转添加页面
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/activity_add", method = RequestMethod.GET)
+    public String activity_add(Model model) {
+        model.addAttribute("system", systemService.findAll());
+//        System.out.println(systemService.findAll());
+        model.addAttribute("activity", new Activity());
+        return "activity_add";
+    }
+
+    /**
+     * 查看详情
+     *
+     * @param id
+     * @param model
+     * @return
+     */
+
+    @RequestMapping(value = "/activity_detail", method = RequestMethod.GET)
+    public String findById(@RequestParam("id") Integer id, Model model) {
+        Activity activity = activityService.findById(id);
+
+        if (activity.getFileId()!= "") {
+            String[] temp = activity.getFileId().split(",");// 以逗号拆分字符串
+            Integer[] ids = new Integer[temp.length];// int类型数组
+            for (int i = 0; i < temp.length; i++) {
+                ids[i] = Integer.parseInt(temp[i]);// 整数数组
+            }
+            List<Files> files = filesService.findByIds(ids);
+            if (files.isEmpty()) {
+                files = null;
+            }
+            model.addAttribute("files", files);
+        }
+
+        model.addAttribute("activity", activity);
+        return "activity_detail";
+
+    }
+
+    /****
+     * 删除
+     *
+     * @return
+     */
+    @RequestMapping(value = "/activity_deletes/{idList}", method = RequestMethod.DELETE)
+    public String deletes(@PathVariable("idList") List<Integer> idList, HttpServletRequest request) throws IOException {
+        activityService.deletes(idList);
+        HttpSession session = request.getSession();
+        Person person = (Person) session.getAttribute("person");
+        return "redirect:/activity";
+
+    }
+
+    /****
+     * 保存
+     *
+     * @return
+     */
     @RequestMapping(value = "/activity_save", method = RequestMethod.POST)
-    public String save(Activity activity) {
-        return null;
+    public String save(Activity activity, HttpServletRequest request) {
+
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
+        activity.setDate(date.format(new Date()));
+        activity.setTime(time.format(new Date()));// new Date()为获取当前系统时间
+        if (!activity.getFileId().equals("")) {
+            String[] ids = activity.getFileId().split(",");
+            for (String id : ids) {
+                filesService.updateTimeAndEditor(Integer.valueOf(id), activity.getTime(), activity.getDate(), activity.getEditor().getId(), activity.getSystem().getId(), "通知公告");
+            }
+        }
+        activityService.save(activity);
+        HttpSession session = request.getSession();
+        Person person = (Person) session.getAttribute("person");
+        return "redirect:/activity";
+
+    }
+
+    /****
+     * 修改
+     *
+     * @return
+     */
+    @RequestMapping(value = "/activity_save", method = RequestMethod.PUT)
+    public String update(Activity activity) {
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");//设置时间点格式
+        activity.setTime(time.format(new Date()));// new Date()为获取当前系统时间
+        activity.setDate(date.format(new Date()));
+
+        if (!activity.getFileId().equals("")) {
+            String[] ids = activity.getFileId().split(",");
+            for (String id : ids) {
+                filesService.updateTimeAndEditor(Integer.valueOf(id), activity.getTime(), activity.getDate(), activity.getEditor().getId(), activity.getSystem().getId(), "通知公告");
+            }
+        }
+        activityService.save(activity);
+        return "redirect:/activity";
+
+    }
+
+    /**
+     * 更新状态
+     *
+     * @param id
+     * @param val
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/activity_state", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateState(@RequestParam("id") Integer id, @RequestParam("val") Integer val) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();// json对象建立
+        activityService.updateState(id, val);
+        String json = mapper.writeValueAsString(val);// 将map转换成json字符串
+        return json;
+
+    }
+
+    @RequestMapping(value = "/activity_set_flag/{idList}", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateFlag(@PathVariable("idList") String idList) {
+        System.out.println(idList);
+        activityService.updateFlag(idList);
+        return "ok";
+    }
+
+
+    @RequestMapping(value = "activity_fileId", method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteFileId(@RequestParam("fileId") String fileId, @RequestParam("id") Integer id) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();// json对象建立
+        List<Integer> idList = mapper.readValue(fileId, List.class);
+        filesService.deletes(idList);
+        activityService.updateFileId(id);
+        String json = mapper.writeValueAsString("删除成功");// 将map转换成json字符串
+        return json;
+    }
+
+    /**
+     * 查询所有
+     *
+     * @param model
+     * @return
+     */
+
+    @RequestMapping(value = "/activity", method = RequestMethod.GET)
+    public String findAll(Model model) {
+        List<Activity> activitys = this.activityService.findAll();
+        model.addAttribute("activitys", activitys);
+        return "activity";
+    }
+
+    /**
+     * 分页
+     *
+     * @param page
+     * @param model
+     * @return
+     */
+
+
+    // @RequestMapping(value = "", method = RequestMethod.GET)
+    public String findByPage(@RequestParam("page") String page, Model model) {
+
+        // 每页显示的条数
+        int pageSize = 8;
+
+        List<Activity> activitys = this.activityService.findAll();
+
+        // 查到的总用户数
+        model.addAttribute("activityNum", activitys.size());
+
+        // 总页数
+        int pageTimes;
+        if (activitys.size() % pageSize == 0) {
+            pageTimes = activitys.size() / pageSize;
+        } else {
+            pageTimes = activitys.size() / pageSize + 1;
+        }
+        model.addAttribute("pageTimes", pageTimes);
+
+        // 每页开始的第几条记录
+        int startRow = (Integer.parseInt(page) - 1) * pageSize;
+        activitys = this.activityService.findByPage(startRow, pageSize);
+
+        model.addAttribute("currentPage", Integer.parseInt(page));
+        model.addAttribute("activitys", activitys);
+
+        return "activity";
     }
 
 
