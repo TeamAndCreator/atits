@@ -143,12 +143,12 @@
 
 
                 <li class="light-blue">
-                    <a href='#'>
+                    <a href='to_login'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
                 <li class="light-blue">
-                    <a href='#'>
+                    <a href='to_register'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
