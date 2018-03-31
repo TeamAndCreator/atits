@@ -1,31 +1,8 @@
 $(function () {
 
-    person = $.session.get('person');
-    console.log(person);
-
-    //打开添加权重弹框
-    $("#add_test_weight").click(function () {
-        $("#modal-table").modal({
-            backdrop: "static"
-        });
-    });
-
-
-    //保存权重对象
-    $("#btn_submit").click(function () {
-        $.ajax({
-            url: "test_weight_save_ajax",
-            type: "POST",
-            data: $("#form_table").serialize(),
-            success: function () {
-                $("#modal-table").modal('hide');
-            }
-        });
-
-    });
 
     //权重表格
-    $('#sample-table-2').DataTable({
+    table = $('#sample-table-2').DataTable({
         bAutoWidth: true,
         fnDraw: false,
         aoColumns: [
@@ -66,10 +43,32 @@ $(function () {
                 sNext: "后一页",
                 sLast: "尾页"
             }
-        },
-        fnRowCallback: function (nRow, aData, iDisplayIndex) {
-
         }
+
+    });
+
+    //打开添加权重弹框
+    $("#add_test_weight").click(function () {
+        $("#modal-table").modal({
+            backdrop: "static"
+        });
+    });
+
+
+    //保存权重对象
+    $("#btn_submit").click(function () {
+        $.ajax({
+            url: "test_weight_save_ajax",
+            type: "POST",
+            data: $("#form_table").serialize(),
+            dataType:"json",
+            success: function (reslut) {
+                alert(reslut);
+                $("#modal-table").modal('hide');
+                table.ajax.reload();
+            }
+        });
+
     });
 
 
@@ -89,6 +88,37 @@ $(function () {
             }
         });
     }
+
+    //权重删除
+    $("#test_weight_deletes").click(function () {
+        var checkedNum = $("input[name='subcheck']:checked").length;
+        if (checkedNum === 0) {
+            alert("请至少选择一项！");
+            return false;
+        }
+        if (confirm("确定删除所选项目？")) {
+            var checkedList = [];
+            $("input[name='subcheck']:checked").each(function () {
+                checkedList.push($(this).val())
+            });
+
+
+            $.ajax({
+                url: "test_weight_deletes/" + checkedList,
+                type: "DELETE",
+                dataType: "json",
+                success: function (result) {
+                    result=eval(result);
+                    alert(result.msg);
+                    table.ajax.reload();
+                },
+                error: function () {
+                    alert("出错了！")
+                }
+            });
+
+        }
+    })
 
 
 });
