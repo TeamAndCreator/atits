@@ -148,9 +148,9 @@
                             </c:when>
                             <c:when test="${person.permission eq 2}">
                                 <table id="sample-table-2" class="table table-hover table-bordered">
-                                    <thead >
-                                    <tr >
-                                        <th class="center" ><label class="position-relative center">
+                                    <thead>
+                                    <tr>
+                                        <th class="center"><label class="position-relative center">
                                             <input type="checkbox" class="ace center"/> <span class="lbl"></span>
                                         </label></th>
                                         <th class="center">文件名</th>
@@ -203,9 +203,9 @@
                                                     <td><a href="files_download/${files.id}" role="button"
                                                            class="blue" data-toggle="modal">${files.title}</a>
                                                     </td>
-                                                    <td ><span>${files.system.sysName}</span></td>
-                                                    <td ><span>${files.fileType}</span></td>
-                                                    <td >${files.time}</td>
+                                                    <td><span>${files.system.sysName}</span></td>
+                                                    <td><span>${files.fileType}</span></td>
+                                                    <td>${files.time}</td>
                                                     <td class="text-right">
                                                         <div class="left hidden-sm hidden-xs action-buttons">
                                                             <a class="green" href="files_download/${files.id}"
@@ -232,9 +232,9 @@
                                                         <td><a href="files_download/${files.id}" role="button"
                                                                class="blue" data-toggle="modal">${files.title}</a>
                                                         </td>
-                                                        <td ><span>${files.system.sysName}</span></td>
-                                                        <td ><span>${files.fileType}</span></td>
-                                                        <td >${files.time}</td>
+                                                        <td><span>${files.system.sysName}</span></td>
+                                                        <td><span>${files.fileType}</span></td>
+                                                        <td>${files.time}</td>
                                                         <td class="text-right">
                                                             <div class="left hidden-sm hidden-xs action-buttons">
                                                                 <a class="green" href="files_download/${files.id}"
@@ -268,29 +268,33 @@
 
                                     <tbody>
                                     <c:forEach items="${filess}" var="files">
-                                        <c:if test="${files.system.id eq 1 or files.system.id eq person.system.id}">
-                                            <tr>
-                                                <td class="center col-md-1 subcheck"><label
-                                                        class="position-relative"> <input type="checkbox"
-                                                                                          class="ace" name="subcheck"
-                                                                                          value="${files.id}"/> <span
-                                                        class="lbl"></span>
-                                                </label></td>
-                                                <td><a href="files_download/${files.id}" role="button"
-                                                       class="blue" data-toggle="modal">${files.title}</a>
-                                                </td>
-                                                <td ><span>${files.system.sysName}</span></td>
-                                                <td ><span>${files.fileType}</span></td>
-                                                <td >${files.time}</td>
-                                                <td class="text-right">
-                                                    <div class="left hidden-sm hidden-xs action-buttons">
-                                                        <a class="green" href="files_download/${files.id}"
-                                                           title="下载"> <i
-                                                                class="ace-icon fa fa-cloud-download  bigger-130"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <c:if test="${fn:contains(files.fileType,'通知公告') or fn:contains(files.fileType,'体系动态') or fn:contains(files.fileType,'规章制度') or fn:contains(files.fileType,'重大文件')}">
+                                            <c:if test="${files.system.id eq 1 or files.system.id eq person.system.id}">
+                                                <tr>
+                                                    <td class="center col-md-1 subcheck"><label
+                                                            class="position-relative"> <input type="checkbox"
+                                                                                              class="ace"
+                                                                                              name="subcheck"
+                                                                                              value="${files.id}"/>
+                                                        <span
+                                                                class="lbl"></span>
+                                                    </label></td>
+                                                    <td><a href="files_download/${files.id}" role="button"
+                                                           class="blue" data-toggle="modal">${files.title}</a>
+                                                    </td>
+                                                    <td><span>${files.system.sysName}</span></td>
+                                                    <td><span>${files.fileType}</span></td>
+                                                    <td>${files.time}</td>
+                                                    <td class="text-right">
+                                                        <div class="left hidden-sm hidden-xs action-buttons">
+                                                            <a class="green" href="files_download/${files.id}"
+                                                               title="下载"> <i
+                                                                    class="ace-icon fa fa-cloud-download  bigger-130"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:if>
                                         </c:if>
                                     </c:forEach>
                                     </tbody>
