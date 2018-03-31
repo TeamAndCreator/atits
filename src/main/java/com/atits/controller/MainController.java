@@ -37,11 +37,10 @@ public class MainController {
     private FilesService filesService;
 
     @Resource
-    private RegulationService regulationService;// 注入业务层
+    private ReportService reportService;
 
     @Resource
-    private ReportService reportService;// 注入业务层
-
+    private RegulationService regulationService;// 注入业务层
 
     @Resource
     private DynamicService dynamicService;// 注入业务层
@@ -69,6 +68,9 @@ public class MainController {
 
         List<Activity> activitys = this.activityService.findAll();
         model.addAttribute("activitys", activitys);
+
+        List<Report> reports = this.reportService.findAll();
+        model.addAttribute("reports", reports);
         return "main";
     }
 
@@ -190,7 +192,6 @@ public class MainController {
         model.addAttribute("activity", activity);
         return "main_activity";
     }
-
 
 
     /**
