@@ -110,6 +110,16 @@ $(function () {
 
     });
 
+    $("#task_progress_update").click(function () {
+        $.ajax({
+            url: "task_progress_save",
+            type: "POST",
+            data: $("#task_progress_update_form").serialize(),
+            success: function (result) {
+                window.location.href = "task_progress";
+            }
+        });
+    });
 
     function getTaskProgress(id) {
         $.ajax({
@@ -117,12 +127,12 @@ $(function () {
             type: "GET",
             success: function (result) {
                 result= JSON.parse(result);
-                $("#title").val(result.title);
+                $("#title_update").val(result.title);
                 var optionEle = $("<option></option>").append(result.subTask.title).attr("value",result.subTask.id);
-                $("#subTasks").append(optionEle);
-                $("#content").val(result.content);
-
-                $("#fileId").val(result.fileId);
+                $("#subTasks_update").append(optionEle);
+                $("#content_update").val(result.content);
+                $("#progressId_update").val(result.id);
+                $("#fileId_update").val(result.fileId);
             }
 
         })
