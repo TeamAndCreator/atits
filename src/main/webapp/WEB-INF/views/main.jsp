@@ -143,12 +143,12 @@
 
 
                 <li class="light-blue">
-                    <a href='system_detail?id=1'>
+                    <a href='#'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large;color: white">登录</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
                 <li class="light-blue">
-                    <a href='system_detail?id=1'>
+                    <a href='#'>
                         &nbsp;&nbsp;&nbsp;<span style="font-size: large">注册</span>&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>
@@ -452,31 +452,31 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul class="demo2">
-                                                <c:forEach items="${notices}" var="notice">
-                                                    <c:if test="${notice.state==1}">
+                                                <c:forEach items="${harvests}" var="harvest">
+                                                    <%--<c:if test="${notice.state==1}">--%>
                                                         <c:choose>
-                                                            <c:when test="${notice.title.length()>22}">
+                                                            <c:when test="${harvest.title.length()>22}">
                                                                 <li class="news-item">
                                                                     <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                         title=${harvest.title}>${harvest.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${notice.time}</span>
-                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        <span class="pull-right">${harvest.time}</span>
+                                                                        <a href="main_harvest?id=${harvest.id}"
                                                                         class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${notice.time}</span>
-                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    id="content">${harvest.title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <span class="pull-right">${harvest.time}</span>
+                                                                    <a href="main_harvest?id=${harvest.id}"
                                                                     class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
-                                                    </c:if>
+                                                    <%--</c:if>--%>
                                                 </c:forEach>
                                             </ul>
                                         </div>
@@ -497,31 +497,31 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul class="demo2">
-                                                <c:forEach items="${notices}" var="notice">
-                                                    <c:if test="${notice.state==1}">
+                                                <c:forEach items="${activitys}" var="activity">
+                                                    <%--<c:if test="${activity.state==1}">--%>
                                                         <c:choose>
-                                                            <c:when test="${notice.title.length()>22}">
+                                                            <c:when test="${activity.title.length()>22}">
                                                                 <li class="news-item">
                                                                     <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                         title=${activity.title}>${activity.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${notice.time}</span>
-                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        <span class="pull-right">${activity.time}</span>
+                                                                        <a href="main_activity?id=${activity.id}"
                                                                         class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${notice.time}</span>
-                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    id="content">${activity.title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <span class="pull-right">${activity.time}</span>
+                                                                    <a href="main_activity?id=${activity.id}"
                                                                     class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
-                                                    </c:if>
+                                                    <%--</c:if>--%>
                                                 </c:forEach>
                                             </ul>
                                         </div>
@@ -550,31 +550,30 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul class="demo2">
-                                                <c:forEach items="${notices}" var="notice">
-                                                    <c:if test="${notice.state==1}">
+                                                <c:forEach items="${filess}" var="files">
+
                                                         <c:choose>
-                                                            <c:when test="${notice.title.length()>22}">
+                                                            <c:when test="${files.title.length()>22}">
                                                                 <li class="news-item">
                                                                     <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                         title=${files.title}>${files.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${notice.time}</span>
-                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        <span class="pull-right">${files.time}</span>
+                                                                        <a href="files_download/${files.id}"
                                                                         class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${notice.time}</span>
-                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    id="content">${files.title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <span class="pull-right">${files.time}</span>
+                                                                    <a href="files_download/${files.id}"
                                                                     class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
-                                                    </c:if>
                                                 </c:forEach>
                                             </ul>
                                         </div>
@@ -595,31 +594,29 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul class="demo2">
-                                                <c:forEach items="${notices}" var="notice">
-                                                    <c:if test="${notice.state==1}">
+                                                <c:forEach items="${regulations}" var="regulation">
                                                         <c:choose>
-                                                            <c:when test="${notice.title.length()>22}">
+                                                            <c:when test="${regulation.title.length()>22}">
                                                                 <li class="news-item">
                                                                     <div style='text-overflow:ellipsis;overflow:hidden;'
-                                                                         title=${notice.title}>${notice.title.substring(0,22)}...
+                                                                         title=${regulation.title}>${regulation.title.substring(0,22)}...
 
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <span class="pull-right">${notice.time}</span>
-                                                                        <a href="notice_detail?id=${notice.id}"
+                                                                        <span class="pull-right">${regulation.time}</span>
+                                                                        <a href="main_regulation?id=${regulation.id}"
                                                                         class="pull-right">详情</a>
                                                                     </div>
                                                                 </li>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li class="news-item "
-                                                                    id="content">${notice.title}&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    <span class="pull-right">${notice.time}</span>
-                                                                    <a href="notice_detail?id=${notice.id}"
+                                                                    id="content">${regulation.title}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <span class="pull-right">${regulation.time}</span>
+                                                                    <a href="main_regulation?id=${regulation.id}"
                                                                     class="pull-right">详情</a>
                                                                 </li>
                                                             </c:otherwise>
                                                         </c:choose>
-                                                    </c:if>
                                                 </c:forEach>
                                             </ul>
                                         </div>
