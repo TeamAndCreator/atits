@@ -120,7 +120,7 @@
 													<%--<p class="text-center bigger-120">图11&nbsp;&nbsp;个人管理平台页面</p>--%>
 													<ul class="list-unstyled spaced inline bigger-150 margin-20">
 														<div id="demo-summernote-edit" style="display: block;padding-left: 2em;">
-															<p>用户详细操作说明文档：<a href="#">点击下载 ↓</a></p>
+															<p>用户详细操作说明文档：<a href="/download/用户手册8-0110.doc">点击下载 ↓</a></p>
 															<%--<p style="text-indent: 2em;">--%>
 																<%--<a href="#">●点击下载 ↓--%>
 																<%--</a>--%>
