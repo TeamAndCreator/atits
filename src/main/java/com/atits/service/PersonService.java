@@ -41,6 +41,9 @@ public class PersonService {
 	public Person findById(Integer id){
 		return personDao.findById(id);//调用dao的方法
 	}
+
+	/*根据username查询*/
+	public Person findByUsername(String userName){ return personDao.findByUserName(userName);}
 	
 	/*根据页数：进行分页*/
 	public List<Person> findByPage(int startRow,int pageSize){

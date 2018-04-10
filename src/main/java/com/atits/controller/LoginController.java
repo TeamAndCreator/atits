@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.atits.entity.Msg;
+import com.atits.entity.System;
+import com.atits.service.*;
 import com.atits.utils.ImageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.atits.entity.Profile;
 import com.atits.entity.Person;
-import com.atits.service.LaboratoryService;
-import com.atits.service.LoginService;
-import com.atits.service.ProfileService;
-import com.atits.service.StationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
@@ -61,6 +59,9 @@ public class LoginController {
 
     @Resource
     private ProfileService profileService;
+
+    @Resource
+    private PersonService personService;
 
     public LaboratoryService getLaboratoryService() {
         return laboratoryService;
@@ -148,6 +149,22 @@ public class LoginController {
     public String toLogin(HttpSession session) {
         session.invalidate();//
         return "login";
+    }
+
+    /**
+     * 用户名验证
+     * @return
+     */
+    @RequestMapping(value = "/validation", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Boolean> validation(@RequestParam("userName") String json){
+        Person person=personService.findByUsername(json);
+        Map<String,Boolean> map=new HashMap<String, Boolean>();
+        if(person!=null)
+            map.put("valib",false);
+        else
+            map.put("valid",true);
+        return map;
     }
 
     /**
