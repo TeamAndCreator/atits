@@ -103,7 +103,7 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">用户名</label>
                     <div class="col-lg-3">
-                        <form:input type="text" class="form-control" path="userName"/>
+                        <form:input type="text" class="form-control" path="userName" id="iduserName"/>
                     </div>
                 </div>
 
@@ -432,7 +432,18 @@
                                         regexp: {
                                             regexp: /^[a-zA-Z0-9_\.]+$/,
                                             message: '不可输入除英文、数字以外字符！'
-                                        }
+                                        },
+                                        remote: {//ajax验证。server result:{"valid",true or false}
+                                            url: 'validation',
+                                            message: '用户已存在',
+                                            type: 'POST',
+                                            //自定义参数
+                                            data: {
+                                                userName: $('#iduserName').val(),
+                                                "apptype": 1
+                                            },
+                                            dataType: 'json',
+                                        },
                                     }
                                 },
                                 organization: {

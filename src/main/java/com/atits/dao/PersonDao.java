@@ -45,6 +45,13 @@ public class PersonDao {
 		return (Person) getSession().createQuery(hql).setParameter("id", id).uniqueResult();
 	}
 
+	/*根据username查询*/
+	public Person findByUserName(String username){
+		String hql = "from t_person where userName=:username";
+		return (Person)getSession().createQuery(hql).setParameter("username",username).uniqueResult();
+	}
+
+
 	/* 分页功能：根据起始页和分页大小，采用id进行分页 */
 	public List<Person> findByPage(int startRow, int pageSize) {
 		String hql = "from  t_person order by id";
