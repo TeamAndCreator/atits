@@ -168,6 +168,21 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose /><!-- 这个选项用来传递编译器自身不包含但是却支持的参数选项 -->
+                        <!-- <bootclasspath>${java.home}/lib/rt.jar:${java.home}/jre/lib/jce.jar</bootclasspath> -->
+                    </compilerArguments>
+                </configuration>
+            </plugin>
         </plugins>
 
     </build>
