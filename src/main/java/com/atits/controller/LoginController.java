@@ -2,7 +2,6 @@ package com.atits.controller;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.atits.entity.Msg;
-import com.atits.entity.System;
 import com.atits.service.*;
 import com.atits.utils.ImageUtil;
 import org.springframework.stereotype.Controller;
