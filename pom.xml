@@ -164,11 +164,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                    <compilerArguments>
-                        <verbose /><!-- 这个选项用来传递编译器自身不包含但是却支持的参数选项 -->
-                        <!-- <bootclasspath>${java.home}/lib/rt.jar:${java.home}/jre/lib/jce.jar</bootclasspath> -->
-                    </compilerArguments>
+                    <compilerArgument>-XDignore.symbol.file</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>
