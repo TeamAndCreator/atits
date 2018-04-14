@@ -77,6 +77,10 @@
                             <li>
                                 <a href="#tabs-4">综合试验站</a>
                             </li>
+
+                            <li>
+                                <a href="#tabs-5">产业概况</a>
+                            </li>
                         </ul>
 
                         <div id="tabs-1">
@@ -339,6 +343,31 @@
                                 <!-- /.page-content -->
                             </div>
 
+                        </div>
+
+
+                        <div id="tabs-5">
+                            <!--<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Duis orci. Aliquam sodales tortor vitae ipsum. Ut et mauris vel pede varius sollicitudin.</p>-->
+                            <div class="main-content">
+                                <div class="page-content">
+
+                                    <div class="page-content-area">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+
+                                                <h3 class="header smaller lighter red"
+                                                    style="text-indent:2em; line-height:35px ">
+                                                    ${system.overview}
+                                                </h3>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- /.page-content-area -->
+                                </div>
+                            </div>
                         </div>
                         <!--tabs-4结束-->
                     </div>

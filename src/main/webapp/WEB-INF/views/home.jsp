@@ -199,7 +199,7 @@
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="person"
-                                                         target="iframe"> <i class="menu-icon fa fa-github-alt"></i>
+                                                         target="iframe"> <i class="menu-icon fa fa-users"></i>
                         <span
                                 class="menu-text"> 人员管理 </span>
                     </a> <b class="arrow"></b></li>
@@ -214,48 +214,48 @@
 
 
                     <li class="" onclick="show(this)"><a href="system"
-                                                         target="iframe"> <i class="menu-icon fa fa-compass"></i> <span
+                                                         target="iframe"> <i class="menu-icon fa fa-sitemap"></i> <span
                             class="menu-text"> 体系管理 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="laboratory" target="iframe">
-                        <i class="menu-icon fa fa-shield"></i>
+                        <i class="menu-icon fa fa-code-fork"></i>
                         <span class="menu-text"> 功能研究室</span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="station" target="iframe">
-                        <i class="menu-icon fa fa-arrows"></i>
+                        <i class="menu-icon fa fa-code-fork"></i>
                         <span class="menu-text"> 综合试验站 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="activity"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-coffee"></i>
                         <span class="menu-text"> 重大活动 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="harvest"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-gift"></i>
                         <span class="menu-text"> 重大成果 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="report"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-file-word-o"></i>
                         <span class="menu-text"> 重大文件报告 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="notice"
-                                                         target="iframe"> <i class="menu-icon fa fa-comments-o"></i>
+                                                         target="iframe"> <i class="menu-icon  fa fa-bullhorn"></i>
                         <span
                                 class="menu-text"> 通知公告 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="dynamic"
-                                                         target="iframe"> <i class="menu-icon fa fa-bookmark"></i> <span
+                                                         target="iframe"> <i class="menu-icon fa fa-comments-o"></i> <span
                             class="menu-text"> 体系动态 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="regulation"
-                                                         target="iframe"> <i class="menu-icon fa fa-list"></i> <span
+                                                         target="iframe"> <i class="menu-icon fa fa-gavel"></i> <span
                             class="menu-text"> 规章制度 </span>
                     </a> <b class="arrow"></b></li>
 
@@ -267,13 +267,13 @@
 
 
                     <li class="" onclick="show(this)"><a href="sys_task"
-                                                         target="iframe"> <i class="menu-icon fa fa-list"></i> <span
+                                                         target="iframe"> <i class="menu-icon fa fa-tasks"></i> <span
                             class="menu-text"> 工作任务 </span>
                     </a> <b class="arrow"></b></li>
 
 
                     <li class="" onclick="show(this)"><a href="task_progress"
-                                                         target="iframe"> <i class="menu-icon fa fa-list"></i> <span
+                                                         target="iframe"> <i class="menu-icon fa fa-spinner"></i> <span
                             class="menu-text"> 工作进展</span>
                     </a> <b class="arrow"></b></li>
 
@@ -323,13 +323,13 @@
 
 
                     <li class="" onclick="show(this)"><a href="index"
-                                                         target="iframe"> <i class="menu-icon fa fa-home home-icon"></i>
+                                                         target="iframe"> <i class="menu-icon fa fa-home"></i>
                         <span class="menu-text"> 体系首页 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)">
                         <a href="#" class="dropdown-toggle"> <i
-                                class="menu-icon fa fa-list-alt"></i>
+                                class="menu-icon fa fa-sitemap"></i>
                             <span class="menu-text"> 体系概况 </span><b
                                     class="arrow fa fa-angle-down"></b>
                         </a> <b class="arrow"></b>
@@ -358,30 +358,30 @@
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="harvest"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-gift"></i>
                         <span class="menu-text"> 重大成果 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="report"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-file-word-o"></i>
                         <span class="menu-text"> 重大文件报告 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="notice" target="iframe"><i
-                            class="menu-icon fa fa-comments-o"></i><span class="menu-text">
+                            class="menu-icon fa fa-bullhorn"></i><span class="menu-text">
 							通知公告</span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="dynamic" target="iframe"><i
-                            class="menu-icon fa fa-bookmark"></i><span class="menu-text">
+                            class="menu-icon fa fa-comments-o"></i><span class="menu-text">
 							体系动态</span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a href="regulation"
                                                          target="iframe">
-                        <i class="menu-icon fa fa-list"></i> <span
+                        <i class="menu-icon fa fa-gavel"></i> <span
                             class="menu-text"> 规章制度 </span>
                     </a> <b class="arrow"></b></li>
 
@@ -493,35 +493,35 @@
 
                     <li class="" onclick="show(this)"><a href="activity"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-coffee"></i>
                         <span class="menu-text"> 重大活动 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="harvest"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-gift"></i>
                         <span class="menu-text"> 重大成果 </span>
                     </a> <b class="arrow"></b></li>
                     <li class="" onclick="show(this)"><a href="report"
                                                          target="iframe"> <i
-                            class="menu-icon fa fa-cloud-download"></i>
+                            class="menu-icon fa fa-file-word-o"></i>
                         <span class="menu-text"> 重大文件报告 </span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="notice" target="iframe"><i
-                            class="menu-icon fa fa-comments-o"></i><span class="menu-text">
+                            class="menu-icon fa fa-bullhorn"></i><span class="menu-text">
 							通知公告</span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="dynamic" target="iframe"><i
-                            class="menu-icon fa fa-bookmark"></i><span class="menu-text">
+                            class="menu-icon fa fa-comments-o"></i><span class="menu-text">
 							体系动态</span>
                     </a> <b class="arrow"></b></li>
 
                     <li class="" onclick="show(this)"><a
                             href="regulation" target="iframe"><i
-                            class="menu-icon fa fa-list"></i><span class="menu-text">
+                            class="menu-icon fa fa-gavel"></i><span class="menu-text">
 							规章制度</span>
                     </a> <b class="arrow"></b></li>
 
@@ -539,7 +539,7 @@
                     </a> <b class="arrow"></b></li>
 
                     <li class="hidden" onclick="show(this)"><a href="bank"
-                                                               target="iframe"> <i class="menu-icon fa fa-list"></i>
+                                                               target="iframe"> <i class="menu-icon a fa-list-alt"></i>
                         <span
                                 class="menu-text"> 考评管理</span>
                     </a> <b class="arrow"></b></li>
